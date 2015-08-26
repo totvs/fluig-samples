@@ -1,4 +1,4 @@
-var SocialPosterEdit = SuperWidget.extend({
+var CustomPosterEdit = SuperWidget.extend({
 
 	instanceId: null,
 	context: null,

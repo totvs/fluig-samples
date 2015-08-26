@@ -11,7 +11,7 @@
 
 <#assign params = '{instanceId: ${instanceId?c}, socialType: "${social.type!"USER"}", alias: "${alias!""}", selectedContext: "${selectedContext}" }'?html>
 <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
-<div class="wcm-widget-class wcm-widget-post-share super-widget" data-params="SocialPoster.instance(${params})" id="socialposter_${instanceId}">
+<div class="wcm-widget-class wcm-widget-post-share super-widget" data-params="CustomPoster.instance(${params})" id="customposter_${instanceId}">
 	<div class="wcm-widget-post-loading">
 		<div class="wcm-widget-post-wrapper"></div>
 	</div>

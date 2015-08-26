@@ -1,4 +1,4 @@
-var SocialPoster = SuperWidget.extend({
+var CustomPoster = SuperWidget.extend({
 
 	instanceId: null,
 	alias: null,
@@ -21,6 +21,8 @@ var SocialPoster = SuperWidget.extend({
 	},
 
 	init: function() {
+		debugger;
+		
 		if (this.alias == "") {
 			socialGlobal.showHome();
 		}
@@ -92,7 +94,7 @@ var SocialPoster = SuperWidget.extend({
 	loadSocialPoster: function(alias) {
 		var that = this,
 			tpl = that.templates.tpl_social_poster,
-			poster = $('#socialposter_' + that.instanceId),
+			poster = $('#customposter_' + that.instanceId),
 			view,
 			html,
 			isUserOwnPage,
@@ -184,7 +186,7 @@ var SocialPoster = SuperWidget.extend({
 	renderViewCanNotAccess: function() {
 		var that = this,
 			tpl = that.templates.tpl_can_not_access,
-			poster = $('#socialposter_' + that.instanceId),
+			poster = $('#customposter_' + that.instanceId),
 			data = {},
 			html
 		;
@@ -196,7 +198,7 @@ var SocialPoster = SuperWidget.extend({
 	renderViewMemberNotInGroup: function() {
 		var that = this,
 			tpl = that.templates.tpl_member_not_in_group,
-			poster = $('#socialposter_' + that.instanceId),
+			poster = $('#customposter_' + that.instanceId),
 			data = {},
 			html
 		;
@@ -208,7 +210,7 @@ var SocialPoster = SuperWidget.extend({
 	renderViewNoContent: function() {
 		var that = this,
 			tpl = that.templates.tpl_no_content,
-			poster = $('#socialposter_' + that.instanceId),
+			poster = $('#customposter_' + that.instanceId),
 			data = {},
 			html
 		;

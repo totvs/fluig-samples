@@ -1,6 +1,6 @@
 <#attempt>
 <#assign params = '{instanceId: ${instanceId?c}, context: "${context!}", communityAlias: "${communityAlias!}"}'?html>
-<div class="fluig-style-guide wcm-widget-class super-widget" data-params="SocialPosterEdit.instance(${params})" id="socialposteredit_${instanceId}">
+<div class="fluig-style-guide wcm-widget-class super-widget" data-params="CustomPosterEdit.instance(${params})" id="customposteredit_${instanceId}">
 	<div class="panel panel-default">
     	<div class="panel-body">
 			<form name="editPosterForm" data-form-edit>
