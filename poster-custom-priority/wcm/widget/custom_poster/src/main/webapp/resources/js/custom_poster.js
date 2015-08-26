@@ -21,8 +21,6 @@ var CustomPoster = SuperWidget.extend({
 	},
 
 	init: function() {
-		debugger;
-		
 		if (this.alias == "") {
 			socialGlobal.showHome();
 		}
