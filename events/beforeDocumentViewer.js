@@ -18,7 +18,7 @@ function beforeDocumentViewer(){
     
 	if(docExpires && documentExpiresToday){
 		log.warn("The document " + doc.getDocumentId() + " it cannot be viewed by user " + getValue("WKUser") + " because the due date is equal to the current date");
-		throw ("Esse documento está vencendo hoje, não pode ser visualizado.")
+		throw ("Esse documento vence hoje, não pode ser visualizado.")
 	}else{
 		log.info("This documment is allowed to visualization.")
 	}
