@@ -3,14 +3,15 @@ function beforeDocumentViewer(){
 	//Informações do documento
 	var doc = getValue("WKDocument");
 	var docExpires = doc.getExpires();
-	
-	//Variáveis para manipualar datas
+	var docExpirationDate = doc.getExpirationDate();
+
+	//Variáveis para manipular datas
 	var sdfDate = new java.text.SimpleDateFormat("yyyy-MM-dd");
 	var now = new Date();
 	
 	//Formatando datas
 	var strDate = sdfDate.format(now);
-    var documentExpirationDate = sdfDate.format(doc.getExpirationDate());
+    var documentExpirationDate = sdfDate.format(docExpirationDate);
 	
     //Verificando se a data de validade do documento é igual a data atual
     var documentExpiresToday = strDate.equals(documentExpirationDate)
