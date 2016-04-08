@@ -1,4 +1,3 @@
-Adicionando regras na visualização de documentos
 Validando se foram adicionados anexos à uma solicitação
 ====================================================
 
