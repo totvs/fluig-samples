@@ -1,4 +1,4 @@
-\#Exemplo para implementação de geolocalização com o Waze
+\Exemplo para implementação de geolocalização com o Waze
 =================================================================
 
 	function getLocationUpdate(){
