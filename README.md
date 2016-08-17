@@ -1,6 +1,8 @@
 # Exemplo para implementação de geolocalização com o Waze
 =================================================================
 
+O exemplo a seguir pode ser implementado em uma tag script no header do formulário ou exerternamente em um arquivo javascript. 
+
 	function getLocationUpdate(){
 	    if(navigator.geolocation){
 	      // timeout at 60000 milliseconds (60 seconds)
