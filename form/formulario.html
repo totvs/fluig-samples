@@ -1,0 +1,82 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache.min.js"></script>
+	<script type="text/javascript" src="http://style.fluig.com/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script>
+    var doc=document.getElementById("demo");
+    function getLocation()
+    {
+        if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showPosition,showError);
+        
+		
+        }
+    }
+
+    function showPosition(position)
+    {
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+
+
+        var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+        +latlon+"&zoom=14&size=300x200&sensor=false";
+        document.getElementById("map").innerHTML="<img src='"+img_url+"'>";
+		
+		var lat = position.coords.latitude;
+		var longi = position.coords.longitude;
+		document.getElementById("latitude").value = lat;
+		document.getElementById("longitude").value = longi;
+		var a = document.getElementById('waze'); 
+        a.href = "waze://?ll="+ lat + "," + longi;
+        alert(a);
+        alert(a.href);
+        alert("latitude: " + lat);
+        alert("longitude: " + longi);
+    }
+
+    function showError(error)
+    {
+        switch(error.code) 
+        {
+        case error.PERMISSION_DENIED:
+          doc.innerHTML="Pedido de Geolocalização negado pelo usuário."
+          break;
+        case error.POSITION_UNAVAILABLE:
+          doc.innerHTML="Informações de localização não está disponível."
+          break;
+        case error.TIMEOUT:
+          doc.innerHTML="Solicitação de locatização não retornou em tempo hábil (timeout)."
+          break;
+        case error.UNKNOWN_ERROR:
+          doc.innerHTML="Erro desconhecido."
+          break;
+        }
+    }
+</script>
+</head>
+<html>
+<body onload="getLocation();">
+<div class="fluig-style-guide">
+	<div data-role="header" data-theme="c">
+		<h3>Geolocalização</h3>
+	</div>	
+	<form  class="ui-content" name="form" role="form" method="post" action="">
+	<div id="map"></div><br>
+			<div class="form-input"><div class="form-group">
+			<label>Latitude</label>
+			<input type="text" class="form-control" type="text" name="latitude" id="latitude" value="" placeholder="" data-size="big">
+		</div></div>
+		<div class="form-input"><div class="form-group">
+		<label>Longitude</label>
+		<input type="text" class="form-control" type="text" name="longitude" id="longitude" value="" placeholder="" data-size="big">
+	</div></div>
+		<a href="#" id="waze" class="btn btn-primary btn-lg active" role="button">Abrir com o waze</a>
+		
+	</form>
+</div>
+</body>
+</html>
