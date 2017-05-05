@@ -4,20 +4,9 @@ function setSelectedZoomItem(selectedItem) {
 	var EMAIL = "colleagueMail";
 
 	if(selectedItem.inputId == NAME){
+		console.log("------ Limpando zoom de e-mail --------------");
+		$("#colleagueMail").val('');
 		console.log("------ Atualizando zoom de e-mail --------------");
-		reloadZoomFilterValues(EMAIL, "mail," + selectedItem["mail"]);
+		reloadZoomFilterValues(EMAIL, "mail," + selectedItem["Email"]);
 	}
-	
-	removeZoomData()
-}
-
-function removeZoomData(){
-	filter_colleagueName.on('fluig.autocomplete.itemRemoved', function(ev) {
-		filter_colleagueMail.removeAll();
-	});
-	
-	filter_colleagueMail.on('fluig.autocomplete.itemRemoved', function(ev) {
-		filter_colleagueName.removeAll();
-
-	});
 }
