@@ -33,5 +33,8 @@ function removedZoomItem(removedItem) {
 	if (item.inputId == NAME) {
 		console.log("Retornando resultado removedZoomItem");
 		console.log(item);
+
+		window[EMAIL].clear();
+		window[ID].clear();
 	}
 }
