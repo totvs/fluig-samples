@@ -1,5 +1,5 @@
 function setSelectedZoomItem(selectedItem) {
-	
+
 	var NAME = "colleagueName";
 	var EMAIL = "colleagueMail";
 
@@ -8,5 +8,16 @@ function setSelectedZoomItem(selectedItem) {
 		$("#colleagueMail").val('');
 		console.log("------ Atualizando zoom de e-mail --------------");
 		reloadZoomFilterValues(EMAIL, "mail," + selectedItem["Email"]);
+	}
+}
+
+function removedZoomItem(removedItem) {
+
+	var NAME = "colleagueName";
+	var EMAIL = "colleagueMail";
+
+	if (item.inputId == NAME) {
+		console.log("Retornando resultado removedZoomItem");
+		console.log(item);
 	}
 }
