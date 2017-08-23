@@ -16,8 +16,8 @@ function removedZoomItem(removedItem) {
 	var NAME = "colleagueName";
 	var EMAIL = "colleagueMail";
 
-	if (item.inputId == NAME) {
+	if (removedItem.inputId == NAME) {
 		console.log("Retornando resultado removedZoomItem");
-		console.log(item);
+		console.log(removedItem);
 	}
 }
