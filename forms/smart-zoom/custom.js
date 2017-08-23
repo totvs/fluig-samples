@@ -7,16 +7,16 @@ function setSelectedZoomItem(selectedItem) {
 	var FIELD = selectedItem.inputId;
 
 	if(selectedItem.inputId == NAME){
-		setZoomData("colleagueMail", selectedItem["Email"]);
-		setZoomData("colleagueId", selectedItem["ID"]);
+		setZoomData("colleagueMail", selectedItem["mail"]);
+		setZoomData("colleagueId", selectedItem["colleagueId"]);
 
 	}else if(selectedItem.inputId == EMAIL){
-		setZoomData("colleagueName", selectedItem["Nome"]);
-		setZoomData("colleagueId", selectedItem["ID"]);
+		setZoomData("colleagueName", selectedItem["colleagueName"]);
+		setZoomData("colleagueId", selectedItem["colleagueId"]);
 
 	}else if(selectedItem.inputId == ID){
-		setZoomData("colleagueName", selectedItem["Nome"]);
-		setZoomData("colleagueMail", selectedItem["Email"]);
+		setZoomData("colleagueName", selectedItem["colleagueName"]);
+		setZoomData("colleagueMail", selectedItem["mail"]);
 	}
 }
 
@@ -30,9 +30,9 @@ function removedZoomItem(removedItem) {
 	var EMAIL = "colleagueMail";
 	var ID = "colleagueId";
 
-	if (item.inputId == NAME) {
+	if (removedItem.inputId === NAME) {
 		console.log("Retornando resultado removedZoomItem");
-		console.log(item);
+		console.log(removedItem);
 
 		window[EMAIL].clear();
 		window[ID].clear();
