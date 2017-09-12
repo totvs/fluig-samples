@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component code="Sample_Component">
+	<title>Sample Component</title>
+	<description>Sample Component</description>
+	<category>WCM</category>
+	<icon>icon.png</icon>
+	<developerCode>TOTVS</developerCode>
+	<developerName>TOTVS S.A.</developerName>
+	<developerURL>http://www.totvs.com</developerURL>
+</component>
