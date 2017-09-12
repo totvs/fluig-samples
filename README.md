@@ -39,4 +39,5 @@ Para essa configuração, no arquivo *sample-component/sample-component-server/p
 
 
 Para empacotar o projeto e gerar o arquivo **EAR**, entre com o seguinte comando na raíz do projeto:
-        - mvn clean install
+
+	- mvn clean install
