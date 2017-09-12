@@ -16,7 +16,7 @@ A estrutura está definida da seguinte maneira:
             - pom.xml
         - pom.xml
 
-* **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear. Nessa parte também estão os arquivos de configuração do componente:
+1) **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear. Nessa parte também estão os arquivos de configuração do componente:
     - para que o componente seja instalado corretamente, é necessário o arquivo **component.xml**
 Esse arquivo se encontra em *sample-component/sample-component-server/src/main/application/META-INF/component.xml*
 É obrigatório que o component code seja único: **<component code="Sample_Component">**
@@ -27,19 +27,8 @@ Lemrbando que o código da página precisa ser único: **<code>pageSample_Compon
 Para essa configuração, no arquivo *sample-component/sample-component-server/pom.xml* a tag <packing> deve estar assim: **<packaging>ear</packaging>**
 
 
-* **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
+2) **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
     - no arquivo application.info o cógido precisa ser único: **application.code=samplewidget**
 
-
-    Para empacotar o projeto e gerar o arquivo **EAR**, entre com o seguinte comando na raíz do projeto:
+Para empacotar o projeto e gerar o arquivo **EAR**, entre com o seguinte comando na raíz do projeto:
         - mvn clean install
-
-
-
-
-
-
-
-
-
-
