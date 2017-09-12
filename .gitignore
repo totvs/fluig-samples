@@ -19,3 +19,5 @@ bin/
 *.launch
 .recommenders/
 *.jshintrc
+sample-component-server/target/
+sample-component-widget/target/

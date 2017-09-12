@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: taira
-Build-Jdk: 1.8.0_131
-Created-By: Maven Integration for Eclipse
-Dependencies: org.slf4j, org.quartz-scheduler
-
