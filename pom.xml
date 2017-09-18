@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>sample-component-widget</module>
+		<module>sample-component-web</module>
 		<module>sample-component-server</module>
 	</modules>
 
