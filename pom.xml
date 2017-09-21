@@ -34,7 +34,24 @@
 			<name>Totvs Internal Snapshots</name>
 			<url>http://nexus.fluig.com/content/repositories/snapshots/</url>
 		</snapshotRepository>
-	</distributionManagement>	
+	</distributionManagement>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>8.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.2</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>

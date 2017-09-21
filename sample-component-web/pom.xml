@@ -31,6 +31,21 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- /Fluig Dependencies -->
+		
+		<!-- Other dependencies -->
+		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>			
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>			
+			<scope>provided</scope>
+		</dependency>
+		<!-- /Other dependencies -->
+		
 	</dependencies>
 	
 	<build>
