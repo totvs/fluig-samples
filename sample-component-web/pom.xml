@@ -17,6 +17,20 @@
 	</properties>
 	
 	<dependencies>
+		<!-- Fluig Dependencies -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-api</artifactId>
+			<version>${fluig.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-common</artifactId>
+			<version>${fluig.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- /Fluig Dependencies -->
 	</dependencies>
 	
 	<build>

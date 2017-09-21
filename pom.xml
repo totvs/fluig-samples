@@ -13,6 +13,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências serão utilizadas -->
+		<fluig.version>1.6.2</fluig.version>
 	</properties>
 
 	<modules>
@@ -20,6 +22,19 @@
 		<module>sample-component-web</module>
 		<module>sample-component-server</module>
 	</modules>
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Totvs Internal Releases</name>
+			<url>http://nexus.fluig.com/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Totvs Internal Snapshots</name>
+			<url>http://nexus.fluig.com/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>	
 
 	<build>
 		<plugins>
