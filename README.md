@@ -4,7 +4,10 @@
 A partir da versão 1.6.2 do fluig, será possível instalar os componentes diretamente na Store, mais especificamente através da página "Itens da Store" dentro do próprio fluig.
 
 Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser seguido caso o desenvolvedor deseje criar um componente e disponibiliza-lo na fluig Store.
-O projeto está construído utilizando o gerenciador de projeto [Apache Maven](https://maven.apache.org/). Quanto ao desenvolvimento, html, js e freemarker para a widget. Esta incluído também a instrução para a criação de uma nova página já com essa nova widget adicionada.
+O projeto está construído utilizando o gerenciador de projeto [Apache Maven](https://maven.apache.org/). Efetue o download e faça a instalação da ferramenta.
+Será necessário configurá-lo, apontando como repositório padrão, o [Nexus do fluig](http://nexus.fluig.com). Para isso, siga as instrução no nesse [link](http://tdn.totvs.com/x/7YDbCw), na sessão "Consumindo um Serviço no Componente SDK".
+
+Quanto ao desenvolvimento, html, js, [mustache](https://mustache.github.io/) e [freemarker](https://freemarker.apache.org/) para a widget. Esta incluído também a instrução para a criação de uma nova página já com essa nova widget adicionada.
 A estrutura está definida da seguinte maneira:
 
     sample-component
@@ -16,7 +19,7 @@ A estrutura está definida da seguinte maneira:
 
 **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
 
-- o packge do projeto deve ser do tipo **.EAR** (Enterprise Application aRchive)
+- o package do projeto deve ser do tipo **.EAR** (Enterprise Application aRchive)
 Para essa configuração, no arquivo *sample-component/sample-component-server/pom.xml* a tag <packing> deve estar assim: **<packaging>ear</packaging>**
 
 
@@ -36,7 +39,6 @@ Lemrbando que o código da página precisa ser único: **<code>pageSample_Compon
 **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
 
 - no arquivo application.info o cógido precisa ser único: **application.code=samplewidget**
-
 
 
 
