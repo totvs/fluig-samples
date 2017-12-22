@@ -1,0 +1,23 @@
+application.type=widget
+application.code=custom_poster
+application.title=Custom Poster
+application.description=Nova publicação customizada
+application.category=SYSTEM
+application.renderer=freemarker
+developer.code=rogerio.angeliski
+developer.name=rogerio.angeliski
+developer.url=http://www.fluig.com
+application.uiwidget=true
+view.file=view.ftl
+edit.file=edit.ftl
+
+application.resource.component.1=wcm/cropimage
+application.resource.css.1=resources/css/custom_poster.css
+application.resource.js.3=/social/resources/js/api.js
+application.resource.js.4=/social/resources/lib/underscorejs/underscore.min.js
+application.resource.js.5=/social/resources/lib/elasticjs/jquery.elastic.min.js
+application.resource.js.6=/social/resources/lib/mentionjs/jquery.mentionsInput.min.js
+application.resource.js.7=/resources/js/custom_poster.js
+application.resource.js.8=/resources/js/custom_posteredit.js
+application.resource.js.9=/social/resources/js/socialglobal.js
+application.service.socialSvc=java:global/fluig/social-ecm-relation-impl/SocialServiceBean
