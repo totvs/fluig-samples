@@ -1,0 +1,37 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="http://style.fluig.com/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="http://style.fluig.com/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+			
+			<label for="nome" class="col-sm-2 control-label">Nome do funcionário:</label>
+			<input type="zoom" name="nome" data-zoom="{
+			    'datasetId':'colleague',
+			    'fields':[
+			        {'field':'colleagueId', 'label':'ID'}, 
+			        {'field':'colleagueName', 'label':'Nome', 'standard':'true', 'search':'true'},
+			        {'field':'login', 'label':'Login'}]
+			}" />
+			
+			<label for="zzz" class="col-sm-2 control-label">Email:</label>
+			<input type="text" name="zzz" class="form-control"/>
+			<label for="tel" class="col-sm-2 control-label">Cc:</label>
+			<input type="text" name="tel" class="form-control"/>
+			<label for="subject" class="col-sm-2 control-label">Assunto:</label>
+			<input type="text" name="subject" id="subject" class="form-control"/>	
+			<label for="mail" class="col-sm-2 control-label">Mensagem:</label>
+			 <textarea name="mail" class="form-control" rows="5" id="mail" ></textarea>
+			
+			<br>
+			<a href="mailto:exemplo@examplo.com">Enviar Email</a>
+			
+</form>
+</div>
+</body>
+</html>
