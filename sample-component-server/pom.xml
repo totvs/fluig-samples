@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.fluig</groupId>
+		<artifactId>sample-component</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>sample-component-server</artifactId>
+	<packaging>ear</packaging>
+
+	<name>Sample Component - server</name>
+	<description>Sample Component - server | description</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-widget</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/application/META-INF</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>6</version>					
+					<applicationName>Sample_Component</applicationName>
+					<generateModuleId>false</generateModuleId>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<initializeInOrder>true</initializeInOrder>
+					<security>
+						<security-role>
+							<role-name>sysadmin</role-name>
+						</security-role>
+						<security-role>
+							<role-name>admin</role-name>
+						</security-role>
+						<security-role>
+							<role-name>user</role-name>
+						</security-role>
+					</security>
+					<modules>
+						<webModule>
+							<groupId>com.fluig</groupId>
+							<artifactId>sample-component-widget</artifactId>
+							<bundleFileName>sample-component-widget.war</bundleFileName>
+							<contextRoot>/samplewidget</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>com.fluig</groupId>
+							<artifactId>sample-component-web</artifactId>
+							<bundleFileName>sample-component-web.war</bundleFileName>
+							<contextRoot>/samplecomponentweb</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>${java.src.dir}</sourceDirectory>
+	</build>
+	
+	
+</project>
