@@ -1,5 +1,5 @@
 # Exemplo de componente para a fluig Store #
-==================================================================
+---
 
 A partir da versão 1.6.2 do fluig, será possível instalar os componentes diretamente na Store, mais especificamente através da página "Itens da Store" dentro do próprio fluig.
 

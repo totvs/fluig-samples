@@ -1,4 +1,4 @@
-Adicionando regras na visualização de documentos
-====================================================
+# Adicionando regras na visualização de documentos
+---
 
 Neste exemplo, confira como criar regras no evento beforeDocumentViewer buscando informações do documento que está sendo visualizado. Neste exemplo, caso a data de validade do documento seja igual à atual atual, o documento não será visualizado.

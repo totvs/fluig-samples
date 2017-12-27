@@ -1,5 +1,5 @@
-Smart Zoom: como preencher campos de zoom automaticamente
-====================================================
+# Smart Zoom: como preencher campos de zoom automaticamente
+---
 
 Exemplo válido para versão 1.6.1 ou superior.
 
