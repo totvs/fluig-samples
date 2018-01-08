@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.fluig</groupId>
@@ -8,14 +10,14 @@
 	<artifactId>sample-component-web</artifactId>
 
 	<packaging>war</packaging>
-	
+
 	<name>Sample Component - web</name>
 	<description>Sample Component - web | description</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<dependencies>
 		<!-- Fluig Dependencies -->
 		<dependency>
@@ -31,27 +33,26 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- /Fluig Dependencies -->
-		
+
 		<!-- Other dependencies -->
 		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
 		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>			
+			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>			
+			<artifactId>httpclient</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<!-- /Other dependencies -->
-		
+
 	</dependencies>
-	
+
 	<build>
 		<finalName>sample-component-web</finalName>
-		<plugins>			
-		</plugins>
+		<plugins></plugins>
 	</build>
 
 </project>

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>fluig Nexus Repository</name>
+			<url>http://nexus.fluig.com/content/groups/public</url>
+		</repository>
+	</repositories>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fluig</groupId>
 	<artifactId>sample-component</artifactId>
-	<version>1.0</version>	
+	<version>1.0</version>
 	<packaging>pom</packaging>
 
 	<name>Sample Component</name>
@@ -22,20 +29,7 @@
 		<module>sample-component-web</module>
 		<module>sample-component-server</module>
 	</modules>
-	
-	<distributionManagement>
-		<repository>
-			<id>nexus</id>
-			<name>Totvs Internal Releases</name>
-			<url>http://nexus.fluig.com/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus</id>
-			<name>Totvs Internal Snapshots</name>
-			<url>http://nexus.fluig.com/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
