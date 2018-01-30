@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.fluig</groupId>
+		<artifactId>sample-component</artifactId>
+		<version>1.0.1</version>
+	</parent>
+	<artifactId>sample-component-api</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Sample Component - api</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+		
+		<!-- fluig dependecies -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-common</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>			
+			<artifactId>fluig-swagger-ui</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>		
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+
+		<!-- Fluig Api Tools -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-api-tools</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>sample-component-server</artifactId>
 	<packaging>ear</packaging>
@@ -21,23 +20,39 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.fluig</groupId>
+			<artifactId>foundation-common</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>			
+			<artifactId>foundation-cache-module</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-widget</artifactId>
 			<version>${project.version}</version>
-			<type>war</type>
-			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-api</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-web</artifactId>
 			<version>${project.version}</version>
-			<type>war</type>
-			<scope>compile</scope>
+			<type>war</type>			
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
+			<artifactId>javaee-api</artifactId>						
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-api-tools</artifactId>
 		</dependency>
 	</dependencies>
 	
