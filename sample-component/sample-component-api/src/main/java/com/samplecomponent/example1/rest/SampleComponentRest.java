@@ -1,4 +1,4 @@
-package com.samplecomponent.example1;
+package com.samplecomponent.example1.rest;
 
 import java.util.ArrayList;
 import java.util.List;
