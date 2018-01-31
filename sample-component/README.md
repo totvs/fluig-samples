@@ -1,4 +1,4 @@
-# Exemplo de componente para a fluig Store #
+# Exemplo de componente para a fluig Store
 ---
 
 A partir da versão 1.6.2 do fluig, será possível instalar os componentes diretamente na Store, mais especificamente através da página "[Itens da Store](http://tdn.totvs.com/x/yUwXEQ)" dentro do próprio fluig.
@@ -7,12 +7,11 @@ Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser
 O projeto está construído utilizando o gerenciador de projeto [Apache Maven](https://maven.apache.org/). Quanto ao desenvolvimento HTML, JS e freemarker para a widget. Está incluído também a instrução para a criação de uma nova página já com essa nova widget adicionada.
 A estrutura está definida da seguinte maneira:
 
-    sample-component
+sample-component
         - sample-component-server            
         - sample-component-widget
         - sample-component-web
         - pom.xml
-
 
 **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
 
@@ -34,8 +33,6 @@ Lemrbando que o código da página precisa ser único: **<code>pageSample_Compon
 **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
 
 - No arquivo application.info o código precisa ser único: **application.code=samplewidget**
-
-
 
 Para empacotar o projeto e gerar o arquivo **EAR**, entre com o seguinte comando na raiz do projeto:
 
