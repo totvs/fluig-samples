@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-api</artifactId>
-			<version>${project.version}</version>						
+			<version>${project.version}</version>
 		</dependency>
 		
 		<!-- Fluig Dependencies -->
@@ -93,10 +93,10 @@
 								<scheme>https</scheme>
 							</schemes>
 							<basePath>/samplecomponentweb/v1</basePath>
-							<info>
-								<version>1.0.0</version>
+							<info>								
 								<title>Sample Component WEB API</title>
-								<description></description>
+								<description>Exemplo de API Rest para o samplecomponent</description>
+								<version>${project.version}</version>
 							</info>
 							<outputFormats>json,yaml</outputFormats>
 							<swaggerDirectory>${project.build.directory}/${project.artifactId}/swagger-ui</swaggerDirectory>
