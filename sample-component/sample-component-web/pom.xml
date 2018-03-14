@@ -18,6 +18,13 @@
 	</properties>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-api</artifactId>
+			<version>${project.version}</version>						
+		</dependency>
+		
 		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -27,7 +34,8 @@
 		<dependency>
 			<groupId>com.fluig</groupId>			
 			<artifactId>fluig-swagger-ui</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -51,6 +59,7 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
+			<scope>compile</scope>
 		</dependency>
 		<!-- /Other dependencies -->
 
@@ -62,10 +71,49 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.5</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>false</springmvc>
+							<locations>
+								<location>com.samplecomponent.example1.rest</location>
+							</locations>
+							<schemes>								
+								<scheme>http</scheme>
+								<scheme>https</scheme>
+							</schemes>
+							<basePath>/samplecomponentweb/v1</basePath>
+							<info>
+								<version>1.0.0</version>
+								<title>Sample Component WEB API</title>
+								<description></description>
+							</info>
+							<outputFormats>json,yaml</outputFormats>
+							<swaggerDirectory>${project.build.directory}/${project.artifactId}/swagger-ui</swaggerDirectory>
+							<swaggerFileName>swagger</swaggerFileName>
+							<attachSwaggerArtifact>true</attachSwaggerArtifact>
+							<modelConverters>com.fluig.api.tools.swagger.JSONPatchPropertyConverter</modelConverters>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

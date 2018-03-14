@@ -2,7 +2,7 @@ package com.samplecomponent.example1.rest;
 
 import java.io.Serializable;
 
-public class SampleComponent implements Serializable {
+public class SampleComponentVO implements Serializable {
 
     /**
      *
@@ -12,7 +12,7 @@ public class SampleComponent implements Serializable {
     private Long id;
     private String name;
 
-    public SampleComponent(Long id, String name) {
+    public SampleComponentVO(Long id, String name) {
         super();
         this.id = id;
         this.name = name;

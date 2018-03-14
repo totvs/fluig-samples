@@ -13,7 +13,7 @@
 		<editable>false</editable>
 		<auth>1</auth>
 		<internalPage>true</internalPage>
-		<icon>fluig_logo.png</icon>
+		<icon>sampleIcon.png</icon>
 		<slots>
 			<slot>
 				<name>SlotA</name>

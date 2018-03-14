@@ -23,7 +23,7 @@ public class SampleComponentRest {
     @GET
     @Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
     @ApiOperation(value = "List items")
-    @ApiResponses({@ApiResponse(code = 200, message = "Success", response = SampleComponent.class),
+    @ApiResponses({@ApiResponse(code = 200, message = "Success", response = SampleComponentVO.class),
         @ApiResponse(code = 400, message = "Failed to return items",
         response = ErrorResponse.class),
         @ApiResponse(code = 401, message = "Unauthorized to list items", response = ErrorResponse.class),
@@ -31,10 +31,10 @@ public class SampleComponentRest {
         response = ErrorResponse.class)})
     public Response list() throws Exception {
 
-        List<SampleComponent> list = new ArrayList<>();
+        List<SampleComponentVO> list = new ArrayList<>();
 
-        SampleComponent s1 = new SampleComponent(1L, "fluig");
-        SampleComponent s2 = new SampleComponent(2L, "totvs");
+        SampleComponentVO s1 = new SampleComponentVO(1L, "fluig");
+        SampleComponentVO s2 = new SampleComponentVO(2L, "totvs");
 
         list.add(s1);
         list.add(s2);

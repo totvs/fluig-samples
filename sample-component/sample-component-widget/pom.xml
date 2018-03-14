@@ -7,7 +7,7 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.1</version>
 	</parent>
-	<artifactId>sample-component-widget</artifactId>
+	<artifactId>sample-component-widget</artifactId>	
 	<packaging>war</packaging>
 
 	<name>Sample Component - widget</name>

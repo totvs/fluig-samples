@@ -49,7 +49,7 @@
     </filter-mapping>
 
     <security-constraint>
-        <display-name>Store API my-component</display-name>
+        <display-name>API my-component</display-name>
         <web-resource-collection>
             <web-resource-name>API my-component</web-resource-name>
             <description>API my-component</description>
