@@ -9,19 +9,13 @@ O projeto ainda conta com uma implementação de uma API Rest em Java. Você pod
 A estrutura está definida da seguinte maneira:
 
 sample-component
-- sample-component-server
-- sample-component-api
-- sample-component-widget
-- sample-component-layout
-- sample-component-web
-- pom.xml
-
-
-**sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
-
-- O package do projeto deve ser do tipo **.EAR** (Enterprise Application Archive)
-Para essa configuração, no arquivo sample-component/sample-component-server/pom.xml a tag <packing> deve estar assim: **<packaging>ear</packaging>**
-
+  - sample-component-server
+  - sample-component-web
+  - sample-component-api
+  - sample-component-widget
+  - sample-component-layout
+  - pom.xml
+  
 
 **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
 
