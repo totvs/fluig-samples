@@ -24,7 +24,8 @@
 		<fluig.version>1.6.3</fluig.version>
 	</properties>
 
-	<modules>	
+	<modules>
+		<module>sample-component-layout</module>
 		<module>sample-component-widget</module>
 		<module>sample-component-api</module>
 		<module>sample-component-web</module>

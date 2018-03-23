@@ -22,7 +22,7 @@ public class SampleComponentRest {
 
     @GET
     @Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-    @ApiOperation(value = "List items")
+    @ApiOperation(value = "Esta é uma simples API Rest, retornando uma lista de objetos")
     @ApiResponses({@ApiResponse(code = 200, message = "Success", response = SampleComponentVO.class),
         @ApiResponse(code = 400, message = "Failed to return items",
         response = ErrorResponse.class),

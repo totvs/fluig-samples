@@ -8,12 +8,12 @@
 		<hidden>false</hidden>
 		<title>Sample Page for a sample component</title>
 		<description>Sample Page for a sample component</description>
-		<layout>layoutsimple</layout>
+		<layout>samplelayout</layout>
 		<theme>themedefault</theme>
 		<editable>false</editable>
 		<auth>1</auth>
 		<internalPage>true</internalPage>
-		<icon>sampleIcon.png</icon>
+		<icon>sample_icon.svg</icon>
 		<slots>
 			<slot>
 				<name>SlotA</name>
