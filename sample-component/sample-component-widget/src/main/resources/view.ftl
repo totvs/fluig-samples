@@ -7,7 +7,7 @@
         <p>
             <a class="btn btn-primary btn-lg" href="#" data-do-something role="button">${i18n.getTranslation('label.button.click')}</a>
             <a class="btn btn-primary btn-lg" href="#" data-load-table role="button">${i18n.getTranslation('label.button.load.table')}</a>
-            <a class="btn btn-primary btn-lg" href="/samplewidget/resources/download/app.zip" role="button">Download</a>
+            <a class="btn btn-primary btn-lg" href="/sample-component-widget/resources/download/app.zip" role="button">Download</a>
         </p>
         <div class="row">
             <div class="jumbotron">

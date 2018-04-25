@@ -7,11 +7,11 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.1</version>
 	</parent>
-	<artifactId>sample-component-server</artifactId>
+	<artifactId>sample-component-pack</artifactId>
 	<packaging>ear</packaging>
 
 	<name>Sample Component - server</name>
-	<description>Sample Component - server | description</description>
+	<description>Modulo para empacotar o projeto Sample Component</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -73,7 +73,7 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>sample-component</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -110,19 +110,19 @@
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-widget</artifactId>
 							<bundleFileName>sample-component-widget.war</bundleFileName>
-							<contextRoot>/samplewidget</contextRoot>
+							<contextRoot>/sample-component-widget</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-layout</artifactId>
 							<bundleFileName>sample-component-layout.war</bundleFileName>
-							<contextRoot>/samplelayout</contextRoot>
+							<contextRoot>/sample-component-layout</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-web</artifactId>
 							<bundleFileName>sample-component-web.war</bundleFileName>
-							<contextRoot>/samplecomponentweb</contextRoot>
+							<contextRoot>/sample-component-web</contextRoot>
 						</webModule>
 					</modules>
 				</configuration>

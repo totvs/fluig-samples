@@ -29,7 +29,7 @@
 		<module>sample-component-widget</module>
 		<module>sample-component-api</module>
 		<module>sample-component-web</module>
-		<module>sample-component-server</module>
+		<module>sample-component-pack</module>
 	</modules>
 
 	<dependencyManagement>

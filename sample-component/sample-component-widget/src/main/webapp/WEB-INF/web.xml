@@ -10,19 +10,6 @@
         </session-timeout>
     </session-config>
 
-    <security-constraint>
-        <display-name>REST</display-name>
-        <web-resource-collection>
-            <web-resource-name>REST</web-resource-name>
-            <description>REST</description>
-            <url-pattern>/api/rest/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <description>REST</description>
-            <role-name>user</role-name>
-        </auth-constraint>
-    </security-constraint>
-
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>TOTVSTech</realm-name>

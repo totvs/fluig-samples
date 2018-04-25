@@ -92,7 +92,7 @@
 								<scheme>http</scheme>
 								<scheme>https</scheme>
 							</schemes>
-							<basePath>/samplecomponentweb/v1</basePath>
+							<basePath>/sample-component-web/v1</basePath>
 							<info>								
 								<title>Sample Component WEB API</title>
 								<description>Exemplo de API Rest para o samplecomponent</description>

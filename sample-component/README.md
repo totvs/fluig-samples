@@ -9,7 +9,7 @@ O projeto ainda conta com uma implementação de uma API Rest em Java. Você pod
 A estrutura está definida da seguinte maneira:
 
 ###sample-component
-###### sample-component-server
+###### sample-component-pack
 ###### sample-component-web
 ###### sample-component-api
 ###### sample-component-widget
@@ -17,10 +17,10 @@ A estrutura está definida da seguinte maneira:
 ###### pom.xml
   
 
-* **sample-component-server**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
+* **sample-component-pack**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
 
 O package do projeto deve ser do tipo **.EAR** (Enterprise Application Archive)
-Para essa configuração, no arquivo sample-component/sample-component-server/pom.xml a tag <packing> deve estar assim: **<packaging>ear</packaging>**
+Para essa configuração, no arquivo sample-component/sample-component-pack/pom.xml a tag <packing> deve estar assim: **<packaging>ear</packaging>**
 
 
 * **sample-component-web**: projeto onde estão os arquivos de configuração do componente:
@@ -39,7 +39,7 @@ O ícone da página criada, pode ser encontrado em sample-component-web/src/main
 * **sample-component-api**: projeto responsável em disponibilizar a API Rest desenvolvida em Java
 
 A API Rest de exemplo, pode ser testada pela URL FLUIG_URL/samplecomponentweb/v1/samplerest
-Para visualizar a documentação, acessa FLUIG_URL/samplecomponentweb/swagger-ui/
+Para visualizar a documentação, acessa FLUIG_URL/sample-component-web/swagger-ui/
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.

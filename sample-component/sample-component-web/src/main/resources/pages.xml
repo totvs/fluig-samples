@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages>
 	<page>
-		<code>pageSample_Component</code>
-		<tenantCode>?</tenantCode>
+		<code>pageSample_Component</code>		
 		<enabledChildren>false</enabledChildren>
 		<enabledPathParam>false</enabledPathParam>
 		<hidden>false</hidden>
 		<title>Sample Page for a sample component</title>
 		<description>Sample Page for a sample component</description>
-		<layout>samplelayout</layout>
-		<theme>themedefault</theme>
+		<layout>samplelayout</layout>		
 		<editable>false</editable>
 		<auth>1</auth>
 		<internalPage>true</internalPage>
