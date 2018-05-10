@@ -10,7 +10,7 @@
 	<artifactId>sample-component-pack</artifactId>
 	<packaging>ear</packaging>
 
-	<name>Sample Component - server</name>
+	<name>Sample Component - pack</name>
 	<description>Modulo para empacotar o projeto Sample Component</description>
 
 	<properties>
