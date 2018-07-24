@@ -9,7 +9,6 @@ application.resource.css.1=/resources/css/samplelayout.css
 developer.code=TOTVS_WCM_DEV
 developer.name=TOTVS S.A.
 developer.url=http\://www.totvs.com
-hash=2aa4b97cba8f030402f0b7a8968f034208864e7c
 layout.defaultSlot=SlotA
 layout.file=layout.ftl
 locale.file.base.name=samplelayout
