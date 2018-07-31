@@ -5,7 +5,10 @@ A partir da versão 1.6.2 do fluig, será possível instalar os componentes dire
 
 Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser seguido caso o desenvolvedor deseje criar um componente e disponibilizá-lo na fluig Store.
 O projeto está construído utilizando o gerenciador de projeto [Apache Maven](https://maven.apache.org/). Quanto ao desenvolvimento HTML, JS e freemarker, Mustache para a widget. Está incluído também a instrução para a criação de uma nova página, com um novo layout e já com essa nova widget adicionada.
-O projeto ainda conta com uma implementação de uma API Rest em Java. Você pode utilizar códigos Java para criar e documentar suas pŕoprias API's utilizando [Swagger](https://swagger.io/) 
+
+O layout customizado é uma maneira de criar uma página sem o menu tradicional do fluig. 
+
+O projeto ainda conta com uma implementação de uma API Rest em Java. 
 A estrutura está definida da seguinte maneira:
 
 ###sample-component
@@ -14,6 +17,9 @@ A estrutura está definida da seguinte maneira:
 ###### sample-component-api
 ###### sample-component-widget
 ###### sample-component-layout
+###### sample-component-custom-layout
+###### sample-component-menu-widget
+
 ###### pom.xml
   
 
@@ -39,7 +45,6 @@ O ícone da página criada, pode ser encontrado em sample-component-web/src/main
 * **sample-component-api**: projeto responsável em disponibilizar a API Rest desenvolvida em Java
 
 A API Rest de exemplo, pode ser testada pela URL FLUIG_URL/samplecomponentweb/v1/samplerest
-Para visualizar a documentação, acessa FLUIG_URL/sample-component-web/swagger-ui/
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
@@ -52,8 +57,15 @@ No arquivo application.info o código precisa ser único: **application.code=sam
 No arquivo application.info o código precisa ser único: **application.code=samplelayout**
 
 
+* **sample-component-custom-layout**: projeto de um layout customizado, sem o menu lateral esquerdo.
+* **sample-component-menu-widget**: projeto de uma widget de menu, para substituir o menu lateral esquerdo nativo do fluig.
 
--> Para empacotar o projeto e gerar o arquivo **EAR**, entre com o seguinte comando na raiz do projeto:
+
+-> Para empacotar o projeto e gerar o arquivo **EAR**, será necessário utilizar o Maven. Entre com o seguinte comando na raiz do projeto:
 
 	- mvn clean install
 	- Você pode também utilzar o Eclipse for Java EE Developers para executar o comando mvn
+
+
+Ao gerar o pacote, o próximo passo é fazer o upload através da Central de Componentes. Após enviar o .ear, será necessário ativar o componente. Procure pelo código, que está no component.xml, faça a ativação, atualize a página(F5) e acesse as páginas criadas.
+	

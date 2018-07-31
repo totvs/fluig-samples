@@ -27,6 +27,8 @@
 	<modules>
 		<module>sample-component-layout</module>
 		<module>sample-component-widget</module>
+		<module>sample-component-custom-layout</module>
+		<module>sample-component-menu-widget</module>
 		<module>sample-component-api</module>
 		<module>sample-component-web</module>
 		<module>sample-component-pack</module>

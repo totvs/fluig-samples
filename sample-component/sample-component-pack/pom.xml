@@ -44,6 +44,20 @@
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-custom-layout</artifactId>
+			<version>${project.version}</version>			
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-menu-widget</artifactId>
+			<version>${project.version}</version>			
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-api</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
