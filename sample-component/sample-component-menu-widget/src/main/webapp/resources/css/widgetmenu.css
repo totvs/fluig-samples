@@ -1,0 +1,21 @@
+.menu-item{
+	color: rgb(245, 121, 4)
+}
+
+.menu-item.active{	
+	background-color: rgb(89, 96, 105);
+}
+
+.item-a{
+	color: rgb(167, 172, 179)!important;
+}
+
+.menu-item-text{
+	position: relative;
+	bottom:5px;
+	padding: 5px
+}
+
+.menu-item-img-text{
+	padding: 5px
+}
