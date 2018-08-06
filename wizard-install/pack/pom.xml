@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.fluig</groupId>
+		<artifactId>wizard-install</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>pack</artifactId>	
+	<packaging>ear</packaging>
+
+	<name>pack</name>
+	<description>projeto para empacotar os wizards</description>	
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>wizard-install-dataset</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>wizard-install-form</artifactId>
+			<version>${project.version}</version>			
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>wizard-install-process</artifactId>
+			<version>${project.version}</version>			
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>			
+			<artifactId>wizard-install-component</artifactId>
+			<version>${project.version}</version>			
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>		
+	</dependencies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/application/META-INF</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>		
+		<finalName>wizard-install</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>6</version>					
+					<applicationName>wizard-install</applicationName>					
+					<generateModuleId>false</generateModuleId>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<initializeInOrder>true</initializeInOrder>
+					<security>
+						<security-role>
+							<role-name>sysadmin</role-name>
+						</security-role>
+						<security-role>
+							<role-name>admin</role-name>
+						</security-role>
+						<security-role>
+							<role-name>user</role-name>
+						</security-role>
+					</security>
+					<modules>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>${java.src.dir}</sourceDirectory>
+	</build>	
+	
+</project>

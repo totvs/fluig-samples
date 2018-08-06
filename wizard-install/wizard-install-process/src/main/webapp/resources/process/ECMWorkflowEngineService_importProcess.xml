@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.workflow.ecm.technology.totvs.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:importProcess>
+         <username></username>
+         <password></password>
+         <companyId></companyId>
+         <processId></processId>
+         <attachments></attachments>
+         <newProcess></newProcess>
+         <overWrite></overWrite>
+         <colleagueId></colleagueId>
+      </ws:importProcess>
+   </soapenv:Body>
+</soapenv:Envelope>

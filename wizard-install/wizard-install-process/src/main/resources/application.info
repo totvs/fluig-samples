@@ -1,0 +1,16 @@
+application.category=SYSTEM
+application.code=wi_process
+application.description=Widget de instalação de um processo completo
+application.icon=icon.png
+application.renderer=freemarker
+application.resource.css.1=/resources/css/wi_process.css
+application.resource.js.2=/resources/js/wi_process.js
+application.resource.js.3=/resources/js/jquery.binarytransport.js
+application.title=Widget de instalação de um processo completo
+application.type=widget
+application.uiwidget=false
+developer.code=TOTVS
+developer.name=TOTVS S.A.
+developer.url=http://www.totvs.com
+edit.file=edit.ftl
+view.file=view.ftl

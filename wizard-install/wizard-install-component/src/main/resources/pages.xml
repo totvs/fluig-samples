@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+	<page>
+		<code>install_datasets</code>
+		<enabledChildren>false</enabledChildren>
+		<enabledPathParam>false</enabledPathParam>
+		<hidden>false</hidden>
+		<title>Install Dataset</title>
+		<description>Install Dataset</description>
+		<layout>layoutsimple</layout>
+		<theme>themedefault</theme>
+		<editable>false</editable>
+		<auth>1</auth>
+		<internalPage>true</internalPage>
+		<icon>dataset.png</icon>
+		<slots>
+			<slot>
+				<name>SlotA</name>
+				<widget>wi_dataset</widget>				
+			</slot>
+		</slots>
+		<permissions>
+			<permission>
+				<code>pageView</code>
+				<description>permission.page.view</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageUpdate</code>
+				<description>permission.page.update</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageRemove</code>
+				<description>permission.page.remove</description>
+				<role>admin</role>
+			</permission>
+		</permissions>
+	</page>
+	
+	<page>
+		<code>install_form</code>
+		<enabledChildren>false</enabledChildren>
+		<enabledPathParam>false</enabledPathParam>
+		<hidden>false</hidden>
+		<title>Install Form</title>
+		<description>Install Form</description>
+		<layout>layoutsimple</layout>
+		<theme>themedefault</theme>
+		<editable>false</editable>
+		<auth>1</auth>
+		<internalPage>true</internalPage>
+		<icon>form.png</icon>
+		<slots>
+			<slot>
+				<name>SlotA</name>
+				<widget>wi_form</widget>				
+			</slot>
+		</slots>
+		<permissions>
+			<permission>
+				<code>pageView</code>
+				<description>permission.page.view</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageUpdate</code>
+				<description>permission.page.update</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageRemove</code>
+				<description>permission.page.remove</description>
+				<role>admin</role>
+			</permission>
+		</permissions>
+	</page>
+	
+	<page>
+		<code>install_process</code>
+		<enabledChildren>false</enabledChildren>
+		<enabledPathParam>false</enabledPathParam>
+		<hidden>false</hidden>
+		<title>Install Process</title>
+		<description>Install Process</description>
+		<layout>layoutsimple</layout>
+		<theme>themedefault</theme>
+		<editable>false</editable>
+		<auth>1</auth>
+		<internalPage>true</internalPage>
+		<icon>process.png</icon>
+		<slots>
+			<slot>
+				<name>SlotA</name>
+				<widget>wi_process</widget>				
+			</slot>
+		</slots>
+		<permissions>
+			<permission>
+				<code>pageView</code>
+				<description>permission.page.view</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageUpdate</code>
+				<description>permission.page.update</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageRemove</code>
+				<description>permission.page.remove</description>
+				<role>admin</role>
+			</permission>
+		</permissions>
+	</page>
+	
+</pages>
