@@ -1,0 +1,15 @@
+application.category=SYSTEM
+application.code=wi_oauth
+application.description=Wizard de instalação de um OAuth app
+application.icon=icon.png
+application.renderer=freemarker
+application.resource.css.1=/resources/css/wi_oauth.css
+application.resource.js.2=/resources/js/wi_oauth.js
+application.title=Wizard de instalação de um OAuth app
+application.type=widget
+application.uiwidget=false
+developer.code=TOTVS
+developer.name=TOTVS S.A.
+developer.url=http://www.totvs.com
+edit.file=edit.ftl
+view.file=view.ftl
