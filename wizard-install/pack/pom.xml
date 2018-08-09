@@ -45,7 +45,14 @@
 			<version>${project.version}</version>			
 			<scope>compile</scope>
 			<type>war</type>			
-		</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>			
+			<artifactId>wizard-install-oauth</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+			<type>war</type>			
+		</dependency>
 	</dependencies>
 	
 	<build>

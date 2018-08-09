@@ -113,5 +113,43 @@
 			</permission>
 		</permissions>
 	</page>
+
+	<page>
+		<code>install_oauth</code>
+		<enabledChildren>false</enabledChildren>
+		<enabledPathParam>false</enabledPathParam>
+		<hidden>false</hidden>
+		<title>Install OAuth</title>
+		<description>Install OAuth</description>
+		<layout>layoutsimple</layout>
+		<theme>themedefault</theme>
+		<editable>false</editable>
+		<auth>1</auth>
+		<internalPage>true</internalPage>
+		<icon>oauth.png</icon>
+		<slots>
+			<slot>
+				<name>SlotA</name>
+				<widget>wi_oauth</widget>				
+			</slot>
+		</slots>
+		<permissions>
+			<permission>
+				<code>pageView</code>
+				<description>permission.page.view</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageUpdate</code>
+				<description>permission.page.update</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageRemove</code>
+				<description>permission.page.remove</description>
+				<role>admin</role>
+			</permission>
+		</permissions>
+	</page>
 	
 </pages>

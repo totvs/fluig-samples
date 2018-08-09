@@ -14,7 +14,7 @@ var wiform = SuperWidget.extend({
 		this.searchFolder(that.folderName, function(err, data){
 			if(!err){
 				
-				var tpl = 'template-container-install-process';
+				var tpl = 'template-container-install-form';
 				var tplBtn = 'template-btn-install';
 				var docs = data.content.items[0];
 				if(!jQuery.isEmptyObject(docs)){
@@ -43,18 +43,15 @@ var wiform = SuperWidget.extend({
 	/******* CRIA GRUPO E PASTA *********/
 	/************************************/
 	createGroupAndFolder: function(){
-		var that = this;
-		this.loading = FLUIGC.loading('#uploadprocess_' + this.instanceId);
-		this.loading.show();		
+		var that = this;		
 		this.createFolderService(this.folderName, function(err, data){
 			if(!err){
 				$('#up-folder-icon').removeClass('fluigicon-remove-sign').addClass('fluigicon-check-circle-on');
 				that.folderId = data.content.id;
 				that.getCreateCardXML();
 			}
-		});
-		
-	},	
+		});		
+	},
 	
 	
 	/*********** CREATE CARD: WS para criar o formulario ************/	
@@ -65,7 +62,7 @@ var wiform = SuperWidget.extend({
 	getCreateCardXML: function(){
 		var that = this;
 		$.ajax({
-			  url: '/wi_form/resources/process/ECMCardIndexService_createCard.xml',
+			  url: '/wi_form/resources/form/ECMCardIndexService_createCard.xml',
 			  type: 'GET',
 			  dataType: 'xml',
 			  headers:{'Content-Type':'text/xml','X-Requested-With':'XMLHttpRequest'},
@@ -82,7 +79,7 @@ var wiform = SuperWidget.extend({
 	extractFormBase64: function(xml){
 		var that = this;		
 		$.ajax({
-			url: '/wi_form/resources/process/formulario-simples.html',
+			url: '/wi_form/resources/form/formulario-simples.html',
 			type: 'GET',
 			dataType: 'binary',
 			headers:{'Content-Type':'text/html','X-Requested-With':'XMLHttpRequest'},

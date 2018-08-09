@@ -27,12 +27,13 @@
 		<module>wizard-install-dataset</module>
 		<module>wizard-install-form</module>        
         <module>wizard-install-process</module>
+		<module>wizard-install-oauth</module>
         <module>wizard-install-component</module>
         <module>pack</module>
 	</modules>
 
 	<dependencyManagement>
-		<dependencies>			
+		<dependencies>
 		</dependencies>
 	</dependencyManagement>
 

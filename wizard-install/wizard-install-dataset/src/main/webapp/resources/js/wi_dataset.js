@@ -3,14 +3,15 @@ var Widataset = SuperWidget.extend({
 	/**
 	 *  Lista de datsets com: nome, campos e se ele deve ser sincronizado ou não
 	 *  name: nome do dataset
-	 * 	fields: campos(colunas) do dataset
+	 * 	columns: campos(colunas) do dataset
 	 *  sync: informa se o dataset será sincronizado ou não
 	 * 
-	 * obs.: lembre-se colocar nomes bem específicos, para não conflitar com algum dataset já existentes
+	 * obs1.: lembre-se colocar nomes bem específicos, para não conflitar com algum dataset já existentes
+	 * obs2.. lembra-se que esses são datasets customizados, onde somente dados estáticos(para consulta). Caso queira atualizar algum dado, é preciso remover o dataset e recriá-lo
 	 */
 	datasets: [
-		{'name':'ds_categorias', 'fields':['idCategoria', 'nomeCategoria'], 'sync': true},
-		{'name':'ds_produtos', 'fields':['idProduto', 'nomeProduto', 'idCategoria'], 'sync': true}
+		{'name':'ds_categorias', 'columns':['idCategoria', 'nomeCategoria'], 'sync': true},
+		{'name':'ds_produtos', 'columns':['idProduto', 'nomeProduto'], 'sync': true}
 	],
 
 	loading: null,
@@ -78,7 +79,7 @@ var Widataset = SuperWidget.extend({
 		l.show();
 		for (var i = 0; i < this.datasets.length; i++) {
 			var dt = this.datasets[i];
-			this.buildDataSetFunction(dt.name, dt.fields, dt.sync);
+			this.buildDataSetFunction(dt.name, dt.columns, dt.sync);
 		}
 		this.changelabel();
 		FLUIGC.toast({
@@ -90,13 +91,15 @@ var Widataset = SuperWidget.extend({
 	},
 	
 	// Monta a função do dataset
-	buildDataSetFunction: function(dsName, fields, isSync){
+	buildDataSetFunction: function(dsName, columns, isSync){
 		var that = this;
 		var impl = 'function createDataset(fields, constraints, sortFields){var dataset = DatasetBuilder.newDataset(); ';
-		for (var i = 0; i < fields.length; i++) {
-			impl += ' dataset.addColumn("'+ fields[i] +'");';
+		for (var i = 0; i < columns.length; i++) {
+			impl += ' dataset.addColumn("'+ columns[i] +'");';
 		}
-		impl += ' return dataset};';
+		impl += ' dataset.addRow(new Array(1, "Nome 1"));';
+		impl += ' dataset.addRow(new Array(2, "Nome 2"));';
+		impl += ' return dataset};';		
 
 		this.criarDataset(dsName, impl, isSync);
 	},

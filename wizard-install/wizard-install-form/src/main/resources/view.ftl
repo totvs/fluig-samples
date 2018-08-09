@@ -19,7 +19,7 @@
 	</div>
 	
 	<!-- templates html -->
-	<script type="text/template" class="template-container-install-process">		
+	<script type="text/template" class="template-container-install-form">		
 		<tr>
 			<td><span class="fluigicon fluigicon-folder-close fluigicon-md"></span></td>
 			<td>${i18n.getTranslation('label.info.folder')}</td>
