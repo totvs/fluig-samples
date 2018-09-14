@@ -7,6 +7,7 @@ var wiform = SuperWidget.extend({
 	installed: false,
 	loading: false,
 	folderName: 'MyAppFormFolder',
+	datasetName: 'my-dataset',
 	
 	init: function() {
 		var that = this;		
@@ -102,7 +103,8 @@ var wiform = SuperWidget.extend({
 		xml.find('username').text(WCMAPI.userLogin);
 		xml.find('companyId').text(WCMAPI.getTenantId());
 		xml.find('parentDocumentId').text(this.folderId);
-		xml.find('publisherId').text(WCMAPI.userLogin);	
+		xml.find('publisherId').text(WCMAPI.userLogin);
+		xml.find('datasetName').text(this.datasetName);
 		
 		var attachmentItem = '<item><attach>true</attach><fileName>formulario-simples.html</fileName><filecontent>' + html + '</filecontent><principal>true</principal></item>';
         xml.find('Attachments').append(attachmentItem);
