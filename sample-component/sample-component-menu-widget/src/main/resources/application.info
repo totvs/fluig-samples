@@ -12,5 +12,4 @@ developer.code=TOTVS
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
 edit.file=edit.ftl
-locale.file.base.name=widgetmenu
 view.file=view.ftl

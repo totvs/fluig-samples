@@ -9,7 +9,7 @@
 	<artifactId>sample-component-layout</artifactId>	
 	<packaging>war</packaging>
 
-	<name>Sample Component - layoutt</name>
+	<name>Sample Component - layout</name>
 	<description>This is a sample layout</description>
 
 	<properties>

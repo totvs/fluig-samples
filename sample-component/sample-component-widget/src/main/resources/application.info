@@ -1,4 +1,3 @@
-#Fri Sep 26 22:25:16 BRT 2014
 application.category=SYSTEM
 application.code=samplewidget
 application.description=This is a sample widget
@@ -13,6 +12,4 @@ developer.code=TOTVS
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
 edit.file=edit.ftl
-hash=715b14598377e05105da2d93dd428b4da9689465
-locale.file.base.name=samplewidget
 view.file=view.ftl

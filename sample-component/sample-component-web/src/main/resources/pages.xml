@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages>
 	<page>
-		<code>pageSample_Component</code>		
+		<code>pageSample_Component</code>
 		<enabledChildren>false</enabledChildren>
 		<enabledPathParam>false</enabledPathParam>
 		<hidden>false</hidden>
 		<title>Sample Page for a sample component</title>
 		<description>Sample Page for a sample component</description>
 		<theme>themedefault</theme>
-		<layout>samplelayout</layout>		
+		<layout>samplelayout</layout>
 		<editable>false</editable>
 		<auth>1</auth>
 		<internalPage>true</internalPage>

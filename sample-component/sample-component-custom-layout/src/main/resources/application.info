@@ -10,11 +10,5 @@ developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
 layout.defaultSlot=SlotA
 layout.file=layout.ftl
-locale.file.base.name=customlayout
-
 application.resource.js.1=/resources/js/customlayout.js
 application.resource.css.2=/resources/css/customlayout.css
-
-
-slot.SlotLogin=sociallogin
-slot.SlotUsePolicy=usepolicy

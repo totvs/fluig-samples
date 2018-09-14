@@ -11,7 +11,6 @@ developer.name=TOTVS S.A.
 developer.url=http\://www.totvs.com
 layout.defaultSlot=SlotA
 layout.file=layout.ftl
-locale.file.base.name=samplelayout
 simple.deploy=true
 slot.SlotAdvancedSearch=widget_search
 slot.SlotGlobalAlert=alertpopover

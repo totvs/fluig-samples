@@ -3,7 +3,7 @@
 	<title>Sample Component</title>
 	<description>Sample Component</description>
 	<version>1.0.1</version>
-	<category>WCM</category>
+	<category>Store</category>
 	<icon>icon.png</icon>
 	<developerCode>TOTVS</developerCode>
 	<developerName>TOTVS S.A.</developerName>
