@@ -1,14 +1,19 @@
 application.title=Custom Layout
 application.description=Custom Layout
-application.category=WCM
+application.category=Sample
 application.code=customlayout
 application.icon=icon.png
 application.renderer=freemarker
 application.type=layout
+application.resource.js.1=/resources/js/customlayout.js
+application.resource.css.2=/resources/css/customlayout.css
+application.uilayout=false
+
+simple.deploy=true
+
+layout.defaultSlot=SlotA
+layout.file=layout.ftl
+
 developer.code=TOTVS_WCM_DEV
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
-layout.defaultSlot=SlotA
-layout.file=layout.ftl
-application.resource.js.1=/resources/js/customlayout.js
-application.resource.css.2=/resources/css/customlayout.css

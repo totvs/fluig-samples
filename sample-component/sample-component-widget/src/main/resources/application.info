@@ -1,15 +1,19 @@
-application.category=SYSTEM
-application.code=samplewidget
+application.title=Sample Widget
 application.description=This is a sample widget
+application.category=Sample
+application.code=samplewidget
 application.icon=icon.png
 application.renderer=freemarker
+application.type=widget
 application.resource.css.1=/resources/css/samplewidget.css
 application.resource.js.2=/resources/js/samplewidget.js
-application.title=Sample Widget
-application.type=widget
 application.uiwidget=false
+
+simple.deploy=true
+
+edit.file=edit.ftl
+view.file=view.ftl
+
 developer.code=TOTVS
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
-edit.file=edit.ftl
-view.file=view.ftl

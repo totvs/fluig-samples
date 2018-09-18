@@ -24,20 +24,17 @@
 			<artifactId>foundation-common</artifactId>
 			<version>${fluig.version}</version>			
 		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>			
-			<artifactId>fluig-swagger-ui</artifactId>
-			<version>${fluig.version}</version>			
-		</dependency>		
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-		</dependency>
 
 		<!-- Fluig Api Tools -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
+		</dependency>
+		
+		<!-- others -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
 		</dependency>
 	</dependencies>
 

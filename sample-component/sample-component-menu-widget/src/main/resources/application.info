@@ -1,15 +1,19 @@
-application.category=SYSTEM
-application.code=widgetmenu
+application.title=Widget Menu
 application.description=Widget Menu
+application.category=Sample
+application.code=widgetmenu
 application.icon=icon.png
 application.renderer=freemarker
+application.type=widget
 application.resource.css.1=/resources/css/widgetmenu.css
 application.resource.js.2=/resources/js/widgetmenu.js
-application.title=Widget Menu
-application.type=widget
 application.uiwidget=false
+
+simple.deploy=true
+
+edit.file=edit.ftl
+view.file=view.ftl
+
 developer.code=TOTVS
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
-edit.file=edit.ftl
-view.file=view.ftl

@@ -32,12 +32,6 @@
 			<version>${fluig.version}</version>			
 		</dependency>
 		<dependency>
-			<groupId>com.fluig</groupId>			
-			<artifactId>fluig-swagger-ui</artifactId>
-			<version>${fluig.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
 			<version>${fluig.version}</version>			
@@ -76,45 +70,7 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.github.kongchen</groupId>
-				<artifactId>swagger-maven-plugin</artifactId>
-				<version>3.1.5</version>
-				<configuration>
-					<apiSources>
-						<apiSource>
-							<springmvc>false</springmvc>
-							<locations>
-								<location>com.samplecomponent.example1.rest</location>
-							</locations>
-							<schemes>								
-								<scheme>http</scheme>
-								<scheme>https</scheme>
-							</schemes>
-							<basePath>/sample-component-web/v1</basePath>
-							<info>								
-								<title>Sample Component WEB API</title>
-								<description>Exemplo de API Rest para o samplecomponent</description>
-								<version>${project.version}</version>
-							</info>
-							<outputFormats>json,yaml</outputFormats>
-							<swaggerDirectory>${project.build.directory}/${project.artifactId}/swagger-ui</swaggerDirectory>
-							<swaggerFileName>swagger</swaggerFileName>
-							<attachSwaggerArtifact>true</attachSwaggerArtifact>
-							<modelConverters>com.fluig.api.tools.swagger.JSONPatchPropertyConverter</modelConverters>
-						</apiSource>
-					</apiSources>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			</plugin>			
 		</plugins>
 	</build>
 

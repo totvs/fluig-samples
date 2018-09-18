@@ -9,25 +9,7 @@
 
     <session-config>
         <session-timeout>30</session-timeout>
-    </session-config>
-
-    <servlet>
-        <servlet-name>SwaggerUIServlet</servlet-name>
-        <servlet-class>com.fluig.swagger.ui.SwaggerUIServlet</servlet-class>
-        <init-param>
-            <param-name>version</param-name>
-            <param-value>my-component</param-value>
-        </init-param>
-        <init-param>
-            <param-name>swaggerFile</param-name>
-            <param-value>/swagger-ui/swagger.json</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SwaggerUIServlet</servlet-name>
-        <url-pattern>/swagger-ui/*</url-pattern>
-    </servlet-mapping>
+    </session-config>    
 
     <filter>
         <filter-name>FluigLoggingFilter</filter-name>
