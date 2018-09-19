@@ -10,8 +10,7 @@
 		<theme>themedefault</theme>
 		<layout>samplelayout</layout>
 		<editable>false</editable>
-		<auth>1</auth>
-		<internalPage>true</internalPage>
+		<auth>1</auth>		
 		<icon>sample_icon.svg</icon>
 		<slots>
 			<slot>
@@ -48,8 +47,7 @@
 		<theme>themedefault</theme>
 		<layout>customlayout</layout>		
 		<editable>false</editable>
-		<auth>1</auth>
-		<internalPage>true</internalPage>
+		<auth>1</auth>		
 		<icon>custom-icon.png</icon>
 		<slots>
 			<slot>
