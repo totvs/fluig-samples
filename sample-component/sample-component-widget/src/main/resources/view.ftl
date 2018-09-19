@@ -3,23 +3,29 @@
     </div>
 
     <script type="text/template" class="template-users-content">
-        <h1>${i18n.getTranslation('label.widget.hello')}</h1>
-        <p>
-            <a class="btn btn-primary btn-lg" href="#" data-do-something role="button">${i18n.getTranslation('label.button.click')}</a>
-            <a class="btn btn-primary btn-lg" href="#" data-load-table role="button">${i18n.getTranslation('label.button.load.table')}</a>
-            <a class="btn btn-primary btn-lg" href="/sample-component-widget/resources/download/app.zip" role="button">Download</a>
-        </p>
-        <div class="row">
+    	<div class="row">
             <div class="jumbotron">
                 <h1>Sample component!</h1>
             </div>
         </div>
+        <h2>${i18n.getTranslation('label.widget.hello')}</h2>
+        <p>
+            <a class="btn btn-primary btn-lg" href="#" data-do-something role="button">${i18n.getTranslation('label.button.click')}</a>
+            <a class="btn btn-primary btn-lg" href="#" data-load-table role="button">${i18n.getTranslation('label.button.sample.rest.external')}</a>
+            <a class="btn btn-primary btn-lg" href="#" data-sample-rest role="button">${i18n.getTranslation('label.button.sample.rest.internal')}</a>
+            <a class="btn btn-primary btn-lg" href="/sample-component-widget/resources/download/app.zip" role="button">Download</a>
+        </p>
+        
+        <br>
+        
         <div class="row">
             <div class="col-md-12">
-                <div data-users-table></div>
+                <div data-sample-table></div>
             </div>
         </div>
+        
     </script>
+    
     <script type="text/template" class="template-list-users">
         <tr>
             <td title="{{name}}">{{name}}</td>
@@ -36,4 +42,12 @@
             </td>
         </tr>
     </script>
+    
+    <script type="text/template" class="template-list-item">
+    	<tr>
+            <td title="{{id}}">{{id}}</td>
+            <td title="{{name}}">{{name}}</td>
+    	</tr>
+    </script>
+    
 </div>

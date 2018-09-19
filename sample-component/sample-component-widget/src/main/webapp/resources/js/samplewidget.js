@@ -7,7 +7,8 @@ var SampleWidget = SuperWidget.extend({
 		local: {
 			'do-something': ['click_someFunc'],
 			'load-table': ['click_loadTable'],
-			'remove-user': ['click_removeUser']
+			'remove-user': ['click_removeUser'],
+			'sample-rest': ['click_loadSampleRest']
 		}
 	},
 
@@ -69,9 +70,7 @@ var SampleWidget = SuperWidget.extend({
 	},
 
 	loadContentFromTemplate: function() {
-		var that = this,
-			template = that.templates['template-users-table'],
-			html = '';
+		var that = this;
 		
 		that.serviceGetUsers(function(err, data) {
 			if(err) {
@@ -87,7 +86,7 @@ var SampleWidget = SuperWidget.extend({
 
 	buildDatatableViewUsers: function(data) {
 		var that = this;
-		that.datatableViewUsers = FLUIGC.datatable('[data-users-table]', {
+		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
 		    emptyMessage: '<div class="text-center">Não há dados para exibir.</div>',
 			header: [
 				{'title': 'Name'},
@@ -99,7 +98,44 @@ var SampleWidget = SuperWidget.extend({
 		    ],
 		    dataRequest: data,
 			renderContent: '.template-list-users',
-			//multiSelect: true,
+		    classSelected: 'active',
+		    actions: {enabled: false},
+		    search: {enabled: false},
+		    navButtons: {enabled: false}
+		}, function(err, data) {
+		    if(err) {
+		    	FLUIGC.toast({
+			        message: 'Erro',
+			        type: 'danger'
+			    });
+		    }
+		});
+	},
+	
+	loadSampleRest: function(){
+		var that = this;
+		this.serviceSampleRest(function(err, data){
+			if(err) {
+		    	FLUIGC.toast({
+			        message: 'Erro',
+			        type: 'danger'
+				});
+				return false;
+		    }			
+			that.buildDatatableItems(data);
+		});		
+	},
+	
+	buildDatatableItems: function(data) {
+		var that = this;
+		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
+		    emptyMessage: '<div class="text-center">Não há dados para exibir.</div>',
+			header: [
+				{'title': '#'},
+				{'title': 'Name'}
+		    ],
+		    dataRequest: data,
+			renderContent: '.template-list-item',
 		    classSelected: 'active',
 		    actions: {enabled: false},
 		    search: {enabled: false},
@@ -118,6 +154,18 @@ var SampleWidget = SuperWidget.extend({
 	serviceGetUsers: function(cb) {
 		var options,
 			url = 'https://jsonplaceholder.typicode.com/users',
+		options = {
+			url: url,
+			contentType: 'application/json',
+			dataType: 'json',
+			loading: true
+		};
+		FLUIGC.ajax(options, cb);
+	},
+	
+	serviceSampleRest: function(cb) {
+		var options,
+			url = '/samplecomponentweb/v1/samplerest',
 		options = {
 			url: url,
 			contentType: 'application/json',
