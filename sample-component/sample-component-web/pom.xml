@@ -42,18 +42,15 @@
 		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
 		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>provided</scope>
+			<artifactId>javaee-api</artifactId>			
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<scope>provided</scope>
+			<artifactId>httpclient</artifactId>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
-			<artifactId>fluig-api-tools</artifactId>
-			<scope>compile</scope>
+			<artifactId>fluig-api-tools</artifactId>			
 		</dependency>
 		<!-- /Other dependencies -->
 
