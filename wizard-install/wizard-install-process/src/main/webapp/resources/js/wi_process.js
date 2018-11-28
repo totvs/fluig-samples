@@ -181,6 +181,7 @@ var wiprocess = SuperWidget.extend({
 			url: '/wi_process/resources/process/processo-simples.xml',
 			type: 'GET',
 			dataType: 'binary',
+	        contentType: "charset=utf-8",
 			headers:{'Content-Type':'text/html','X-Requested-With':'XMLHttpRequest'},
 			processData: false,
 			success: function(xml){

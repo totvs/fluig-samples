@@ -4,7 +4,7 @@
       <companyId>1</companyId>
       <processId>processo-simples</processId>
     </processDefinitionPK>
-    <processDescription>processo-simples</processDescription>
+    <processDescription>Processo Simples: começando a criar um app</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
