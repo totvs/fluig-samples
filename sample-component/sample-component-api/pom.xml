@@ -15,14 +15,24 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<dependencies>
-		
+
 		<!-- fluig dependecies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-api</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-common</artifactId>
+			<version>${fluig.version}</version>
 		</dependency>
 
 		<!-- Fluig Api Tools -->
@@ -30,7 +40,7 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
 		</dependency>
-		
+
 		<!-- others -->
 		<dependency>
 			<groupId>javax</groupId>

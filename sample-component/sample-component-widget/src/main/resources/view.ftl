@@ -3,7 +3,7 @@
     </div>
 
     <script type="text/template" class="template-users-content">
-    	<div class="row">
+    	<div class="row" id="mainDiv">
             <div class="jumbotron">
                 <h1>Sample component!</h1>
             </div>
@@ -13,7 +13,7 @@
             <a class="btn btn-primary btn-lg" href="#" data-do-something role="button">${i18n.getTranslation('label.button.click')}</a>
             <a class="btn btn-primary btn-lg" href="#" data-load-table role="button">${i18n.getTranslation('label.button.sample.rest.external')}</a>
             <a class="btn btn-primary btn-lg" href="#" data-sample-rest role="button">${i18n.getTranslation('label.button.sample.rest.internal')}</a>
-            <a class="btn btn-primary btn-lg" href="/sample-component-widget/resources/download/app.zip" role="button">Download</a>
+            <a class="btn btn-primary btn-lg" href="/samplewidget/resources/download/app.zip" role="button">Download</a>
         </p>
         
         <br>
@@ -46,8 +46,19 @@
     <script type="text/template" class="template-list-item">
     	<tr>
             <td title="{{id}}">{{id}}</td>
-            <td title="{{name}}">{{name}}</td>
+            <td title="{{login}}">{{login}}</td>
+            <td title="{{fullName}}">{{fullName}}</td>
+            <td title="{{email}}">{{email}}</td>
+            
     	</tr>
+    </script>
+    
+    <script type="text/template" class="template-license-ok">    	
+    	<div class="alert alert-success" role="alert">${i18n.getTranslation('label.license.ok')}</div>    	
+    </script>
+    
+    <script type="text/template" class="template-license-non-ok">
+    	<div class="alert alert-warning" role="alert">${i18n.getTranslation('label.license.non.ok')}</div>
     </script>
     
 </div>

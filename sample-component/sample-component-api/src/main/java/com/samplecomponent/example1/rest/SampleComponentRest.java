@@ -1,6 +1,5 @@
 package com.samplecomponent.example1.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -9,6 +8,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import com.fluig.api.tools.response.ErrorResponse;
+import com.fluig.sdk.api.FluigAPI;
+import com.fluig.sdk.api.common.SDKException;
+import com.fluig.sdk.service.UserService;
+import com.fluig.sdk.user.UserVO;
 import com.totvs.technology.foundation.common.EncodedMediaType;
 
 import io.swagger.annotations.Api;
@@ -30,16 +33,13 @@ public class SampleComponentRest {
         @ApiResponse(code = 500, message = "Internal error, see response for more details",
         response = ErrorResponse.class)})
     public Response list() throws Exception {
-
-        List<SampleComponentVO> list = new ArrayList<>();
-
-        SampleComponentVO s1 = new SampleComponentVO(1L, "fluig");
-        SampleComponentVO s2 = new SampleComponentVO(2L, "totvs");
-
-        list.add(s1);
-        list.add(s2);
-
+    	
+    	List<UserVO> list = getUserServiceSDK().list(0, 10);
         return Response.ok(list).build();
+    }
+    
+    private UserService getUserServiceSDK() throws SDKException {
+        return new FluigAPI().getUserService();
     }
 
 }

@@ -1,6 +1,7 @@
 var SampleWidget = SuperWidget.extend({
 	
 	datatableViewUsers: null,
+	slotId: 4012,
 
 	bindings: {
 		// binding dos botões relacionados com cada função 
@@ -16,11 +17,29 @@ var SampleWidget = SuperWidget.extend({
 		var that = this;
 		// se desejar, coloque aqui instruções iniciais de cada widget
 		that.loadPage();
+		that.checkLicense();		
+	},
+	
+	/**
+	 * Função para verificar se o cliente possui licença para utilizar o app, através do SlotID 
+	 */
+	checkLicense: function(){
+		var that = this;
+		this.serviceCheckLicense(function(err, data){			
+				var template = that.templates['template-license-ok'],				
+					html = '';
+				
+			if(!data.valid){
+				template = that.templates['template-license-non-ok'];
+			}
+			
+			html = Mustache.render(template, {});			
+			$('#mainDiv').append(html);
+		});		
 	},
 
 	/**
-	 * Função para exibir a data atual
-	 * @returns
+	 * Função para exibir a data atual	 * 
 	 */
 	someFunc: function(el, ev) {	
 		var d = new Date();
@@ -33,19 +52,28 @@ var SampleWidget = SuperWidget.extend({
 		});
 	},
 
+	/**
+	 * Função que carrega os dados da widget
+	 */
 	loadPage: function() {
 		var that = this,
 			template = that.templates['template-users-content'],
 			html = '';
 		
 		html = Mustache.render(template, {});
-		$('[data-users-content]').html(html);
+		$('[data-users-content]').append(html);
 	},
-
+	
+	/**
+	 * Função para criar o datatable
+	 */
 	loadTable: function(el, ev) {
 		this.loadContentFromTemplate();
 	},
 
+	/**
+	 * Remove um usuário da tabela. Apenas em tela
+	 */
 	removeUser: function(el, ev) {
 		var that = this,
 			itemSelect = that.datatableViewUsers.selectedRows()[0];
@@ -69,6 +97,9 @@ var SampleWidget = SuperWidget.extend({
 		}
 	},
 
+	/**
+	 * Função para request da API
+	 */
 	loadContentFromTemplate: function() {
 		var that = this;
 		
@@ -84,6 +115,9 @@ var SampleWidget = SuperWidget.extend({
 		});
 	},
 
+	/**
+	 * Constrói o datatable com os dados da API serviceGetUsers
+	 */
 	buildDatatableViewUsers: function(data) {
 		var that = this;
 		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
@@ -112,6 +146,9 @@ var SampleWidget = SuperWidget.extend({
 		});
 	},
 	
+	/**
+	 * Função para uma api do próprio sample component
+	 */
 	loadSampleRest: function(){
 		var that = this;
 		this.serviceSampleRest(function(err, data){
@@ -126,13 +163,18 @@ var SampleWidget = SuperWidget.extend({
 		});		
 	},
 	
+	/**
+	 * Constrói o datatable da API serviceSampleRest
+	 */
 	buildDatatableItems: function(data) {
 		var that = this;
 		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
 		    emptyMessage: '<div class="text-center">Não há dados para exibir.</div>',
 			header: [
-				{'title': '#'},
-				{'title': 'Name'}
+				{'title': 'id'},
+				{'title': 'login'},
+				{'title': 'Nome'},
+				{'title': 'eamil'}
 		    ],
 		    dataRequest: data,
 			renderContent: '.template-list-item',
@@ -151,6 +193,9 @@ var SampleWidget = SuperWidget.extend({
 		});
 	},
 
+	/**
+	 *  Request para uma API externa ao fluig
+	 */
 	serviceGetUsers: function(cb) {
 		var options,
 			url = 'https://jsonplaceholder.typicode.com/users',
@@ -163,6 +208,10 @@ var SampleWidget = SuperWidget.extend({
 		FLUIGC.ajax(options, cb);
 	},
 	
+	/**
+	 * Request para uma api do próprio sample-component, desenvolvida em Java
+	 *
+	 */
 	serviceSampleRest: function(cb) {
 		var options,
 			url = '/samplecomponentweb/v1/samplerest',
@@ -173,6 +222,21 @@ var SampleWidget = SuperWidget.extend({
 			loading: true
 		};
 		FLUIGC.ajax(options, cb);
+	},
+	
+	/**
+	 * Request para a API de License do fluig
+	 */
+	serviceCheckLicense: function(cb){
+		var options,
+		url = '/license/api/v1/slots/' + this.slotId,
+		options = {
+			url: url,
+			contentType: 'application/json',
+			dataType: 'json',
+			loading: true
+		};
+		FLUIGC.ajax(options, cb);		
 	}
 
 });
