@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fluig</groupId>
 	<artifactId>sample-component</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>pom</packaging>
 
 	<name>Sample Component</name>
@@ -21,7 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências serão utilizadas -->
-		<fluig.version>1.6.3</fluig.version>
+		<fluig.version>1.6.5</fluig.version>
 	</properties>
 
 	<modules>
