@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 	</parent>
 	<artifactId>sample-component-widget</artifactId>	
 	<packaging>war</packaging>
@@ -14,7 +14,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>	
+	</properties>
 
 	<build>
 		<plugins>
@@ -28,5 +28,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
+
 </project>

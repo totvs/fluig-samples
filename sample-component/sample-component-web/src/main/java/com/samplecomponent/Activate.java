@@ -3,15 +3,15 @@ package com.samplecomponent;
 import com.fluig.customappkey.Keyring;
 import com.fluig.sdk.api.component.activation.ActivationEvent;
 import com.fluig.sdk.api.component.activation.ActivationListener;
+import com.samplecomponent.rest.RestConstant;
 
 import javax.ejb.Remote;
-import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
-@Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
 @Remote
+@Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
 public class Activate implements ActivationListener {
 
     public String getArtifactFileName() throws Exception {
@@ -26,7 +26,7 @@ public class Activate implements ActivationListener {
     }
 
     public void enable(ActivationEvent evt) throws Exception {
-        Keyring.provision("1234-5678-9876-5432");
+        Keyring.provision(RestConstant.APP_KEY);
     }
 
 }
