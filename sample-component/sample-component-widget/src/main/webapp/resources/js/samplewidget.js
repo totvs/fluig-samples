@@ -3,6 +3,12 @@ var SampleWidget = SuperWidget.extend({
 	datatableViewUsers: null,
 	slotId: 4012,
 
+	i18n: {
+		'msg.welcome': function () {
+			return '${i18n.getTranslationP1("msg.welcome", "' + arguments[0] + '")}';
+		}
+	},
+
 	bindings: {
 		// binding dos botões relacionados com cada função 
 		local: {
@@ -16,8 +22,17 @@ var SampleWidget = SuperWidget.extend({
 	init: function() {
 		var that = this;
 		// se desejar, coloque aqui instruções iniciais de cada widget
+		that.welcomeMsg();
 		that.loadPage();
-		that.checkLicense();		
+		that.checkLicense();
+	},
+	
+	welcomeMsg: function(){
+		var that = this;
+		FLUIGC.toast({			
+			message: that.i18n['msg.welcome'](WCMAPI.getUser()),
+			type: 'success'
+		});		
 	},
 	
 	/**
@@ -214,7 +229,7 @@ var SampleWidget = SuperWidget.extend({
 	 */
 	serviceSampleRest: function(cb) {
 		var options,
-			url = '/samplecomponentweb/v1/samplerest',
+			url = '/samplecomponent/v1/myrest',
 		options = {
 			url: url,
 			contentType: 'application/json',

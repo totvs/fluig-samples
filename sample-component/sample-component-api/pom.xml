@@ -8,9 +8,10 @@
 		<version>1.0.2</version>
 	</parent>
 	<artifactId>sample-component-api</artifactId>
-	<packaging>jar</packaging>
+	<packaging>jar</packaging>	
 
 	<name>Sample Component - api</name>
+	<description>Sample Component - api | description</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,18 +35,29 @@
 			<artifactId>fluig-sdk-common</artifactId>
 			<version>${fluig.version}</version>
 		</dependency>
-
-		<!-- Fluig Api Tools -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>fluig-sdk-keyring</artifactId>
+			<version>${fluig.version}</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
 		</dependency>
+		<!-- /fluig dependecies -->
 
 		<!-- others -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>oauth.signpost</groupId>
+			<artifactId>signpost-core</artifactId>
+		</dependency>
+		<!-- /others -->
+		
 	</dependencies>
 
 </project>

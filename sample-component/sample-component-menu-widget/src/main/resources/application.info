@@ -1,12 +1,12 @@
 application.title=Widget Menu
 application.description=Widget Menu
 application.category=Sample
-application.code=widgetmenu
+application.code=samplewidgetmenu
 application.icon=icon.png
 application.renderer=freemarker
 application.type=widget
-application.resource.css.1=/resources/css/widgetmenu.css
-application.resource.js.2=/resources/js/widgetmenu.js
+application.resource.css.1=/resources/css/samplewidgetmenu.css
+application.resource.js.2=/resources/js/samplewidgetmenu.js
 application.uiwidget=false
 
 simple.deploy=true

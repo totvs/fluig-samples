@@ -1,9 +1,11 @@
 package com.samplecomponent.rest;
 
-import com.fluig.customappkey.Keyring;
-import com.fluig.sdk.api.customappkey.KeyVO;
-import oauth.signpost.OAuthConsumer;
-import oauth.signpost.basic.DefaultOAuthConsumer;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -12,21 +14,17 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
-@Path("/rest")
-public class SampleRest {
+import com.fluig.customappkey.Keyring;
+import com.fluig.sdk.api.customappkey.KeyVO;
+import com.samplecomponent.util.ErrorStatus;
+import com.samplecomponent.util.RestConstant;
 
-    private OAuthConsumer config(KeyVO key) {
-        OAuthConsumer consumer = new DefaultOAuthConsumer(key.getConsumerKey(), key.getConsumerSecret());
-        consumer.setTokenWithSecret(key.getToken(), key.getTokenSecret());
-        return consumer;
-    }
+import oauth.signpost.OAuthConsumer;
+import oauth.signpost.basic.DefaultOAuthConsumer;
+
+@Path("/activate")
+public class SampleActivateRest {
 
     @GET
     @Path("/search/{tenantId}")
@@ -113,5 +111,11 @@ public class SampleRest {
             e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new ErrorStatus(e)).build();
         }
+    }
+
+    private OAuthConsumer config(KeyVO key) {
+        OAuthConsumer consumer = new DefaultOAuthConsumer(key.getConsumerKey(), key.getConsumerSecret());
+        consumer.setTokenWithSecret(key.getToken(), key.getTokenSecret());
+        return consumer;
     }
 }

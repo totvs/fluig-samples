@@ -9,7 +9,7 @@
             </a>
         </li>
         <li class="menu-item<#if pageCode == 'page_custom_layout'> active</#if>" >
-            <a class="item-a" href="${tenantURI}/page_custom_layout">
+            <a class="item-a" href="${tenantURI}/sample_page2">
                 <span class="fluigicon fluigicon-android fluigicon-md"></span>
                 <span class="menu-item-text">${i18n.getTranslation('page.custom.layout')}</span>
             </a>
@@ -39,7 +39,7 @@
 
         <li class="menu-item">
             <a class="item-a" href="#">
-                <img src="/widgetmenu/resources/images/menu.png" >
+                <img src="/samplewidgetmenu/resources/images/menu.png" >
                 <span class="menu-item-img-text">${i18n.getTranslation('menu.img')}</span>
             </a>
         </li>

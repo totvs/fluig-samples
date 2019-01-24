@@ -1,12 +1,12 @@
 application.title=Custom Layout
 application.description=Custom Layout
 application.category=Sample
-application.code=customlayout
+application.code=samplecustomlayout
 application.icon=icon.png
 application.renderer=freemarker
 application.type=layout
-application.resource.js.1=/resources/js/customlayout.js
-application.resource.css.2=/resources/css/customlayout.css
+application.resource.js.1=/resources/js/samplecustomlayout.js
+application.resource.css.2=/resources/css/samplecustomlayout.css
 application.uilayout=false
 
 simple.deploy=true

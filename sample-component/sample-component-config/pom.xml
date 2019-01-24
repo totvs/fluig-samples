@@ -7,11 +7,11 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.2</version>
 	</parent>
-	<artifactId>sample-component-web</artifactId>
+	<artifactId>sample-component-config</artifactId>
 	<packaging>war</packaging>
 
-	<name>Sample Component - web</name>
-	<description>Sample Component - web | description</description>
+	<name>Sample Component - config</name>
+	<description>Sample Component - config | description</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,11 +42,6 @@
 			<version>${fluig.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>oauth.signpost</groupId>
-			<artifactId>signpost-core</artifactId>
-			<version>1.2.1.1</version>
-		</dependency>
 		<!-- /Fluig Dependencies -->
 
 		<!-- Other dependencies -->
@@ -54,31 +49,21 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>			
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>			
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-api-tools</artifactId>			
-		</dependency>
+		</dependency>		
 		<!-- /Other dependencies -->
 
 	</dependencies>
 
 	<build>
-		<finalName>sample-component-web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 

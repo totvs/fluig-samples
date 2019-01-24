@@ -65,7 +65,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-web</artifactId>
+			<artifactId>sample-component-config</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>			
@@ -122,9 +122,8 @@
 					<modules>						
 						<webModule>
 							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-web</artifactId>
-							<bundleFileName>sample-component-web.war</bundleFileName>
-							<contextRoot>/samplecomponentweb</contextRoot>
+							<artifactId>sample-component-config</artifactId>							
+							<contextRoot>/samplecomponent</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
@@ -134,12 +133,12 @@
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-custom-layout</artifactId>							
-							<contextRoot>/customlayout</contextRoot>
+							<contextRoot>/samplecustomlayout</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-menu-widget</artifactId>							
-							<contextRoot>/widgetmenu</contextRoot>
+							<contextRoot>/samplewidgetmenu</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>

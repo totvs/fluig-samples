@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fluig</groupId>
@@ -9,7 +10,7 @@
 
 	<name>Sample Component</name>
 	<description>Sample Component description</description>
-	
+
 	<repositories>
 		<repository>
 			<id>nexus</id>
@@ -20,7 +21,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências serão utilizadas -->
+		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências 
+			serão utilizadas -->
 		<fluig.version>1.6.5</fluig.version>
 	</properties>
 
@@ -30,7 +32,7 @@
 		<module>sample-component-custom-layout</module>
 		<module>sample-component-menu-widget</module>
 		<module>sample-component-api</module>
-		<module>sample-component-web</module>
+		<module>sample-component-config</module>
 		<module>sample-component-pack</module>
 	</modules>
 
@@ -53,6 +55,12 @@
 				<artifactId>fluig-api-tools</artifactId>
 				<version>1.1.0</version>
 				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>oauth.signpost</groupId>
+				<artifactId>signpost-core</artifactId>
+				<version>1.2.1.1</version>
+				<scope>compile</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

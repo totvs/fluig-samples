@@ -1,4 +1,4 @@
-package com.samplecomponent.rest;
+package com.samplecomponent.util;
 
 import java.io.Serializable;
 
