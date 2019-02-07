@@ -121,7 +121,7 @@ var SampleWidget = SuperWidget.extend({
 		that.serviceGetUsers(function(err, data) {
 			if(err) {
 		    	FLUIGC.toast({
-			        message: 'Erro',
+			        message: '${i18n.getTranslation("msg.error")}',
 			        type: 'danger'
 				});
 				return false;
@@ -136,14 +136,14 @@ var SampleWidget = SuperWidget.extend({
 	buildDatatableViewUsers: function(data) {
 		var that = this;
 		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
-		    emptyMessage: '<div class="text-center">Não há dados para exibir.</div>',
+		    emptyMessage: '<div class="text-center">${i18n.getTranslation("msg.no.data.found")}</div>',
 			header: [
-				{'title': 'Name'},
-				{'title': 'Username'},
-				{'title': 'Address'},
-				{'title': 'Email'},
-				{'title': 'Phone'},
-				{'title': 'Delete'}
+				{'title': '${i18n.getTranslation("label.name")}'},
+				{'title': '${i18n.getTranslation("label.login")}'},
+				{'title': '${i18n.getTranslation("label.address")}'},
+				{'title': '${i18n.getTranslation("label.email")}'},
+				{'title': '${i18n.getTranslation("label.phone")}'},
+				{'title': '${i18n.getTranslation("label.delete")}'}
 		    ],
 		    dataRequest: data,
 			renderContent: '.template-list-users',
@@ -154,7 +154,7 @@ var SampleWidget = SuperWidget.extend({
 		}, function(err, data) {
 		    if(err) {
 		    	FLUIGC.toast({
-			        message: 'Erro',
+		    		message: '${i18n.getTranslation("msg.error")}',
 			        type: 'danger'
 			    });
 		    }
@@ -169,7 +169,7 @@ var SampleWidget = SuperWidget.extend({
 		this.serviceSampleRest(function(err, data){
 			if(err) {
 		    	FLUIGC.toast({
-			        message: 'Erro',
+		    		message: '${i18n.getTranslation("msg.error")}',
 			        type: 'danger'
 				});
 				return false;
@@ -184,12 +184,12 @@ var SampleWidget = SuperWidget.extend({
 	buildDatatableItems: function(data) {
 		var that = this;
 		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
-		    emptyMessage: '<div class="text-center">Não há dados para exibir.</div>',
+			emptyMessage: '<div class="text-center">${i18n.getTranslation("msg.no.data.found")}</div>',
 			header: [
-				{'title': 'id'},
-				{'title': 'login'},
-				{'title': 'Nome'},
-				{'title': 'eamil'}
+				{'title': '${i18n.getTranslation("label.id")}'},
+				{'title': '${i18n.getTranslation("label.login")}'},
+				{'title': '${i18n.getTranslation("label.name")}'},
+				{'title': '${i18n.getTranslation("label.email")}'}
 		    ],
 		    dataRequest: data,
 			renderContent: '.template-list-item',
@@ -201,7 +201,7 @@ var SampleWidget = SuperWidget.extend({
 		}, function(err, data) {
 		    if(err) {
 		    	FLUIGC.toast({
-			        message: 'Erro',
+		    		message: '${i18n.getTranslation("msg.error")}',
 			        type: 'danger'
 			    });
 		    }

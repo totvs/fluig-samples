@@ -37,14 +37,19 @@ Esse arquivo se encontra em sample-component-config/src/main/resources/component
 
 Para criar a página e já disponibilizar a widget, é necessário o arquivo **pages.xml**
 Esse arquivo se encontra em sample-component-config/src/main/resources/pages.xml
-Lemrbando que o código da página precisa ser único: **<code>pageSample_Component</code>**
+Lembrando que o código da página precisa ser único: ex.: **<code>sample-component-page</code>**
 
-O ícone da página criada, pode ser encontrado em sample-component-config/src/main/webapp/resources/images/sample_icon.svg
+O ícone da página criada, pode ser encontrado em sample-component-config/src/main/webapp/resources/images/sample-component.png
+
+A classe Activate.java é reponsável por provisionar a criação de um OAuth Provider e um OAuth App, de acordo com o Token inserido na classe RestConstant.java
+*Lembrando que essa funcionalidade de provisionar só está disponível a partir da release 1.6.5*
+Acesse a documentação para maiores informações: [Como expor dados em ambientes públicos](https://bit.ly/2SEW4bz)
 
 
 * **sample-component-api**: projeto responsável em disponibilizar a API Rest desenvolvida em Java
 
 A API Rest de exemplo, pode ser testada pela URL FLUIG_URL/samplecomponent/v1/myrest
+Para testar o Rest sem autenticação, /activate/v1/userInfo/{tenantId}
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
