@@ -17,6 +17,7 @@
 	<security-role>
 		<role-name>sysadmin</role-name>
 	</security-role>
+	
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<realm-name>TOTVSTech</realm-name>

@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component code="Sample_Component">
+<!--
+	Esse arquivo é o identificador do app, dentro do fluig e na fluig Store
+	
+	Detalhando:
+	
+	- code:          É a chave única do seu app, tanto no fluig onde vai ser instalado quanto no repositório da fluig Store. Precisa ser único.
+	- title:         Nome do app que será exibido nos Itens da Store.
+	- description:   Descrição do app que será exibido nos Itens da Store e também na Central de Componentes, dentro do fluig.
+	- version:       Versão do app. Será utilizado para verificar se existe uma atualização do app disponível.
+	- category:      Categoria do app que será exibido nos Itens da Store. tente utilizar o mesmo valor que foi inserido no application.info das widgets.
+	- icon:          Não é utilizado. Pode deixar da maneira que está.
+	- developerCode: Código do parceiro que foi cadastrado no Portal da fluig Store. Caso não saiba, entrar em contato com a equipe do fluig.
+	- developerName: Nome da empresa/parceiro.
+	- developerURL:  Site da empresa/parceiro.
+	
+	- activationClass: Caso você precise provisionar a criação um OAuth Proviade/App no momento da instalação do seu app.  
+ -->
+
+<component code="sample_component_app">
 	<title>Sample Component</title>
 	<description>Sample Component</description>
 	<version>1.0.2</version>

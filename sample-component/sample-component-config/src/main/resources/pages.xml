@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--	
+	A estrutura de páginas desse exemplo está definida da seguinte maneira:
+	- Na raíz, existe apenas uma página referente ao app.
+		- Existem duas outras páginas que são filha dessa página na raíz.	
+	
+	Exemplo utilizado aqui nesse app:
+	- sample-component-page (pai)
+		- sample_page1 (filha 1 e default)
+		- sample_page2 (filha 2)
+		
+     * O seu app pode ter apenas uma página na raíz. As demais, devem ser filhas.		
+ -->
+
 <pages>
 	<page>
 		<code>sample-component-page</code>
@@ -32,6 +46,7 @@
 				<code>pageView</code>
 				<description>permission.page.view</description>
 				<role>user</role>
+				<!-- Caso queira colocar um grupo, é só trocar de role para group: <group>grupo-rh</gorup> -->
 			</permission>
 			<permission>
 				<code>pageUpdate</code>

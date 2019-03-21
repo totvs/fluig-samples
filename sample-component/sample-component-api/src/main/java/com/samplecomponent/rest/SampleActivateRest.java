@@ -32,7 +32,13 @@ public class SampleActivateRest {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getSearch(@PathParam("tenantId") Long tenantId) throws Exception {
 
+    	// Service para recuperar o objeto KeyVO. Esse objeto conta com os dados pra criar uma requisição OAuth pro fluig:
+    	// consumerKey
+    	// consumerSecret
+    	// tokenAccess
+    	// tokenSecret
         KeyVO key = Keyring.getKeys(tenantId, RestConstant.APP_KEY);
+        
         try {
             OAuthConsumer config = config(key);
             // Exemplo de requisição POST realizando uma consulta no fluig
