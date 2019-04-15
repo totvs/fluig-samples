@@ -42,6 +42,43 @@
 			<version>${fluig.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- FOUNDATION / Dependencies -->
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-monitoring-module</artifactId>			
+			<version>${fluig.version}</version>			
+		</dependency>		
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-blocker-filter</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-blocker-api</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>		
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-security-base-api</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-sdk-service</artifactId>
+			<version>${fluig.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-configuration</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>foundation-common</artifactId>
+			<version>${fluig.version}</version>
+		</dependency>		
 		<!-- /Fluig Dependencies -->
 
 		<!-- Other dependencies -->
