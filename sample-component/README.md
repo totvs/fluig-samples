@@ -50,8 +50,10 @@ A estrutura está definida da seguinte maneira:
 * **sample-component-api**: projeto responsável em disponibilizar as API Rest desenvolvida em Java
 
 	A API Rest de exemplo(necessário estar autenticado), pode ser testada pela URL FLUIG_URL/samplecomponent/v1/myrest
+	* A configuração de autenticação desse Rest está no arquivo web.xml do projeto sample-component-config
 	
 	Para testar o Rest SEM autenticação, FLUIG_URL/samplecomponent/v1/activate/userInfo/{tenantId}
+	* Lembrando que, pra efetuar essa requisição, é necessário ativar o componente
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.

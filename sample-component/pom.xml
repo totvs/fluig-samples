@@ -11,6 +11,7 @@
 	<name>Sample Component</name>
 	<description>Sample Component description</description>
 
+	<!-- Necessário configurar o nexus.fluig.com como repositório central de dependências -->
 	<repositories>
 		<repository>
 			<id>nexus</id>
@@ -35,6 +36,7 @@
 		<module>sample-component-pack</module>
 	</modules>
 
+	<!--Dependency Management: controla a versão das dependencias utilizadas pelo projeto  -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

@@ -42,6 +42,7 @@
 			<version>${fluig.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- /Fluig Dependencies -->
 
 		<!-- Other dependencies -->
 		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
