@@ -48,8 +48,7 @@
             <td title="{{id}}">{{id}}</td>
             <td title="{{login}}">{{login}}</td>
             <td title="{{fullName}}">{{fullName}}</td>
-            <td title="{{email}}">{{email}}</td>
-            
+            <td title="{{email}}">{{email}}</td>            
     	</tr>
     </script>
     

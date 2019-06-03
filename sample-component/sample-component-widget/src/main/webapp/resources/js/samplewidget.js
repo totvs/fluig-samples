@@ -40,7 +40,7 @@ var SampleWidget = SuperWidget.extend({
 	 */
 	checkLicense: function(){
 		var that = this;
-		this.serviceCheckLicense(function(err, data){			
+		this.serviceCheckSlotId(function(err, data){			
 				var template = that.templates['template-license-ok'],				
 					html = '';
 				
@@ -240,9 +240,9 @@ var SampleWidget = SuperWidget.extend({
 	},
 	
 	/**
-	 * Request para a API de License do fluig
+	 * Request para a API de License do fluig: verificar slotId
 	 */
-	serviceCheckLicense: function(cb){
+	serviceCheckSlotId: function(cb){
 		var options,
 		url = '/license/api/v1/slots/' + this.slotId,
 		options = {
@@ -251,7 +251,22 @@ var SampleWidget = SuperWidget.extend({
 			dataType: 'json',
 			loading: true
 		};
-		FLUIGC.ajax(options, cb);		
+		FLUIGC.ajax(options, cb);
+	},
+	
+	/**
+	 * Request para a API de License do fluig: verificar o nº de licenças contratadas
+	 */
+	serviceCheckAvailableUsers: function(cb){
+		var options,
+		url = '/license/api/v1/licenses/' + this.slotId,
+		options = {
+			url: url,
+			contentType: 'application/json',
+			dataType: 'json',
+			loading: true
+		};
+		FLUIGC.ajax(options, cb);
 	}
 
 });
