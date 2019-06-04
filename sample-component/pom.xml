@@ -32,7 +32,6 @@
 		<module>sample-component-menu-widget</module>
 		<module>sample-component-api</module>
 		<module>sample-component-config</module>
-		<module>sample-component-entity</module>
 		<module>sample-component-pack</module>    	
   </modules>
 
@@ -60,8 +59,7 @@
 			<dependency>
 				<groupId>oauth.signpost</groupId>
 				<artifactId>signpost-core</artifactId>
-				<version>1.2.1.1</version>
-				<scope>compile</scope>
+				<version>1.2.1.1</version>				
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

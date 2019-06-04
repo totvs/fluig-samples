@@ -24,6 +24,7 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -38,12 +39,12 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
-			<version>${fluig.version}</version>
-			<scope>compile</scope>
+			<version>${fluig.version}</version>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<!-- /fluig dependecies -->
 
@@ -51,6 +52,7 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>oauth.signpost</groupId>

@@ -1,4 +1,4 @@
-package com.samplecomponent.store;
+package com.samplecomponent.entity;
 
 import java.io.Serializable;
 
@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = SampleCategory.FIND_ALL, query = "SELECT sc FROM SampleCategory sc WHERE sc.tenantId = :tenantId", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId")}),
-	@NamedQuery(name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE LOWER(sc.name) LIKE %:name% AND sc.tenantId = :tenantId)", hints = {
+	@NamedQuery(name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE LOWER(sc.name) LIKE :name AND sc.tenantId = :tenantId)", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String name")})})
 public class SampleCategory implements Serializable {
 

@@ -1,4 +1,4 @@
-package com.samplecomponent.store;
+package com.samplecomponent.entity;
 
 import java.io.Serializable;
 
@@ -21,18 +21,18 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "SCO_APPS", indexes = {
-		@Index(columnList = "TENANT_ID, NAME, DEVELOPER_CODE", name = "scp_apps_idx", unique = true)})
+		@Index(columnList = "TENANT_ID, NAME, DEVELOPER", name = "scp_apps_idx", unique = true)})
 @NamedQueries({
 	@NamedQuery(name = SampleApp.FIND_ALL, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId")}),
 
-	@NamedQuery(name = SampleApp.FIND_BY_DEVELOPER, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId", hints = {
-			@QueryHint(name = "parameters", value = "java.lang.Long tenantId")}),
+	@NamedQuery(name = SampleApp.FIND_BY_DEVELOPER, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId AND sa.developer = :developer", hints = {
+			@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String developer")}),
 
-	@NamedQuery(name = SampleApp.FIND_BY_CATEGORY, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId", hints = {
-			@QueryHint(name = "parameters", value = "java.lang.Long tenantId")}),
+	@NamedQuery(name = SampleApp.FIND_BY_CATEGORY, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId AND sa.category = :category", hints = {
+			@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String category")}),
 
-	@NamedQuery(name = SampleApp.FIND_BY_NAME, query = "SELECT sa FROM SampleApp sa WHERE LOWER(sa.name) LIKE %:name% AND sa.tenantId = :tenantId)", hints = {
+	@NamedQuery(name = SampleApp.FIND_BY_NAME, query = "SELECT sa FROM SampleApp sa WHERE LOWER(sa.name) LIKE :name AND sa.tenantId = :tenantId)", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String name")})})
 public class SampleApp implements Serializable {
 
