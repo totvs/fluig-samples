@@ -32,7 +32,8 @@
 		<module>sample-component-menu-widget</module>
 		<module>sample-component-api</module>
 		<module>sample-component-config</module>
-		<module>sample-component-pack</module>    	
+		<module>sample-component-pack</module>
+    <module>sample-component-service</module>
   </modules>
 
 	<!--Dependency Management: controla a versão das dependencias utilizadas pelo projeto  -->

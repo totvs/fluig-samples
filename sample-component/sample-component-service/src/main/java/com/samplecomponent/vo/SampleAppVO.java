@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Objeto de request/response da API, abstraindo o objeto da regra de negócio
  * Pode também ser chamado de DTO
  */
-public class SampleComponentVO implements Serializable {
+public class SampleAppVO implements Serializable {
 
     /**
      *
@@ -17,10 +17,10 @@ public class SampleComponentVO implements Serializable {
     private String name;    
     
 
-    public SampleComponentVO() {		
+    public SampleAppVO() {		
 	}
 
-	public SampleComponentVO(Long id, String name) {
+	public SampleAppVO(Long id, String name) {
         super();
         this.id = id;
         this.name = name;
