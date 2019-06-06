@@ -23,24 +23,27 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-api</artifactId>
 			<version>${project.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		
 		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
+			<scope>provided</scope>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
+			<scope>provided</scope>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
 			<version>${fluig.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<!-- /Fluig Dependencies -->
 
@@ -48,7 +51,8 @@
 		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
 		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>			
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
 		</dependency>		
 		<!-- /Other dependencies -->
 
