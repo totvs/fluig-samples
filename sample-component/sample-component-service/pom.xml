@@ -9,9 +9,9 @@
 	</parent>	
 	<artifactId>sample-component-service</artifactId>
 	<packaging>jar</packaging>
-	
-	<name>sample-component-service</name>
-	<description>sample-component-service</description>
+
+	<name>Sample Component - service</name>
+	<description>Sample Component - service | description</description>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
