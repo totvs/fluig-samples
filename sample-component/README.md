@@ -77,7 +77,7 @@ A estrutura está definida da seguinte maneira:
 	Esse projeto é um modelo que você pode seguir para criar suas tabelas no fluig. Fique atento ao arquivo persistence.xml, onde é informado o data source que obrigatoriamente deve ser utilizado para os parceiros criarem suas tabelas: AppDS
 	Também é possível encontrar as classes definidas como entidades, que serão suas tabelas no banco de dados, bem como a criação das queries e índices.
 	
-	<em><strong>Ainda não estão disponíveis os serviços para conectar com as API's Rest. Logo menos, vamos criar esses serviços e disponibilizar nesse mesmo projeto.</strong></em><br>
+		<em><strong>Ainda não estão disponíveis os serviços para conectar com as API's Rest. Logo menos, vamos criar esses serviços e disponibilizar nesse mesmo projeto.</strong></em><br>
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
