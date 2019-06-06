@@ -61,16 +61,15 @@ A estrutura está definida da seguinte maneira:
 	A partir da release do fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas no fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo ao fluig. 
 	Para utilizar essa funcionalidade, algumas diretrizes são obrigatórias:
 	
-		* DataSource name: AppDS
-		
-		* Não criar relacionamento com as tabelas da plataforma (PK, FK, view, trigger, índices, etc)
-		
+		* DataSource name: AppDS		
+		* Não criar relacionamento com as tabelas da plataforma (PK, FK, view, trigger, índices, etc)		
 		* Não inserir/alterar/remover registros das tabelas do fluig. Para isso, utilize as API, WebServices e ou SDK
 		* Criar índices para as tabelas
 		* No nome das tabelas, adicionar o prefixo com o nome da empresa + “_”. Ex.: XYZ Company: XYZ_my_table
 		* Não utilizar prefixo de tabelas do fluig. Ex.: fdn, wcm, etc.
 		
-	Algumas recomendações:	
+	Algumas recomendações:
+	
 		* Utilizar limit e offset
 		* Ao criar uma consulta/select, especificar as colunas (evite utilizar select * from)
 		* Criar um VO específico para retorno invés de retornar a própria entidade
