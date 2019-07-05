@@ -15,6 +15,7 @@ A estrutura está definida da seguinte maneira:
 ###### sample-component-pack
 ###### sample-component-config
 ###### sample-component-api
+###### sample-component-service
 ###### sample-component-widget
 ###### sample-component-layout
 ###### sample-component-custom-layout
@@ -54,6 +55,29 @@ A estrutura está definida da seguinte maneira:
 	
 	Para testar o Rest SEM autenticação, FLUIG_URL/samplecomponent/v1/activate/userInfo/{tenantId}
 	* Lembrando que, pra efetuar essa requisição, é necessário ativar o componente
+	
+* **sample-component-service**: projeto responsável em criar tabelas no banco de dados, dedicadas apenas a esse app
+
+	A partir da release do fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas no fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo ao fluig. 
+	Para utilizar essa funcionalidade, algumas diretrizes são obrigatórias:
+	
+		* DataSource name: AppDS		
+		* Não criar relacionamento com as tabelas da plataforma (PK, FK, view, trigger, índices, etc)		
+		* Não inserir/alterar/remover registros das tabelas do fluig. Para isso, utilize as API, WebServices e ou SDK
+		* Criar índices para as tabelas
+		* No nome das tabelas, adicionar o prefixo com o nome da empresa + “_”. Ex.: XYZ Company: XYZ_my_table
+		* Não utilizar prefixo de tabelas do fluig. Ex.: fdn, wcm, etc.
+		
+	Algumas recomendações:
+	
+		* Utilizar limit e offset
+		* Ao criar uma consulta/select, especificar as colunas (evite utilizar select * from)
+		* Criar um VO específico para retorno invés de retornar a própria entidade
+		
+	Esse projeto é um modelo que você pode seguir para criar suas tabelas no fluig. Fique atento ao arquivo persistence.xml, onde é informado o data source que obrigatoriamente deve ser utilizado para os parceiros criarem suas tabelas: AppDS
+	Também é possível encontrar as classes definidas como entidades, que serão suas tabelas no banco de dados, bem como a criação das queries e índices.
+	
+		Ainda não estão disponíveis os serviços para conectar com as API's Rest. Logo menos, vamos criar esses serviços e disponibilizar nesse mesmo projeto
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
