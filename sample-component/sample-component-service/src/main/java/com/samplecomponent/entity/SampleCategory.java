@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = SampleCategory.FIND_ALL, query = "SELECT sc FROM SampleCategory sc WHERE sc.tenantId = :tenantId", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId")}),
-	@NamedQuery(name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE LOWER(sc.name) LIKE :name AND sc.tenantId = :tenantId)", hints = {
+	@NamedQuery(name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE LOWER(sc.name) LIKE :name AND sc.tenantId = :tenantId", hints = {
 			@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String name")})})
 public class SampleCategory implements Serializable {
 
@@ -78,7 +78,8 @@ public class SampleCategory implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SampleCategory [id=" + id + ", name=" + name + ", tenantId=" + tenantId + "]";
+		return "SampleCategory [id=" + id + ", name=" + name + ", tenantId="
+				+ tenantId + "]";
 	}
 
 	@Override
@@ -87,37 +88,45 @@ public class SampleCategory implements Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((tenantId == null) ? 0 : tenantId.hashCode());
+		result = prime * result
+				+ ((tenantId == null) ? 0 : tenantId.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		SampleCategory other = (SampleCategory) obj;
 		if (id == null) {
-			if (other.id != null)
+			if (other.id != null) {
 				return false;
-		} else if (!id.equals(other.id))
+			}
+		} else if (!id.equals(other.id)) {
 			return false;
+		}
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null) {
 				return false;
-		} else if (!name.equals(other.name))
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		if (tenantId == null) {
-			if (other.tenantId != null)
+			if (other.tenantId != null) {
 				return false;
-		} else if (!tenantId.equals(other.tenantId))
+			}
+		} else if (!tenantId.equals(other.tenantId)) {
 			return false;
+		}
 		return true;
 	}
-	
-	
 
 }
