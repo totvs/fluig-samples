@@ -17,15 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>
-	
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-api</artifactId>
-			<version>${project.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		
+	<dependencies>		
 		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>

@@ -1,6 +1,7 @@
 package com.samplecomponent.service;
 
 import javax.ejb.Remote;
+
 @Remote
 public interface SampleAppService {
 

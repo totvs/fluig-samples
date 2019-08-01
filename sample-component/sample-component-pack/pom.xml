@@ -61,15 +61,8 @@
 			<artifactId>sample-component-api</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-service</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
-			<type>jar</type>
-		</dependency>
+			<type>ejb</type>
+		</dependency>		
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-config</artifactId>

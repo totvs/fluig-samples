@@ -16,9 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
 
-/**
- *
- */
 @Entity
 @Table(name = "SCO_APPS", indexes = {
 		@Index(columnList = "TENANT_ID, NAME, DEVELOPER", name = "scp_apps_idx", unique = true)})

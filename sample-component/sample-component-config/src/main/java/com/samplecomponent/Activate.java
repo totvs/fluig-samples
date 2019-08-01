@@ -8,7 +8,6 @@ import javax.ejb.TransactionAttributeType;
 import com.fluig.customappkey.Keyring;
 import com.fluig.sdk.api.component.activation.ActivationEvent;
 import com.fluig.sdk.api.component.activation.ActivationListener;
-import com.samplecomponent.util.RestConstant;
 
 /**
  * 
@@ -20,6 +19,14 @@ import com.samplecomponent.util.RestConstant;
 @Remote
 @Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
 public class Activate implements ActivationListener {
+	
+    /**
+     * ATENÇÃO: Essa é a chave para sua aplicação recuperar os tokens para as requisições
+     * 
+     * Troque esta chave, atenção ao formato aaaa-bbbb-cccc-dddd. 
+     */
+    private static final String APP_KEY = "1234-5678-9876-5432";
+    
 
     @Override
     public String getArtifactFileName() throws Exception {
@@ -37,7 +44,7 @@ public class Activate implements ActivationListener {
 
     @Override
     public void enable(ActivationEvent evt) throws Exception {
-        Keyring.provision(RestConstant.APP_KEY);
+        Keyring.provision(APP_KEY);
     }
 
 }

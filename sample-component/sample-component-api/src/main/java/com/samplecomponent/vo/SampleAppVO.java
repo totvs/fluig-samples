@@ -3,7 +3,7 @@ package com.samplecomponent.vo;
 import java.io.Serializable;
 
 /**
- * Objeto de request/response da API, abstraindo o objeto da regra de negócio
+ * Objeto de request/response da API Rest, abstraindo o objeto da regra de negócio
  * Pode também ser chamado de DTO
  */
 public class SampleAppVO implements Serializable {

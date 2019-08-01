@@ -3,12 +3,12 @@ package com.samplecomponent.util;
 import java.nio.charset.StandardCharsets;
 
 public class RestConstant {
-    /**
-     * Troque esta chave, atenção ao formato aaaa-bbbb-cccc-dddd.
-     */
+	
+	/**
+	 * ATENÇÃO: o valor dessa chave precisa ser o mesmo de Activate.APP_KEY, no pacote sample-component-config
+	 */
     public static final String APP_KEY = "1234-5678-9876-5432";
     public static final String UTF_8_ENCODE = StandardCharsets.UTF_8.name();
-
 
     /**
      * HTTP Headers.
