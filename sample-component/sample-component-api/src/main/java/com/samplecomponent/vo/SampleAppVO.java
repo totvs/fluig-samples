@@ -27,9 +27,10 @@ public class SampleAppVO implements Serializable {
 
     @EqualsAndHashCode.Include
     private Long id;
+	@EqualsAndHashCode.Include
+	private Long tenantId;
     private String name;	
 	private String developer;	
 	private SampleCategory category;
-	private Long tenantId;
 
 }
