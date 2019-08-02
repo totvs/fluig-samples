@@ -1,15 +1,15 @@
 package com.samplecomponent.rest;
 
-import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -19,41 +19,46 @@ import org.slf4j.LoggerFactory;
 import com.fluig.sdk.api.FluigAPI;
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.UserService;
-import com.fluig.sdk.user.UserVO;
+import com.samplecomponent.service.SampleAppService;
 import com.samplecomponent.vo.SampleAppVO;
 import com.totvs.technology.foundation.common.EncodedMediaType;
+import com.totvs.technology.foundation.common.ServiceLocator;
 
 /**
  * Classe de exemplo para expor uma API Rest no fluig
  *
  * Existem 5 endpoint's:
  *
- * GET:    /samplecomponent/v1/myrest      | Solicita uma informação(lista) que está no fluig
- * GET:    /samplecomponent/v1/myrest/{id} | Solicita uma informação(item único) que está no fluig
- * POST:   /samplecomponent/v1/myrest      | Persiste uma informação no fluig
- * PUT:    /samplecomponent/v1/myrest      | Atualiza uma informação no fluig
- * DELETE: /samplecomponent/v1/myrest      | Remove uma informação no fluig
+ * GET:    /samplecomponent/v1/app      | Solicita uma informação(lista) que está no fluig
+ * GET:    /samplecomponent/v1/app/{id} | Solicita uma informação(item único) que está no fluig
+ * POST:   /samplecomponent/v1/app      | Persiste uma informação no fluig
+ * PUT:    /samplecomponent/v1/app      | Atualiza uma informação no fluig
+ * DELETE: /samplecomponent/v1/app      | Remove uma informação no fluig
  *
  *  onde:
  *  /samplecomponent é o contexto que foi registrado através do arquivo jboss-web.xml no projeto sample-component-config
  *  /v1 é o ApplicationPath, que está na classe ApplicationConfig
- *  /myrest, que é o path registrado para essa classe em específico
+ *  /app, que é o path registrado para essa classe em específico
  *
  */
-@Path("/myrest")
-public class SampleComponentRest {
-
-	private Logger log = LoggerFactory.getLogger(SampleComponentRest.class);
+@Path("/app")
+public class SampleAppRest {
+	
+	SampleAppService sampleAppService;
+	private Logger log = LoggerFactory.getLogger(SampleAppRest.class);
 
 	@GET
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response list() throws Exception {
+	public Response list(
+			@DefaultValue("") @QueryParam("text") String text,
+			@DefaultValue("10") @QueryParam("limit") int limit,
+			@DefaultValue("0") @QueryParam("offset") int offset) throws Exception {
 
-		log.info("---- API Request | GET list: /myrest ");
+		log.info("---- API Request | GET find: /myrest ");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
-		List<UserVO> list = getUserServiceSDK().list(0, 10);
-		return Response.ok(list).build();
+		
+		sampleAppService = (SampleAppService) ServiceLocator.getInstance().getService(SampleAppService.JNDI_NAME);
+		return Response.ok(sampleAppService.find(text, limit, offset)).build();
 	}
 
 	@GET
@@ -64,7 +69,7 @@ public class SampleComponentRest {
 		log.info("---- API Request | GET getById: /myrest");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 		
-		return Response.ok(new SampleAppVO(1L, "fluig")).build();
+		return Response.ok(new SampleAppVO()).build();
 	}
 
 	@POST
