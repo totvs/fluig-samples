@@ -57,6 +57,7 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@Override
 	public List<SampleCategoryVO> find(String text, int limit, int offset) throws SDKException {
+		List<SampleCategoryVO> response = new ArrayList<SampleCategoryVO>();
 		Collection<SampleCategory> result = dao.findAll(svcSecurity.getCurrentTenantId(),
 				((text == null) ? null : new HashMap<String, Object>() {
 					{
@@ -64,10 +65,9 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 					}
 				}), limit, offset);
 		if (result.isEmpty())
-			return new ArrayList<SampleCategoryVO>();
-		ArrayList<SampleCategoryVO> list = new ArrayList<SampleCategoryVO>();
-		result.forEach(e -> list.add(convert(e)));
-		return list;
+			return response;
+		result.forEach(e -> response.add(convert(e)));
+		return response;
 	}
 
 	@Override
