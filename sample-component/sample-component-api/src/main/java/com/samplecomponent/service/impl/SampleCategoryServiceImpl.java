@@ -25,7 +25,7 @@ import com.totvs.technology.foundation.common.exception.FDNUpdateException;
 public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@EJB
-	SampleCategoryDAO dao;
+	private SampleCategoryDAO dao;
 
 	@EJB(lookup = SecurityService.JNDI_REMOTE_NAME)
 	private SecurityService svcSecurity;
@@ -72,7 +72,7 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@Override
 	public SampleCategoryVO convert(SampleCategory entity) {
-		return SampleCategoryVO.convert(entity);
+		return new SampleCategoryVO(entity.getId(), entity.getTenantId(), entity.getName());
 	}
 
 }

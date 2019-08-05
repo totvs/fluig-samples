@@ -22,15 +22,14 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class SampleAppVO implements Serializable {
-	
+
     private static final long serialVersionUID = 1L;
 
     @EqualsAndHashCode.Include
     private Long id;
 	@EqualsAndHashCode.Include
 	private Long tenantId;
-    private String name;	
-	private String developer;	
+    private String name;
+	private String developer;
 	private SampleCategory category;
-
 }
