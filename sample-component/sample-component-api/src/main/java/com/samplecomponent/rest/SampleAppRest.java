@@ -1,5 +1,6 @@
 package com.samplecomponent.rest;
 
+import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -43,33 +44,32 @@ import com.totvs.technology.foundation.common.ServiceLocator;
  */
 @Path("/app")
 public class SampleAppRest {
-	
-	SampleAppService sampleAppService;
 	private Logger log = LoggerFactory.getLogger(SampleAppRest.class);
 
 	@GET
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response list(
+	public Response find(
 			@DefaultValue("") @QueryParam("text") String text,
 			@DefaultValue("10") @QueryParam("limit") int limit,
 			@DefaultValue("0") @QueryParam("offset") int offset) throws Exception {
 
-		log.info("---- API Request | GET find: /myrest ");
+		log.info("---- API Request | GET find: /app ");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		
-		sampleAppService = (SampleAppService) ServiceLocator.getInstance().getService(SampleAppService.JNDI_NAME);
-		return Response.ok(sampleAppService.find(text, limit, offset)).build();
+
+		return Response.ok(appService().find(text, limit>50?50:limit, offset)).build();
 	}
 
 	@GET
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response getById(@PathParam("id") Long id) throws Exception {
+	public Response get(@PathParam("id") Long id) throws Exception {
 
-		log.info("---- API Request | GET getById: /myrest");
+		log.info("---- API Request | GET getById: /app");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		
-		return Response.ok(new SampleAppVO()).build();
+		SampleAppVO app = appService().get(id);
+		if(app == null)
+			return Response.status(Status.NOT_FOUND).build();
+		return Response.ok(app).build();
 	}
 
 	@POST
@@ -77,16 +77,16 @@ public class SampleAppRest {
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response create(SampleAppVO vo) throws Exception {
 
-		log.info("---- API Request | POST: /myrest");
-		log.info("---- Object created: " + vo.toString());
+		log.info("---- API Request | POST: /app");
+		log.info("---- Object to create: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 
 		/**
-		 * check permission
+		 * check permission if needed
 		 *
 		 * DO SOMETHING
 		 */
-		return Response.ok(Status.OK).build();
+		return Response.ok(appService().create(vo)).status(Status.CREATED).build();
 	}
 
 	@PUT
@@ -94,16 +94,17 @@ public class SampleAppRest {
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response update(SampleAppVO vo) throws Exception {
 
-		log.info("---- API Request | PUT: /myrest");
-		log.info("---- Object Sent: " + vo.toString());
+		log.info("---- API Request | PUT: /app");
+		log.info("---- Object to update: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 
 		/**
-		 * check permission
+		 * check permission if needed
 		 *
 		 * DO SOMETHING
 		 */
-		return Response.ok(Status.OK).build();
+		appService().update(vo);
+		return Response.ok(Status.NO_CONTENT).build();
 	}
 
 	@DELETE
@@ -111,20 +112,25 @@ public class SampleAppRest {
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response delete(@PathParam("id") Long id) throws Exception {
 
-		log.info("---- API Request | DELETE: /myrest");
+		log.info("---- API Request | DELETE: /app");
 		log.info("---- Object ID Deleted: " + id);
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 
 		/**
-		 * check permission
+		 * check permission if needed
 		 *
 		 * DO SOMETHING
 		 */
-		return Response.ok(Status.OK).build();
+		appService().delete(id);
+		return Response.ok(Status.NO_CONTENT).build();
 	}
 
 	private UserService getUserServiceSDK() throws SDKException {
 		return new FluigAPI().getUserService();
+	}
+
+	private SampleAppService appService() throws NamingException {
+		return (SampleAppService) ServiceLocator.getInstance().getService(SampleAppService.JNDI_NAME);
 	}
 
 }

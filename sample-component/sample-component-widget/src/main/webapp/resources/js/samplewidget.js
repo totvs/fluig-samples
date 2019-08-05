@@ -229,7 +229,7 @@ var SampleWidget = SuperWidget.extend({
 	 */
 	serviceSampleRest: function(cb) {
 		var options,
-			url = '/samplecomponent/v1/myrest',
+			url = '/samplecomponent/v1/app',
 		options = {
 			url: url,
 			contentType: 'application/json',

@@ -28,4 +28,8 @@ public class SampleCategoryVO implements Serializable {
 	@EqualsAndHashCode.Include
 	private Long tenantId;
 	private String name;
+
+	public SampleCategoryVO(String name) {
+		this.name = name;
+	}
 }
