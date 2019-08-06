@@ -15,6 +15,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +26,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "SCO_APPS", indexes = {
-		@Index(columnList = "TENANT_ID, NAME, DEVELOPER", name = "scp_apps_idx", unique = true) })
+@Table(name = "SCO_APPS",
+	uniqueConstraints = @UniqueConstraint(columnNames = {"DEVELOPER", "TENANT_ID", "NAME"}, name = "scp_apps_pk"))
 @NamedQueries({
 		@NamedQuery(name = SampleApp.FIND_ALL, query = "SELECT sa FROM SampleApp sa WHERE sa.tenantId = :tenantId", hints = {
 				@QueryHint(name = "parameters", value = "java.lang.Long tenantId") }),

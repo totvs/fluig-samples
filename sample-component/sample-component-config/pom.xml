@@ -17,13 +17,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>		
+	<dependencies>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-api</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
 		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
 			<version>${fluig.version}</version>
-			<scope>provided</scope>			
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>

@@ -144,7 +144,7 @@
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-widget</artifactId>							
 							<contextRoot>/samplewidget</contextRoot>
-						</webModule>						
+						</webModule>
 					</modules>
 				</configuration>
 			</plugin>

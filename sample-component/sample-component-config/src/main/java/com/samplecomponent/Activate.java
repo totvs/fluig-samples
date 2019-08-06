@@ -17,13 +17,13 @@ import com.fluig.sdk.api.component.activation.ActivationListener;
  * 
  */
 @Remote
-@Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
+@Stateless(mappedName = "activator/samplecomponentconfig", name = "activator/samplecomponentconfig")
 public class Activate implements ActivationListener {
 	
     /**
      * ATENÇÃO: Essa é a chave para sua aplicação recuperar os tokens para as requisições
      * 
-     * Troque esta chave, atenção ao formato aaaa-bbbb-cccc-dddd. 
+     * Troque esta chave, atenção ao formato aaaa-bbbb-cccc-dddd.
      */
     private static final String APP_KEY = "1234-5678-9876-5432";
     

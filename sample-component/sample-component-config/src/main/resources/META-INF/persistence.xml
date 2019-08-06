@@ -3,10 +3,10 @@
 	<persistence-unit name="AppDS" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>jdbc/AppDS</jta-data-source>
-		<jar-file>lib/sample-component-api-${version}.jar</jar-file>		
+		<jar-file>sample-component-api.jar</jar-file>
 		<properties>
 			<!-- Enable Second cache level, as well query cache -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />			
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.cache.use_second_level_cache" value="true" />
 			<property name="hibernate.cache.use_query_cache" value="true" />
 			<property name="hibernate.cache.use_minimal_puts" value="true" />

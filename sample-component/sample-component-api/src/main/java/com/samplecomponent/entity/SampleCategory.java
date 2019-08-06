@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.QueryHint;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import com.samplecomponent.vo.SampleCategoryVO;
@@ -24,8 +24,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "SCO_CATEGORY", indexes = {
-		@Index(columnList = "TENANT_ID, NAME", name = "scp_category_idx", unique = true) })
+@Table(name = "SCO_CATEGORY",
+	uniqueConstraints = @UniqueConstraint(columnNames = {"TENANT_ID", "NAME"}, name = "scp_category_pk"))
 @NamedQueries({
 		@NamedQuery(name = SampleCategory.FIND_ALL, query = "SELECT sc FROM SampleCategory sc WHERE sc.tenantId = :tenantId", hints = {
 				@QueryHint(name = "parameters", value = "java.lang.Long tenantId") }),
