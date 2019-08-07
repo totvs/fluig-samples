@@ -14,8 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import com.samplecomponent.vo.SampleCategoryVO;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -54,8 +52,4 @@ public class SampleCategory implements Serializable {
 	
 	@Column(name = "TENANT_ID")
 	@NotNull private Long tenantId;
-	
-	public static SampleCategory convert(SampleCategoryVO vo) {
-		return new SampleCategory(vo.getId(), vo.getName(), vo.getTenantId());
-	}
 }

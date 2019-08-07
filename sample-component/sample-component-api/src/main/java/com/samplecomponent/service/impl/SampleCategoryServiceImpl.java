@@ -15,7 +15,6 @@ import com.fluig.sdk.service.SecurityService;
 import com.samplecomponent.dao.SampleCategoryDAO;
 import com.samplecomponent.entity.SampleCategory;
 import com.samplecomponent.service.SampleCategoryService;
-import com.samplecomponent.vo.SampleCategoryVO;
 import com.totvs.technology.foundation.common.exception.FDNCreateException;
 import com.totvs.technology.foundation.common.exception.FDNRemoveException;
 import com.totvs.technology.foundation.common.exception.FDNUpdateException;
@@ -31,20 +30,20 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 	private SecurityService svcSecurity;
 
 	@Override
-	public long create(SampleCategoryVO vo) throws FDNCreateException{
-		Optional<SampleCategory> optional = Optional.ofNullable(dao.create(SampleCategory.convert(vo)));
+	public long create(SampleCategory cat) throws FDNCreateException{
+		Optional<SampleCategory> optional = Optional.ofNullable(dao.create(cat));
 		return (optional.isPresent() ? optional.get().getId() : null);
 	}
 
 	@Override
-	public SampleCategoryVO get(long id) {
+	public SampleCategory get(long id) {
 		Optional<SampleCategory> s = Optional.ofNullable(dao.find(id));
-		return (s.isPresent() ? convert(s.get()) : null);
+		return (s.isPresent() ? s.get() : null);
 	}
 
 	@Override
-	public void update(SampleCategoryVO vo) throws FDNUpdateException {
-		dao.edit(SampleCategory.convert(vo));
+	public void update(SampleCategory cat) throws FDNUpdateException {
+		dao.edit(cat);
 	}
 
 	@Override
@@ -56,23 +55,15 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 	}
 
 	@Override
-	public List<SampleCategoryVO> find(String text, int limit, int offset) throws SDKException {
-		List<SampleCategoryVO> response = new ArrayList<SampleCategoryVO>();
+	public List<SampleCategory> find(String text, int limit, int offset) throws SDKException {
+		List<SampleCategory> response = new ArrayList<SampleCategory>();
 		Collection<SampleCategory> result = dao.findAll(svcSecurity.getCurrentTenantId(),
 				((text == null) ? null : new HashMap<String, Object>() {
 					{
 						put("name", text);
 					}
 				}), limit, offset);
-		if (result.isEmpty())
-			return response;
-		result.forEach(e -> response.add(convert(e)));
 		return response;
-	}
-
-	@Override
-	public SampleCategoryVO convert(SampleCategory entity) {
-		return new SampleCategoryVO(entity.getId(), entity.getTenantId(), entity.getName());
 	}
 
 }

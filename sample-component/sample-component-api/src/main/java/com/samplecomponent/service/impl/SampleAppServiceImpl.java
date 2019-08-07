@@ -9,7 +9,6 @@ import javax.ejb.Stateless;
 import com.samplecomponent.dao.SampleAppDAO;
 import com.samplecomponent.entity.SampleApp;
 import com.samplecomponent.service.SampleAppService;
-import com.samplecomponent.vo.SampleAppVO;
 
 @Remote(SampleAppService.class)
 @Stateless(mappedName = SampleAppService.JNDI_NAME, name = SampleAppService.JNDI_NAME)
@@ -19,18 +18,18 @@ public class SampleAppServiceImpl implements SampleAppService{
 	private SampleAppDAO dao;
 
 	@Override
-	public long create(SampleAppVO vo) {
+	public long create(SampleApp vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public SampleAppVO get(long id) {
-		return convert(dao.find(id));
+	public SampleApp get(long id) {
+		return dao.find(id);
 	}
 
 	@Override
-	public void update(SampleAppVO vo) {
+	public void update(SampleApp vo) {
 		// TODO Auto-generated method stub		
 	}
 
@@ -40,12 +39,7 @@ public class SampleAppServiceImpl implements SampleAppService{
 	}
 
 	@Override
-	public List<SampleAppVO> find(String pattern, int limit, int offset) {		
-		return null;
-	}
-
-	@Override
-	public SampleAppVO convert(SampleApp entity) {		
+	public List<SampleApp> find(String pattern, int limit, int offset) {		
 		return null;
 	}
 }

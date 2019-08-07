@@ -68,7 +68,7 @@
 			<artifactId>sample-component-config</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>war</type>			
+			<type>jar</type>			
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
@@ -103,11 +103,12 @@
 				<artifactId>maven-ear-plugin</artifactId>
 				<version>2.10</version>
 				<configuration>
-					<version>6</version>					
+					<version>6</version>
 					<applicationName>Sample_Component</applicationName>
 					<generateModuleId>false</generateModuleId>
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
 					<initializeInOrder>true</initializeInOrder>
+					<fileNameMapping>full</fileNameMapping>
 					<security>
 						<security-role>
 							<role-name>sysadmin</role-name>
@@ -119,12 +120,7 @@
 							<role-name>user</role-name>
 						</security-role>
 					</security>
-					<modules>						
-						<webModule>
-							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-config</artifactId>							
-							<contextRoot>/samplecomponent</contextRoot>
-						</webModule>
+					<modules>
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-layout</artifactId>							

@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
 import com.fluig.sdk.api.FluigAPI;
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.UserService;
+import com.samplecomponent.entity.SampleApp;
 import com.samplecomponent.service.SampleAppService;
-import com.samplecomponent.vo.SampleAppVO;
 import com.totvs.technology.foundation.common.EncodedMediaType;
 import com.totvs.technology.foundation.common.ServiceLocator;
 
@@ -66,7 +66,7 @@ public class SampleAppRest {
 
 		log.info("---- API Request | GET getById: /app");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		SampleAppVO app = appService().get(id);
+		SampleApp app = appService().get(id);
 		if(app == null)
 			return Response.status(Status.NOT_FOUND).build();
 		return Response.ok(app).build();
@@ -75,7 +75,7 @@ public class SampleAppRest {
 	@POST
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response create(SampleAppVO vo) throws Exception {
+	public Response create(SampleApp vo) throws Exception {
 
 		log.info("---- API Request | POST: /app");
 		log.info("---- Object to create: " + vo.toString());
@@ -92,7 +92,7 @@ public class SampleAppRest {
 	@PUT
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response update(SampleAppVO vo) throws Exception {
+	public Response update(SampleApp vo) throws Exception {
 
 		log.info("---- API Request | PUT: /app");
 		log.info("---- Object to update: " + vo.toString());

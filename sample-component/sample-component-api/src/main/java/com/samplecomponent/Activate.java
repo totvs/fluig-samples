@@ -17,7 +17,7 @@ import com.fluig.sdk.api.component.activation.ActivationListener;
  * 
  */
 @Remote
-@Stateless(mappedName = "activator/samplecomponentconfig", name = "activator/samplecomponentconfig")
+@Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
 public class Activate implements ActivationListener {
 	
     /**
@@ -30,7 +30,7 @@ public class Activate implements ActivationListener {
 
     @Override
     public String getArtifactFileName() throws Exception {
-        return "sample-component-config.war";
+        return "sample-component-api.jar";
     }
 
     @Override

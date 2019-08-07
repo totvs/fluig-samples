@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
 import com.fluig.sdk.api.FluigAPI;
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.UserService;
+import com.samplecomponent.entity.SampleCategory;
 import com.samplecomponent.service.SampleCategoryService;
-import com.samplecomponent.vo.SampleCategoryVO;
 import com.totvs.technology.foundation.common.EncodedMediaType;
 import com.totvs.technology.foundation.common.ServiceLocator;
 
@@ -64,7 +64,7 @@ public class SampleCategoryRest {
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 
 		ServiceLocator.getInstance().getService(categoryService().JNDI_NAME);
-		SampleCategoryVO category = categoryService().get(id);
+		SampleCategory category = categoryService().get(id);
 		if(category == null)
 			return Response.status(Status.NOT_FOUND).build();
 		return Response.ok(category).build();
@@ -73,7 +73,7 @@ public class SampleCategoryRest {
 	@POST
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response create(SampleCategoryVO vo) throws Exception {
+	public Response create(SampleCategory vo) throws Exception {
 
 		log.info("---- API Request | POST: /category");
 		log.info("---- Object to create: " + vo.toString());
@@ -88,7 +88,7 @@ public class SampleCategoryRest {
 	@PUT
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response update(SampleCategoryVO vo) throws Exception {
+	public Response update(SampleCategory vo) throws Exception {
 
 		log.info("---- API Request | PUT: /category");
 		log.info("---- Object to update: " + vo.toString());
