@@ -18,13 +18,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-api</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		
 		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
