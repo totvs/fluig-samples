@@ -1,4 +1,4 @@
-package com.samplecomponent;
+package com.fluig.samplecomponent;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

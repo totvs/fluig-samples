@@ -7,21 +7,21 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.2</version>
 	</parent>
-	<artifactId>sample-component-api</artifactId>
+	<artifactId>sample-component-service</artifactId>
 	<packaging>ejb</packaging>
 
-	<name>Sample Component - api</name>
-	<description>Sample Component - api | description</description>
+	<name>Sample Component - service</name>
+	<description>Sample Component - service | description</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>		
+	<dependencies>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-config</artifactId>
-			<version>${project.version}</version>						
+			<version>${project.version}</version>
 		</dependency>
 		
 		<!-- fluig dependecies -->

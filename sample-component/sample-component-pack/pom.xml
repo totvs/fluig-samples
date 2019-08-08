@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -21,65 +23,72 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.fluig</groupId>			
+			<groupId>com.fluig</groupId>
 			<artifactId>foundation-cache-module</artifactId>
-			<version>${fluig.version}</version>			
+			<version>${fluig.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-widget</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>war</type>			
+			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-layout</artifactId>
-			<version>${project.version}</version>			
+			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>war</type>			
+			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-custom-layout</artifactId>
-			<version>${project.version}</version>			
+			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>war</type>			
+			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-menu-widget</artifactId>
-			<version>${project.version}</version>			
-			<scope>compile</scope>
-			<type>war</type>			
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-api</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>ejb</type>
-		</dependency>		
+			<type>war</type>
+		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-config</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
-			<type>jar</type>			
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-service</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>						
+			<artifactId>javaee-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -123,23 +132,28 @@
 					<modules>
 						<webModule>
 							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-layout</artifactId>							
+							<artifactId>sample-component-layout</artifactId>
 							<contextRoot>/samplelayout</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-custom-layout</artifactId>							
+							<artifactId>sample-component-custom-layout</artifactId>
 							<contextRoot>/samplecustomlayout</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-menu-widget</artifactId>							
+							<artifactId>sample-component-menu-widget</artifactId>
 							<contextRoot>/samplewidgetmenu</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-widget</artifactId>							
+							<artifactId>sample-component-widget</artifactId>
 							<contextRoot>/samplewidget</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>com.fluig</groupId>
+							<artifactId>sample-component-rest</artifactId>
+							<contextRoot>/samplerest</contextRoot>
 						</webModule>
 					</modules>
 				</configuration>
@@ -147,6 +161,6 @@
 		</plugins>
 		<sourceDirectory>${java.src.dir}</sourceDirectory>
 	</build>
-	
-	
+
+
 </project>

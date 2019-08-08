@@ -52,10 +52,8 @@ public class SampleAppRest {
 			@DefaultValue("") @QueryParam("text") String text,
 			@DefaultValue("10") @QueryParam("limit") int limit,
 			@DefaultValue("0") @QueryParam("offset") int offset) throws Exception {
-
-		log.info("---- API Request | GET find: /app ");
+		log.info("---- App Request | GET find ");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
 		return Response.ok(appService().find(text, limit>50?50:limit, offset)).build();
 	}
 
@@ -63,8 +61,7 @@ public class SampleAppRest {
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response get(@PathParam("id") Long id) throws Exception {
-
-		log.info("---- API Request | GET getById: /app");
+		log.info("---- App Request | GET getById");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 		SampleApp app = appService().get(id);
 		if(app == null)
@@ -75,54 +72,33 @@ public class SampleAppRest {
 	@POST
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
-	public Response create(SampleApp vo) throws Exception {
-
-		log.info("---- API Request | POST: /app");
-		log.info("---- Object to create: " + vo.toString());
+	public Response create(SampleApp app) throws Exception {
+		log.info("---- App Request | POST");
+		log.info("---- Object to create: " + app.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
-		/**
-		 * check permission if needed
-		 *
-		 * DO SOMETHING
-		 */
-		return Response.ok(appService().create(vo)).status(Status.CREATED).build();
+		return Response.ok(appService().create(app)).status(Status.CREATED).build();
 	}
 
 	@PUT
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response update(SampleApp vo) throws Exception {
-
-		log.info("---- API Request | PUT: /app");
+		log.info("---- App Request | PUT");
 		log.info("---- Object to update: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
-		/**
-		 * check permission if needed
-		 *
-		 * DO SOMETHING
-		 */
 		appService().update(vo);
-		return Response.ok(Status.NO_CONTENT).build();
+		return Response.status(Response.Status.NO_CONTENT).build();
 	}
 
 	@DELETE
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response delete(@PathParam("id") Long id) throws Exception {
-
-		log.info("---- API Request | DELETE: /app");
+		log.info("---- App Request | DELETE");
 		log.info("---- Object ID Deleted: " + id);
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
-		/**
-		 * check permission if needed
-		 *
-		 * DO SOMETHING
-		 */
 		appService().delete(id);
-		return Response.ok(Status.NO_CONTENT).build();
+		return Response.status(Response.Status.NO_CONTENT).build();
 	}
 
 	private UserService getUserServiceSDK() throws SDKException {

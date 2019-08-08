@@ -22,14 +22,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "SCO_CATEGORY",
-	uniqueConstraints = @UniqueConstraint(columnNames = {"TENANT_ID", "NAME"}, name = "scp_category_pk"))
+@Table(name = "SCO_CATEGORY", uniqueConstraints = @UniqueConstraint(columnNames = { "TENANT_ID", "NAME" }, name = "scp_category_pk"))
 @NamedQueries({
-		@NamedQuery(name = SampleCategory.FIND_ALL, query = "SELECT sc FROM SampleCategory sc WHERE sc.tenantId = :tenantId", hints = {
-				@QueryHint(name = "parameters", value = "java.lang.Long tenantId") }),
-		@NamedQuery(name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE LOWER(sc.name) LIKE :name AND sc.tenantId = :tenantId", hints = {
-				@QueryHint(name = "parameters", value = "java.lang.Long tenantId, java.lang.String name") }) })
-
+		@NamedQuery(
+				name = SampleCategory.FIND_BY_NAME, query = "SELECT sc FROM SampleCategory sc WHERE sc.tenantId = :tenantId AND LOWER(sc.name) LIKE :name",
+				hints = {@QueryHint(name = "parameters", value = "java.lang.Long tenantId")
+		})
+})
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -39,17 +38,18 @@ import lombok.ToString;
 public class SampleCategory implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	public static final String FIND_ALL = "SampleCategory.findAll";
 	public static final String FIND_BY_NAME = "SampleCategory.findByName";
-	
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
-	@Id private Long id;
-	
-	@Column(name = "NAME", unique = true)	
-	@NotNull private String name;
-	
+	@Id
+	private Long id;
+
+	@Column(name = "NAME", unique = true)
+	@NotNull
+	private String name;
+
 	@Column(name = "TENANT_ID")
-	@NotNull private Long tenantId;
+	@NotNull
+	private Long tenantId;
 }

@@ -12,7 +12,8 @@
 	<name>Sample Component</name>
 	<description>Sample Component description</description>
 
-	<!-- Necessário configurar o nexus.fluig.com como repositório central de dependências -->
+	<!-- Necessário configurar o nexus.fluig.com como repositório central de 
+		dependências -->
 	<repositories>
 		<repository>
 			<id>nexus</id>
@@ -23,7 +24,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências serão utilizadas -->
+		<!-- INSIRA AQUI A VERÃO DO FLUIG. Com base na versão que as dependências 
+			serão utilizadas -->
 		<fluig.version>1.6.5</fluig.version>
 	</properties>
 
@@ -32,12 +34,14 @@
 		<module>sample-component-widget</module>
 		<module>sample-component-custom-layout</module>
 		<module>sample-component-menu-widget</module>
-		<module>sample-component-api</module>
 		<module>sample-component-config</module>
+		<module>sample-component-service</module>
+		<module>sample-component-rest</module>
 		<module>sample-component-pack</module>
 	</modules>
 
-	<!--Dependency Management: controla a versão das dependencias utilizadas pelo projeto -->
+	<!--Dependency Management: controla a versão das dependencias utilizadas 
+		pelo projeto -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

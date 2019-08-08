@@ -26,7 +26,7 @@ import com.totvs.technology.foundation.common.EncodedMediaType;
 import com.totvs.technology.foundation.common.ServiceLocator;
 
 /**
- * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está no fluig
+ * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está no fluig 
  * GET:    /samplecomponent/v1/category/{id} | Solicita uma informação(item único) que está no fluig
  * POST:   /samplecomponent/v1/category      | Persiste uma informação no fluig
  * PUT:    /samplecomponent/v1/category      | Atualiza uma informação no fluig
@@ -48,10 +48,8 @@ public class SampleCategoryRest {
 			@DefaultValue("") @QueryParam("text") String text,
 			@DefaultValue("10") @QueryParam("limit") int limit,
 			@DefaultValue("0") @QueryParam("offset") int offset) throws Exception {
-
-		log.info("---- API Request | GET find: /category ");
+		log.info("---- Category Request | GET find ");
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
 		return Response.ok(categoryService().find(text, limit>50?50:limit, offset)).build();
 	}
 
@@ -59,11 +57,8 @@ public class SampleCategoryRest {
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response get(@PathParam("id") Long id) throws Exception {
-
-		log.info("---- API Request | GET getById: /category");
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-
-		ServiceLocator.getInstance().getService(categoryService().JNDI_NAME);
+		log.info("---- Category Request | GET getById");
+		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
 		SampleCategory category = categoryService().get(id);
 		if(category == null)
 			return Response.status(Status.NOT_FOUND).build();
@@ -74,14 +69,9 @@ public class SampleCategoryRest {
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response create(SampleCategory vo) throws Exception {
-
-		log.info("---- API Request | POST: /category");
+		log.info("---- Category Request | POST");
 		log.info("---- Object to create: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		/**
-		 * Check permission if needed
-		 * DO SOMETHING
-		 */
 		return Response.ok(categoryService().create(vo)).status(Response.Status.CREATED) .build();
 	}
 
@@ -89,14 +79,9 @@ public class SampleCategoryRest {
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response update(SampleCategory vo) throws Exception {
-
-		log.info("---- API Request | PUT: /category");
+		log.info("---- Category Request | PUT");
 		log.info("---- Object to update: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		/**
-		 * Check permission if needed
-		 * DO SOMETHING
-		 */
 		categoryService().update(vo);
 		return Response.status(Response.Status.NO_CONTENT).build();
 	}
@@ -105,14 +90,9 @@ public class SampleCategoryRest {
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response delete(@PathParam("id") Long id) throws Exception {
-
-		log.info("---- API Request | DELETE: /category");
+		log.info("---- Category Request | DELETE");
 		log.info("---- Object to delete: " + id);
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		/**
-		 * Check permission if needed
-		 * DO SOMETHING
-		 */
 		categoryService().delete(id);
 		return Response.status(Response.Status.NO_CONTENT).build();
 	}
