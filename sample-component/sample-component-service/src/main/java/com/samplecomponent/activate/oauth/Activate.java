@@ -1,4 +1,4 @@
-package com.samplecomponent;
+package com.samplecomponent.activate.oauth;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
