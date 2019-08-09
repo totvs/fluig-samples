@@ -1,5 +1,8 @@
 package com.samplecomponent.rest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -11,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -24,6 +28,9 @@ import com.samplecomponent.entity.SampleCategory;
 import com.samplecomponent.service.SampleCategoryService;
 import com.totvs.technology.foundation.common.EncodedMediaType;
 import com.totvs.technology.foundation.common.ServiceLocator;
+import com.totvs.technology.foundation.common.exception.FDNCreateException;
+import com.totvs.technology.foundation.common.exception.FDNRemoveException;
+import com.totvs.technology.foundation.common.exception.FDNUpdateException;
 
 /**
  * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está no fluig 
@@ -67,12 +74,16 @@ public class SampleCategoryRest {
 
 	@POST
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
-	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response create(SampleCategory vo) throws Exception {
 		log.info("---- Category Request | POST");
 		log.info("---- Object to create: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		return Response.ok(categoryService().create(vo)).status(Response.Status.CREATED) .build();
+		try {
+			return Response.ok(categoryService().create(vo)).status(Response.Status.CREATED) .build();
+		} catch (FDNCreateException e) {
+		    return Response.status(e.getStatus()).entity(e.getMessage()).build();
+		}
 	}
 
 	@PUT
@@ -81,9 +92,15 @@ public class SampleCategoryRest {
 	public Response update(SampleCategory vo) throws Exception {
 		log.info("---- Category Request | PUT");
 		log.info("---- Object to update: " + vo.toString());
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		categoryService().update(vo);
-		return Response.status(Response.Status.NO_CONTENT).build();
+		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
+		try {
+			categoryService().update(vo);
+			return Response.status(Response.Status.NO_CONTENT).build();
+		} catch (FDNUpdateException e) {
+			Map<String, String> errors = new HashMap<String, String>();
+			errors.put("error", e.getMessage());
+			return Response.status(e.getStatus()).entity(errors).type(EncodedMediaType.APPLICATION_JSON_UTF8).build();
+		}		
 	}
 
 	@DELETE
@@ -92,9 +109,15 @@ public class SampleCategoryRest {
 	public Response delete(@PathParam("id") Long id) throws Exception {
 		log.info("---- Category Request | DELETE");
 		log.info("---- Object to delete: " + id);
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		categoryService().delete(id);
-		return Response.status(Response.Status.NO_CONTENT).build();
+		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
+		try {
+			categoryService().delete(id);
+			return Response.status(Response.Status.NO_CONTENT).build();
+		} catch (FDNRemoveException e) {
+			Map<String, String> errors = new HashMap<String, String>();
+			errors.put("error", e.getMessage());
+			return Response.status(e.getStatus()).entity(errors).type(EncodedMediaType.APPLICATION_JSON_UTF8).build();
+		}
 	}
 
 	private UserService getUserServiceSDK() throws SDKException {

@@ -16,11 +16,11 @@ public interface SampleAppService {
 	public static final String JNDI_NAME = "service/sample-app";
 	public static final String JNDI_REMOTE_NAME = "java:global/fluig/store/" + JNDI_NAME;
 	
-	long create(SampleApp entity) throws SDKException, FDNCreateException;
+	long create(SampleApp entity) throws FDNCreateException;
 	
 	SampleApp get(long id);
 	
-	void update(SampleApp entity) throws FDNUpdateException, SDKException;
+	void update(SampleApp entity) throws FDNUpdateException;
 	
 	void delete(long id) throws FDNRemoveException;
 	

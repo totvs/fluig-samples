@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import com.fluig.sdk.api.common.SDKException;
 import com.samplecomponent.entity.SampleApp;
 import com.totvs.technology.foundation.common.AbstractDAO;
+import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
 
 /**
  * Aqui a sugestão é herdar a classe abstrata AbstractDAO e passar a entidade
@@ -42,7 +42,7 @@ public class SampleAppDAO extends AbstractDAO<SampleApp> {
 	}
 
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public List<SampleApp> findApps(Long tenantId, String text, int limit, int offset) throws SDKException {
+	public List<SampleApp> findApps(Long tenantId, String text, int limit, int offset) {
 		try {
 			TypedQuery<SampleApp> q = getEntityManager().createNamedQuery(SampleApp.FIND_BY_NAME_DEV,
 					SampleApp.class);
@@ -54,12 +54,12 @@ public class SampleAppDAO extends AbstractDAO<SampleApp> {
 			return q.getResultList();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
-			throw new SDKException(e);
+			throw new FDNRuntimeException(e.getMessage(), e.getCause()); 
 		}
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public List<SampleApp> findAppsByCategoryId(Long tenantId, Long categoryId, int limit, int offset) throws SDKException {
+	public List<SampleApp> findAppsByCategoryId(Long tenantId, Long categoryId, int limit, int offset) {
 		try {
 			TypedQuery<SampleApp> q = getEntityManager().createNamedQuery(SampleApp.FIND_BY_CATEGORY,
 					SampleApp.class);
@@ -71,7 +71,7 @@ public class SampleAppDAO extends AbstractDAO<SampleApp> {
 			return q.getResultList();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
-			throw new SDKException(e);
+			throw new FDNRuntimeException(e.getMessage(), e.getCause());
 		}
 	}
 

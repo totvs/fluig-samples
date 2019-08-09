@@ -16,11 +16,11 @@ public interface SampleCategoryService {
 	public static final String JNDI_NAME = "service/sample-category";
 	public static final String JNDI_REMOTE_NAME = "java:global/fluig/store/" + JNDI_NAME;
 	
-	long create(SampleCategory entity) throws FDNCreateException, SDKException;
+	long create(SampleCategory entity) throws FDNCreateException;
 	
 	SampleCategory get(long id);
 	
-	void update(SampleCategory entity) throws FDNUpdateException, SDKException;
+	void update(SampleCategory entity) throws FDNUpdateException;
 	
 	void delete(long id) throws FDNRemoveException;
 	

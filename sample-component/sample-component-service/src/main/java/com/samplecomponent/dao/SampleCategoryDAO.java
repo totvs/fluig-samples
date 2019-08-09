@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import com.fluig.sdk.api.common.SDKException;
 import com.samplecomponent.entity.SampleCategory;
 import com.totvs.technology.foundation.common.AbstractDAO;
+import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
 
 /**
  * Aqui a sugestão é herdar a classe abstrata AbstractDAO e passar a entidade SampleCategory como sendo o objeto genérico desse DAO.
@@ -42,7 +42,7 @@ public class SampleCategoryDAO extends AbstractDAO<SampleCategory> {
 	}		
 
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public List<SampleCategory> findCategories(Long tenantId, String text, int limit, int offset) throws SDKException {
+    public List<SampleCategory> findCategories(Long tenantId, String text, int limit, int offset) throws FDNRuntimeException {
         try {
             TypedQuery<SampleCategory> q = getEntityManager().createNamedQuery(SampleCategory.FIND_BY_NAME, SampleCategory.class);
             q.setParameter("tenantId", tenantId);
@@ -51,9 +51,9 @@ public class SampleCategoryDAO extends AbstractDAO<SampleCategory> {
             q.setMaxResults(limit);
             
             return q.getResultList();
-        } catch (Exception e) {
+        } catch (FDNRuntimeException e) {
             log.error(e.getMessage(), e);
-            throw new SDKException(e);
+            throw new FDNRuntimeException(e.getMessage(), e.getCause());
         }
     }
 

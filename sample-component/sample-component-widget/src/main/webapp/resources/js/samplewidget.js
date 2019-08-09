@@ -6,6 +6,9 @@ var SampleWidget = SuperWidget.extend({
 	i18n: {
 		'msg.welcome': function () {
 			return '${i18n.getTranslationP1("msg.welcome", "' + arguments[0] + '")}';
+		},
+		'msg.category.create': function () {
+			return '${i18n.getTranslationP1("msg.error.create.category", "' + arguments[0] + '")}';
 		}
 	},
 
@@ -15,7 +18,9 @@ var SampleWidget = SuperWidget.extend({
 			'do-something': ['click_someFunc'],
 			'load-table': ['click_loadTable'],
 			'remove-user': ['click_removeUser'],
-			'sample-rest': ['click_loadSampleRest']
+			'list-categories': ['click_loadListCategories'],
+			'load-create-category': ['click_loadCreateCategory'],
+			'create-category': ['click_createCategory']
 		}
 	},
 
@@ -76,7 +81,7 @@ var SampleWidget = SuperWidget.extend({
 			html = '';
 		
 		html = Mustache.render(template, {});
-		$('[data-users-content]').append(html);
+		$('[data-content-area]').append(html);
 	},
 	
 	/**
@@ -84,6 +89,18 @@ var SampleWidget = SuperWidget.extend({
 	 */
 	loadTable: function(el, ev) {
 		this.loadContentFromTemplate();
+	},
+	
+	/**
+	 * Função para exibir o input para criar uma categoria
+	 */
+	loadCreateCategory: function(){
+		var that = this,
+		template = that.templates['template-create-category'],
+		html = '';
+	
+		html = Mustache.render(template, {});
+		$('[data-sample-table]').html(html);
 	},
 
 	/**
@@ -116,8 +133,7 @@ var SampleWidget = SuperWidget.extend({
 	 * Função para request da API
 	 */
 	loadContentFromTemplate: function() {
-		var that = this;
-		
+		var that = this;		
 		that.serviceGetUsers(function(err, data) {
 			if(err) {
 		    	FLUIGC.toast({
@@ -162,11 +178,11 @@ var SampleWidget = SuperWidget.extend({
 	},
 	
 	/**
-	 * Função para uma api do próprio sample component
+	 * Função para listar as categorias
 	 */
-	loadSampleRest: function(){
+	loadListCategories: function(){
 		var that = this;
-		this.serviceSampleRest(function(err, data){
+		this.serviceFindCategories(function(err, data){
 			if(err) {
 		    	FLUIGC.toast({
 		    		message: '${i18n.getTranslation("msg.error")}',
@@ -175,11 +191,50 @@ var SampleWidget = SuperWidget.extend({
 				return false;
 		    }			
 			that.buildDatatableItems(data);
-		});		
+		});
 	},
 	
 	/**
-	 * Constrói o datatable da API serviceSampleRest
+	 * Função para criar uma categoria
+	 */
+	createCategory: function(el, ev){
+		var that = this;
+		var cat = $('[data-input-category]').val();
+		if(!cat){
+			FLUIGC.toast({
+	    		message: '${i18n.getTranslation("msg.category.name.required")}',
+		        type: 'danger'
+			});
+			return;
+		}
+			
+		if(cat.length > 50){
+			FLUIGC.toast({
+	    		message: '${i18n.getTranslation("msg.category.name.max.length")}',
+		        type: 'danger'
+			});
+			return;
+		}
+		
+		this.serviceCreateCategory(cat, function(err, data){
+			if(err) {				
+		    	FLUIGC.toast({
+		    		message: that.i18n['msg.category.create'](err.responseText),
+			        type: 'danger'
+				});
+				return false;
+		    }
+
+			FLUIGC.toast({
+	    		message: '${i18n.getTranslation("category.created")}',
+	            type: 'success'
+			});
+			that.loadCreateCategory();
+		});
+	},
+	
+	/**
+	 * Constrói o datatable da API serviceFindCategories
 	 */
 	buildDatatableItems: function(data) {
 		var that = this;
@@ -187,12 +242,10 @@ var SampleWidget = SuperWidget.extend({
 			emptyMessage: '<div class="text-center">${i18n.getTranslation("msg.no.data.found")}</div>',
 			header: [
 				{'title': '${i18n.getTranslation("label.id")}'},
-				{'title': '${i18n.getTranslation("label.login")}'},
-				{'title': '${i18n.getTranslation("label.name")}'},
-				{'title': '${i18n.getTranslation("label.email")}'}
+				{'title': '${i18n.getTranslation("label.name")}'}
 		    ],
 		    dataRequest: data,
-			renderContent: '.template-list-item',
+			renderContent: '.template-item-category',
 		    classSelected: 'active',
 		    actions: {enabled: false},
 		    search: {enabled: false},
@@ -225,13 +278,32 @@ var SampleWidget = SuperWidget.extend({
 	
 	/**
 	 * Request para uma api do próprio sample-component, desenvolvida em Java
-	 *
+	 * API Category List
 	 */
-	serviceSampleRest: function(cb) {
+	serviceFindCategories: function(cb) {
 		var options,
-			url = '/samplecomponent/v1/app',
+			url = '/samplerest/api/v1/category',
 		options = {
 			url: url,
+			contentType: 'application/json',
+			dataType: 'json',
+			loading: true
+		};
+		FLUIGC.ajax(options, cb);
+	},
+	
+	/**
+	 * Request para uma api do próprio sample-component, desenvolvida em Java
+	 * API Category Create
+	 */
+	serviceCreateCategory: function(name, cb) {		
+		var options,
+			data = {'name': name},
+			url = '/samplerest/api/v1/category',
+		options = {
+			url: url,
+			type: 'POST',
+			data:  JSON.stringify(data),
 			contentType: 'application/json',
 			dataType: 'json',
 			loading: true

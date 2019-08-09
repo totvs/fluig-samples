@@ -8,7 +8,6 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
-import javax.ws.rs.NotFoundException;
 
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.SecurityService;
@@ -35,15 +34,17 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public long create(SampleCategory cat) throws FDNCreateException, SDKException {
-		/**
-		 * check permission if needed
-		 *
-		 * DO SOMETHING
-		 */
-		cat.setTenantId(securityService.getCurrentTenantId());
-		Optional<SampleCategory> optional = Optional.ofNullable(dao.create(cat));
-		return (optional.isPresent() ? optional.get().getId() : null);
+	public long create(SampleCategory cat) throws FDNCreateException {
+		try {
+			/**
+			 * check permission if needed 
+			 */
+			cat.setTenantId(securityService.getCurrentTenantId());
+			Optional<SampleCategory> optional = Optional.ofNullable(dao.create(cat));
+			return (optional.isPresent() ? optional.get().getId() : null);			
+		} catch (FDNCreateException | SDKException e) {
+            throw new FDNCreateException(e.getMessage(), e);
+		}
 	}
 
 	@Override
@@ -55,15 +56,13 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void update(SampleCategory cat) throws FDNUpdateException, SDKException {
+	public void update(SampleCategory cat) throws FDNUpdateException {
 		/**
 		 * check permission if needed
-		 *
-		 * DO SOMETHING
 		 */
 		Optional<SampleCategory> s = Optional.ofNullable(dao.find(cat.getId()));
 		if (!s.isPresent())
-			throw new NotFoundException("No Category found for ID: " + cat.getId());
+			throw new FDNUpdateException("No Category found for ID: " + cat.getId());
 		cat.setTenantId(s.get().getTenantId());
 		dao.edit(cat);
 	}
@@ -73,12 +72,10 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 	public void delete(long id) throws FDNRemoveException {
 		/**
 		 * check permission if needed
-		 *
-		 * DO SOMETHING
-		 */		
+		 */
 		Optional<SampleCategory> s = Optional.ofNullable(dao.find(id));
 		if (!s.isPresent())
-			throw new NotFoundException("No Category found for ID: " + id);
+			throw new FDNRemoveException("No Category found for ID: " + id);
 		dao.remove(s.get());
 	}
 
