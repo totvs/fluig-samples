@@ -35,7 +35,7 @@ A estrutura está definida da seguinte maneira:
 
 	Para que o componente seja instalado corretamente, é necessário o arquivo **component.xml**.
 	Esse arquivo se encontra em sample-component-config/src/main/resources/component.xml.
-	É obrigatório que o **component code** seja único: **<component code="sample_component_app">**.
+	É obrigatório que o **component code** seja único: **component code="sample_component_app"**.
 	
 	Para criar uma ou mais páginas e já disponibilizar a(s) widget(s), é necessário o arquivo **pages.xml**.
 	Esse arquivo se encontra em sample-component-config/src/main/resources/pages.xml.
