@@ -46,7 +46,7 @@ A estrutura está definida da seguinte maneira:
 
 * **sample-component-entity**: projeto responsável em criar tabelas no banco de dados, dedicadas apenas a esse app
 
-    A partir da release do fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas próprias do app no banco de dados do fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo. 
+    A partir da release do fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas customizadas do app no banco de dados do fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo. 
 	
 	Para utilizar essa funcionalidade, algumas diretrizes são obrigatórias:
 	
