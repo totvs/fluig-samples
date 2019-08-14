@@ -23,13 +23,13 @@ A estrutura está definida da seguinte maneira:
 ###### sample-component-layout-custom
 ###### pom.xml  
 
----
+<br>
 * **sample-component-pack**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
 
 	O package do projeto deve ser do tipo **.EAR** (Enterprise Application Archive)
 	Para essa configuração, no arquivo sample-component/sample-component-pack/pom.xml a tag <packing> deve estar assim: **<packaging>ear</packaging>**
 
----
+<br>
 * **sample-component-config**: projeto onde estão os arquivos de configuração do componente:
 
 	Para que o componente seja instalado corretamente, é necessário o arquivo **component.xml**
