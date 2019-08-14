@@ -21,7 +21,7 @@ A estrutura está definida da seguinte maneira:
 ###### sample-component-widget-menu
 ###### sample-component-layout
 ###### sample-component-layout-custom
-###### pom.xml  
+###### pom.xml
 ---
 
 * **sample-component-pack**: projeto responsável por empacotar todo o sample-component em um arquivo do tipo .ear.
@@ -118,9 +118,9 @@ A estrutura está definida da seguinte maneira:
 	No arquivo application.info o código precisa ser único: **application.code=samplecustomlayout**
 ---	
 
-	Para empacotar o projeto e gerar o arquivo **EAR**, será necessário utilizar o Maven. Entre com o seguinte comando na raiz do projeto:
+Para empacotar o projeto e gerar o arquivo **EAR**, será necessário utilizar o Maven. Entre com o seguinte comando na raiz do projeto:
 
      - mvn clean install
      - Você pode também utilzar o Eclipse for Java EE Developers para executar o comando mvn install
 
-	Ao gerar o pacote, o próximo passo é fazer o upload através da Central de Componentes. Após enviar o .EAR, será necessário ativar o componente. Procure pelo código, que está no component.xml, faça a ativação, atualize a página(F5) e acesse as páginas criadas. (Essa etapa é necessária apenas no desenvolvimento do app)
+Ao gerar o pacote, o próximo passo é fazer o upload através da Central de Componentes. Após enviar o .EAR, será necessário ativar o componente. Procure pelo código, que está no component.xml, faça a ativação, atualize a página(F5) e acesse as páginas criadas. (Essa etapa é necessária apenas no desenvolvimento do app)
