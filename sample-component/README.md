@@ -27,7 +27,8 @@ A estrutura está definida da seguinte maneira:
 
 	O package do projeto deve ser do tipo **.EAR** (Enterprise Application Archive)
 	Para essa configuração, no arquivo sample-component/sample-component-pack/pom.xml a tag <packing> deve estar assim: **<packaging>ear</packaging>**
-
+---
+	
 
 * **sample-component-config**: projeto onde estão os arquivos de configuração do componente:
 
@@ -40,6 +41,7 @@ A estrutura está definida da seguinte maneira:
 	Lembrando que o código da página precisa ser único: ex.: **<code>sample-component-page</code>**
 	
 	O ícone da página criada, pode ser encontrado em sample-component-config/src/main/webapp/resources/images/sample-component.png
+---	
 	
 	
 * **sample-component-entity**: projeto responsável em criar tabelas no banco de dados, dedicadas apenas a esse app
@@ -48,7 +50,7 @@ A estrutura está definida da seguinte maneira:
 	
 	Para utilizar essa funcionalidade, algumas diretrizes são obrigatórias:
 	
-		* DataSource name: **AppDS**
+		* DataSource name: AppDS
 		* Não criar relacionamento com as tabelas da plataforma (PK, FK, view, trigger, índices, etc)		
 		* Não inserir/alterar/remover registros das tabelas do fluig. Para isso, utilize as API, WebServices e/ou SDK
 		* Criar índices para as tabelas do app
@@ -64,6 +66,7 @@ A estrutura está definida da seguinte maneira:
         
     Esse projeto é um modelo que você pode seguir para criar suas tabelas no fluig. Fique atento ao arquivo persistence.xml, onde é informado o data source que obrigatoriamente deve ser utilizado para os parceiros criarem suas tabelas: AppDS
     Também é possível encontrar as classes definidas como entidades, que serão suas tabelas no banco de dados, bem como a criação das consultas, constraints e índices.
+---   
 		
 	
 * **sample-component-service**:  projeto responsável por criar os serviços de CRUD com as tabelas do app
@@ -75,8 +78,10 @@ A estrutura está definida da seguinte maneira:
 	Acesse a documentação para maiores informações: [Como expor dados em ambientes públicos](https://bit.ly/2SEW4bz)
 	
 	Pacotes:
+	
 	* DAO: Classes com os métodos de acesso ao banco de dados. 
 	* Service/Impl: Interfaces e implementações das regras de negócios e permissões do app
+---	
 	        
         
 * **sample-component-rest**: projeto responsável em disponibilizar as API Rest para os Services das tabelas do app
@@ -90,27 +95,32 @@ A estrutura está definida da seguinte maneira:
 	Para testar o Rest SEM autenticação, acesse o endpoint:
 	* FLUIG_URL/samplecomponent/api/v1/activate/userInfo/{tenantId}
 	
-	Lembrando que, pra efetuar essa requisição, é necessário ativar o componente para que seja provisionado a criação de um OAuth Provide e OAuth App	
+	Lembrando que, pra efetuar essa requisição, é necessário ativar o componente para que seja provisionado a criação de um OAuth Provide e OAuth App
+---
 
 
 * **sample-component-widget**: projeto de uma widget simples. Aqui encontramos os arquivos de configuração, properties, imagens e o código-fonte da widget.
 
 	No arquivo application.info o código precisa ser único: **application.code=samplewidget**
+---	
 	
 
 * **sample-component-widget-menu**: projeto de uma widget de menu, para substituir o menu lateral esquerdo nativo do fluig.
 
-	No arquivo application.info o código precisa ser único: **application.code=samplewidgetmenu**	
+	No arquivo application.info o código precisa ser único: **application.code=samplewidgetmenu**
+---	
 
 
 * **sample-component-layout**: projeto de um layout simples. Aqui encontramos os arquivos de configuração, properties, imagens, css e o código-fonte do layout.
 
 	No arquivo application.info o código precisa ser único: **application.code=samplelayout**
+---	
 
 
 * **sample-component-layout-custom**: projeto de um layout customizado, sem o menu lateral esquerdo.
 	
 	No arquivo application.info o código precisa ser único: **application.code=samplecustomlayout**
+---	
 
 
 -> Para empacotar o projeto e gerar o arquivo **EAR**, será necessário utilizar o Maven. Entre com o seguinte comando na raiz do projeto:
