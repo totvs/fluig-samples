@@ -7,61 +7,64 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.2</version>
 	</parent>
-	<artifactId>sample-component-rest</artifactId>
-	<packaging>war</packaging>
+	<artifactId>sample-component-entity</artifactId>
+	<packaging>jar</packaging>
 
-	<name>Sample Component - rest</name>
-	<description>Sample Component - rest | description</description>
+	<name>Sample Component - entity</name>
+	<description>Sample Component - entity | description</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>		
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-service</artifactId>
-			<version>${project.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<!-- fluig dependecies -->
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>
-			<scope>provided</scope>
-		</dependency>
+	<dependencies>
+		<!-- Fluig Dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
 			<version>${fluig.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-api-tools</artifactId>
-			<scope>provided</scope>
+			<scope>provided</scope>			
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
-		<!-- /fluig dependecies -->
+		<!-- /Fluig Dependencies -->
 
-		<!-- others -->
+		<!-- Other dependencies -->
+		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- /others -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<!-- /Other dependencies -->
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

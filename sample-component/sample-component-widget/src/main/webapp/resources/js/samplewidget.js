@@ -20,7 +20,9 @@ var SampleWidget = SuperWidget.extend({
 			'remove-user': ['click_removeUser'],
 			'list-categories': ['click_loadListCategories'],
 			'load-create-category': ['click_loadCreateCategory'],
-			'create-category': ['click_createCategory']
+			'create-category': ['click_createCategory'],
+			'edit-category': ['click_editCategory'],
+			'remove-category': ['click_removeCategory']
 		}
 	},
 
@@ -109,7 +111,6 @@ var SampleWidget = SuperWidget.extend({
 	removeUser: function(el, ev) {
 		var that = this,
 			itemSelect = that.datatableViewUsers.selectedRows()[0];
-		console.log(itemSelect);
 		if(itemSelect >= 0) {
 			FLUIGC.message.confirm({
 			    message: '${i18n.getTranslation("msg.remove.selected.user")}',
@@ -215,9 +216,9 @@ var SampleWidget = SuperWidget.extend({
 			});
 			return;
 		}
-		
+
 		this.serviceCreateCategory(cat, function(err, data){
-			if(err) {				
+			if(err) {
 		    	FLUIGC.toast({
 		    		message: that.i18n['msg.category.create'](err.responseText),
 			        type: 'danger'
@@ -232,17 +233,35 @@ var SampleWidget = SuperWidget.extend({
 			that.loadCreateCategory();
 		});
 	},
+
+	/**
+	* TODO removeCategory
+	*/
+	removeCategory: function(el, ev){
+	    var that = this;
+	    var catId = $(el).data('category-id');
+	},
+
+	/**
+	* TODO editCategory
+	*/
+	editCategory: function(el, ev){
+	    var that = this;
+	    var catId = $(el).data('category-id');
+	},
 	
 	/**
-	 * Constrói o datatable da API serviceFindCategories
+	 * Constrói o datatable da API /samplerest/api/v1/category
 	 */
 	buildDatatableItems: function(data) {
 		var that = this;
 		that.datatableViewUsers = FLUIGC.datatable('[data-sample-table]', {
 			emptyMessage: '<div class="text-center">${i18n.getTranslation("msg.no.data.found")}</div>',
 			header: [
-				{'title': '${i18n.getTranslation("label.id")}'},
-				{'title': '${i18n.getTranslation("label.name")}'}
+				{'title': '${i18n.getTranslation("label.id")}', 'size': 'col-md-1'},
+				{'title': '${i18n.getTranslation("label.name")}', 'size': 'col-md-8'},
+				{'title': '${i18n.getTranslation("label.edit")}', 'size': 'col-md-1'},
+				{'title': '${i18n.getTranslation("label.delete")}', 'size': 'col-md-1'}
 		    ],
 		    dataRequest: data,
 			renderContent: '.template-item-category',

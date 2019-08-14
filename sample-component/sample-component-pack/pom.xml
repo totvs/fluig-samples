@@ -63,6 +63,13 @@
 			<artifactId>sample-component-config</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.fluig</groupId>
+			<artifactId>sample-component-entity</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
 			<type>jar</type>
 		</dependency>
 		<dependency>
@@ -154,6 +161,11 @@
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-rest</artifactId>
 							<contextRoot>/samplerest</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>com.fluig</groupId>
+							<artifactId>sample-component-config</artifactId>
+							<contextRoot>/samplecomponentconfig</contextRoot>
 						</webModule>
 					</modules>
 				</configuration>

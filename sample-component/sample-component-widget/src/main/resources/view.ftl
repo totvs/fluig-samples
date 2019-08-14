@@ -47,7 +47,9 @@
     <script type="text/template" class="template-item-category">
     	<tr>
             <td title="{{id}}">{{id}}</td>
-            <td title="{{name}}">{{name}}</td>            
+            <td title="{{name}}">{{name}}</td>
+            <td><i class="fluigicon fluigicon-fileedit icon-sm" data-edit-category data-category-id="{{id}}" ></i></td>
+            <td><i class="fluigicon fluigicon-remove-circle icon-sm" data-remove-category data-category-id="{{id}}" ></i></td>
     	</tr>
     </script>
     

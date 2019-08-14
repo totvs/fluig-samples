@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-config</artifactId>
+			<artifactId>sample-component-entity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		

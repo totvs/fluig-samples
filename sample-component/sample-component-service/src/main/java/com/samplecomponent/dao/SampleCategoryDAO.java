@@ -1,6 +1,8 @@
 package com.samplecomponent.dao;
 
-import java.util.List;
+import com.samplecomponent.entity.SampleCategory;
+import com.totvs.technology.foundation.common.AbstractDAO;
+import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -8,10 +10,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
-import com.samplecomponent.entity.SampleCategory;
-import com.totvs.technology.foundation.common.AbstractDAO;
-import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
+import java.util.List;
 
 /**
  * Aqui a sugestão é herdar a classe abstrata AbstractDAO e passar a entidade SampleCategory como sendo o objeto genérico desse DAO.

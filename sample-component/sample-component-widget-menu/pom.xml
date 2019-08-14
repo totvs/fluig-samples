@@ -6,10 +6,10 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.2</version>
 	</parent>
-	<artifactId>sample-component-menu-widget</artifactId>	
+	<artifactId>sample-component-widget-menu</artifactId>
 	<packaging>war</packaging>
 
-	<name>Sample Component - left menu widget</name>
+	<name>Sample Component - widget menu</name>
 	<description>Left Menu widget</description>
 	
 	<properties>

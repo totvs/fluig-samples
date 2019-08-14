@@ -1,70 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.fluig</groupId>
-		<artifactId>sample-component</artifactId>
-		<version>1.0.2</version>
-	</parent>
-	<artifactId>sample-component-config</artifactId>
-	<packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.fluig</groupId>
+        <artifactId>sample-component</artifactId>
+        <version>1.0.2</version>
+    </parent>
+    <artifactId>sample-component-config</artifactId>
+    <packaging>war</packaging>
 
-	<name>Sample Component - config</name>
-	<description>Sample Component - config | description</description>
+    <name>Sample Component - config</name>
+    <description>This is a sample config</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<dependencies>
-		<!-- Fluig Dependencies -->
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-sdk-api</artifactId>
-			<version>${fluig.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-sdk-common</artifactId>
-			<version>${fluig.version}</version>
-			<scope>provided</scope>			
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-sdk-keyring</artifactId>
-			<version>${fluig.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- /Fluig Dependencies -->
-
-		<!-- Other dependencies -->
-		<!-- To change version of each dependency, go to the parent sample-component/pom.xml -->
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		<!-- /Other dependencies -->
-
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -6,10 +6,10 @@
 		<artifactId>sample-component</artifactId>
 		<version>1.0.2</version>
 	</parent>
-	<artifactId>sample-component-custom-layout</artifactId>	
+	<artifactId>sample-component-layout-custom</artifactId>
 	<packaging>war</packaging>
 
-	<name>Sample Component - custom layout</name>
+	<name>Sample Component - layout custom</name>
 	<description>This is a custom layout</description>
 		
 	<properties>
