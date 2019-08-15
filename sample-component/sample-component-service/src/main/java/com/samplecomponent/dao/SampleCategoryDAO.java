@@ -34,7 +34,7 @@ public class SampleCategoryDAO extends AbstractDAO<SampleCategory> {
 	}
 
 	@Override
-	// Obrigatório utilizar o DT correto: AppDS
+	// Obrigatório utilizar o DataSource correto: AppDS
 	@PersistenceContext(unitName = "AppDS")
 	public void setEntityManager(EntityManager em) {
 		this.em = em;
@@ -43,13 +43,13 @@ public class SampleCategoryDAO extends AbstractDAO<SampleCategory> {
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public List<SampleCategory> findCategories(Long tenantId, String text, int limit, int offset) throws FDNRuntimeException {
         try {
-            TypedQuery<SampleCategory> q = getEntityManager().createNamedQuery(SampleCategory.FIND_BY_NAME, SampleCategory.class);
-            q.setParameter("tenantId", tenantId);
-            q.setParameter("name", "%"+text.toLowerCase()+"%");            
-            q.setFirstResult(offset);
-            q.setMaxResults(limit);
+            TypedQuery<SampleCategory> query = getEntityManager().createNamedQuery(SampleCategory.FIND_BY_NAME, SampleCategory.class);
+            query.setParameter("tenantId", tenantId);
+            query.setParameter("name", "%"+text.toLowerCase()+"%");
+            query.setFirstResult(offset);
+            query.setMaxResults(limit);
             
-            return q.getResultList();
+            return query.getResultList();
         } catch (FDNRuntimeException e) {
             log.error(e.getMessage(), e);
             throw new FDNRuntimeException(e.getMessage(), e.getCause());

@@ -1,26 +1,5 @@
 package com.samplecomponent.rest;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.naming.NamingException;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fluig.sdk.api.FluigAPI;
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.UserService;
@@ -31,6 +10,16 @@ import com.totvs.technology.foundation.common.ServiceLocator;
 import com.totvs.technology.foundation.common.exception.FDNCreateException;
 import com.totvs.technology.foundation.common.exception.FDNRemoveException;
 import com.totvs.technology.foundation.common.exception.FDNUpdateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.naming.NamingException;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está no fluig 
@@ -68,7 +57,7 @@ public class SampleCategoryRest {
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
 		SampleCategory category = categoryService().get(id);
 		if(category == null)
-			return Response.status(Status.NOT_FOUND).build();
+			return Response.status(Status.NOT_FOUND).entity("No Category found for ID: " + id).build();
 		return Response.ok(category).build();
 	}
 
@@ -80,7 +69,7 @@ public class SampleCategoryRest {
 		log.info("---- Object to create: " + vo.toString());
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
 		try {
-			return Response.ok(categoryService().create(vo)).status(Response.Status.CREATED) .build();
+			return Response.status(Response.Status.CREATED).entity(categoryService().create(vo)).build();
 		} catch (FDNCreateException e) {
 		    return Response.status(e.getStatus()).entity(e.getMessage()).build();
 		}
@@ -95,7 +84,7 @@ public class SampleCategoryRest {
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
 		try {
 			categoryService().update(vo);
-			return Response.status(Response.Status.NO_CONTENT).build();
+			return Response.noContent().build();
 		} catch (FDNUpdateException e) {
 			Map<String, String> errors = new HashMap<String, String>();
 			errors.put("error", e.getMessage());
@@ -112,7 +101,7 @@ public class SampleCategoryRest {
 		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
 		try {
 			categoryService().delete(id);
-			return Response.status(Response.Status.NO_CONTENT).build();
+			return Response.noContent().build();
 		} catch (FDNRemoveException e) {
 			Map<String, String> errors = new HashMap<String, String>();
 			errors.put("error", e.getMessage());

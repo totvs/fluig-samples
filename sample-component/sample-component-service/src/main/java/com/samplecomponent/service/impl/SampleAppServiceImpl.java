@@ -1,14 +1,5 @@
 package com.samplecomponent.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.ejb.EJB;
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.SecurityService;
 import com.fluig.sdk.service.UserService;
@@ -22,6 +13,10 @@ import com.totvs.technology.foundation.common.exception.FDNCreateException;
 import com.totvs.technology.foundation.common.exception.FDNRemoveException;
 import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
 import com.totvs.technology.foundation.common.exception.FDNUpdateException;
+
+import javax.ejb.*;
+import java.util.List;
+import java.util.Optional;
 
 @Remote(SampleAppService.class)
 @Stateless(mappedName = SampleAppService.JNDI_NAME, name = SampleAppService.JNDI_NAME)
@@ -56,9 +51,8 @@ public class SampleAppServiceImpl implements SampleAppService {
 			
 			app.setCategory(category);
 			app.setTenantId(category.getTenantId());
-			Optional<SampleApp> optional = null;
-			optional = Optional.ofNullable(dao.create(app));
-			return optional.isPresent() ? optional.get().getId() : null;
+			Optional<SampleApp> sampleApp = Optional.ofNullable(dao.create(app));
+			return sampleApp.isPresent() ? sampleApp.get().getId() : null;
 		} catch (FDNCreateException e) {
             throw new FDNCreateException(e.getMessage(), e);
 		}
@@ -67,8 +61,8 @@ public class SampleAppServiceImpl implements SampleAppService {
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public SampleApp get(long id) {
-		Optional<SampleApp> s = Optional.ofNullable(dao.find(id));
-		return s.isPresent() ? s.get() : null;
+		Optional<SampleApp> sampleApp = Optional.ofNullable(dao.find(id));
+		return sampleApp.isPresent() ? sampleApp.get() : null;
 	}
 
 	@Override
@@ -77,19 +71,19 @@ public class SampleAppServiceImpl implements SampleAppService {
 		/**
 		 * Check permission if needed
 		 */
-		Optional<SampleApp> s = Optional.ofNullable(dao.find(app.getId()));
-		if (!s.isPresent())
+		Optional<SampleApp> sampleApp = Optional.ofNullable(dao.find(app.getId()));
+		if (!sampleApp.isPresent())
 			throw new FDNUpdateException("No App found for ID: " + app.getId());
 
-		if (s.get().getCategory().getId().equals(app.getCategoryId())) {
-			app.setCategory(s.get().getCategory());
+		if (sampleApp.get().getCategory().getId().equals(app.getCategoryId())) {
+			app.setCategory(sampleApp.get().getCategory());
 		} else {
 			SampleCategory category = categoryService.get(app.getCategoryId());
 			if (category == null)
 				throw new FDNUpdateException("No Category found for id: " + app.getCategoryId());
 			app.setCategory(category);
 		}
-		app.setTenantId(s.get().getTenantId());
+		app.setTenantId(sampleApp.get().getTenantId());
 		dao.edit(app);
 	}
 
@@ -99,10 +93,10 @@ public class SampleAppServiceImpl implements SampleAppService {
 		/**
 		 * Check permission if needed
 		 */
-		Optional<SampleApp> s = Optional.ofNullable(dao.find(id));
-		if (!s.isPresent())
+		Optional<SampleApp> sampleApp = Optional.ofNullable(dao.find(id));
+		if (!sampleApp.isPresent())
 			throw new FDNRemoveException("No App found for ID: " + id);
-		dao.remove(s.get());
+		dao.remove(sampleApp.get());
 	}
 
 	@Override
@@ -128,11 +122,10 @@ public class SampleAppServiceImpl implements SampleAppService {
 	private boolean isUserLoggedAdmin() {
 		try {
 			String login = userService.getCurrent().getLogin();
-			List<AdminUserVO> list = securityService.listTenantAdmins(securityService.getCurrentTenantId());
-			for (AdminUserVO admin : list) {
+			List<AdminUserVO> tenantAdmins = securityService.listTenantAdmins(securityService.getCurrentTenantId());
+			for (AdminUserVO admin : tenantAdmins)
 				if (admin.getLogin().equals(login))
 					return true;
-			}
 			return false;
 		} catch (SDKException e) {
 			throw new RuntimeException("Can't request tenant admin list");

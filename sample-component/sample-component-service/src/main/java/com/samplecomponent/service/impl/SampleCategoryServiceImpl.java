@@ -1,14 +1,5 @@
 package com.samplecomponent.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.ejb.EJB;
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-
 import com.fluig.sdk.api.common.SDKException;
 import com.fluig.sdk.service.SecurityService;
 import com.fluig.sdk.service.UserService;
@@ -18,6 +9,10 @@ import com.samplecomponent.service.SampleCategoryService;
 import com.totvs.technology.foundation.common.exception.FDNCreateException;
 import com.totvs.technology.foundation.common.exception.FDNRemoveException;
 import com.totvs.technology.foundation.common.exception.FDNUpdateException;
+
+import javax.ejb.*;
+import java.util.List;
+import java.util.Optional;
 
 @Remote
 @Stateless(name = SampleCategoryService.JNDI_NAME, mappedName = SampleCategoryService.JNDI_NAME)
@@ -34,14 +29,14 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public long create(SampleCategory cat) throws FDNCreateException {
+	public long create(SampleCategory category) throws FDNCreateException {
 		try {
 			/**
 			 * check permission if needed 
 			 */
-			cat.setTenantId(securityService.getCurrentTenantId());
-			Optional<SampleCategory> optional = Optional.ofNullable(dao.create(cat));
-			return (optional.isPresent() ? optional.get().getId() : null);			
+			category.setTenantId(securityService.getCurrentTenantId());
+			Optional<SampleCategory> categoryOptional = Optional.ofNullable(dao.create(category));
+			return (categoryOptional.isPresent() ? categoryOptional.get().getId() : null);
 		} catch (FDNCreateException | SDKException e) {
             throw new FDNCreateException(e.getMessage(), e);
 		}
@@ -50,21 +45,21 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public SampleCategory get(long id) {
-		Optional<SampleCategory> s = Optional.ofNullable(dao.find(id));
-		return (s.isPresent() ? s.get() : null);
+		Optional<SampleCategory> sampleCategory = Optional.ofNullable(dao.find(id));
+		return (sampleCategory.isPresent() ? sampleCategory.get() : null);
 	}
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public void update(SampleCategory cat) throws FDNUpdateException {
+	public void update(SampleCategory sampleCategory) throws FDNUpdateException {
 		/**
 		 * check permission if needed
 		 */
-		Optional<SampleCategory> s = Optional.ofNullable(dao.find(cat.getId()));
-		if (!s.isPresent())
-			throw new FDNUpdateException("No Category found for ID: " + cat.getId());
-		cat.setTenantId(s.get().getTenantId());
-		dao.edit(cat);
+		Optional<SampleCategory> sampleCategory1 = Optional.ofNullable(dao.find(sampleCategory.getId()));
+		if (!sampleCategory1.isPresent())
+			throw new FDNUpdateException("No Category found for ID: " + sampleCategory.getId());
+		sampleCategory.setTenantId(sampleCategory1.get().getTenantId());
+		dao.edit(sampleCategory);
 	}
 
 	@Override
@@ -73,10 +68,10 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 		/**
 		 * check permission if needed
 		 */
-		Optional<SampleCategory> s = Optional.ofNullable(dao.find(id));
-		if (!s.isPresent())
+		Optional<SampleCategory> sampleCategory = Optional.ofNullable(dao.find(id));
+		if (!sampleCategory.isPresent())
 			throw new FDNRemoveException("No Category found for ID: " + id);
-		dao.remove(s.get());
+		dao.remove(sampleCategory.get());
 	}
 
 	@Override
