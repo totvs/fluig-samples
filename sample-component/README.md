@@ -87,14 +87,14 @@ A estrutura está definida da seguinte maneira:
 
 	A API Rest de exemplo(necessário estar autenticado), pode ser testada através dos endpoints:
 	
-		- FLUIG_URL/samplecomponent/api/v1/category
-		- FLUIG_URL/samplecomponent/api/v1/app
+		- FLUIG_URL/samplerest/api/v1/category
+		- FLUIG_URL/samplerest/api/v1/app
 	    
 	A configuração de autenticação desses Rest's está no arquivo web.xml do projeto sample-component-rest.
 	
 	Para testar o Rest SEM autenticação, acesse o endpoint:
 	
-		- FLUIG_URL/samplecomponent/api/v1/activate/userInfo/{tenantId}
+		- FLUIG_URL/samplerest/api/v1/activate/userInfo/{tenantId}
 	
 	Lembrando que, pra efetuar essa requisição, é necessário ativar o componente para que seja provisionado a criação de um OAuth Provide e OAuth App.
 ---	
