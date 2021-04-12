@@ -15,7 +15,7 @@ import javax.persistence.QueryHint;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
+
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
