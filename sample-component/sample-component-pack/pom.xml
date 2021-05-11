@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.0.2</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>sample-component-pack</artifactId>
 	<packaging>ear</packaging>
@@ -168,11 +168,15 @@
 							<contextRoot>/samplecomponentconfig</contextRoot>
 						</webModule>
 					</modules>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestEntries>
+							<Dependencies>com.fluig.common</Dependencies>
+						</manifestEntries>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
 		<sourceDirectory>${java.src.dir}</sourceDirectory>
 	</build>
-
-
 </project>
