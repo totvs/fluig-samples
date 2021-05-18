@@ -23,7 +23,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- INSIRA AQUI A RELEASE DO FLUIG QUE O SEU APP É COMPATÍVEL -->
-		<fluig.version>1.6.5</fluig.version>
+		<fluig.version>1.7.1</fluig.version>
 	</properties>
 
 	<modules>
@@ -45,12 +45,6 @@
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
 				<version>8.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-				<version>4.5.13</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
