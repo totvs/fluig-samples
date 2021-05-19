@@ -1,12 +1,12 @@
-# Exemplo de componente para a fluig Store
+# Projeto de exemplo para desenvolvimento de apps compatíveis com a TOTVS Store
 ---
 
-A partir da versão 1.6.2 do fluig, será possível instalar os componentes diretamente na Store, mais especificamente através da página "[Itens da Store](http://tdn.totvs.com/x/yUwXEQ)" dentro do próprio fluig.
+A partir da release 1.6.2 do Fluig, será possível instalar os componentes diretamente na Store, mais especificamente através da página "[Itens da Store](http://tdn.totvs.com/x/yUwXEQ)" dentro da plataforma.
 
-Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser seguido caso o desenvolvedor deseje criar um componente e disponibilizá-lo na fluig Store.
+Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser seguido caso o desenvolvedor deseje criar um componente e disponibilizá-lo como aplicativo para venda na TOTVS Store.
 O projeto está construído utilizando o gerenciador de projeto/dependências [Apache Maven](https://maven.apache.org/). Quanto ao desenvolvimento HTML, JS e freemarker, Mustache para a widget. Está incluído também a instrução para a criação de uma nova página, com um novo layout e já com essa nova widget adicionada.
 
-O layout customizado é uma maneira de criar uma página sem o menu tradicional do fluig. 
+O layout customizado é uma maneira de criar uma página sem o menu tradicional do Fluig. 
 
 O projeto ainda conta com uma implementação de uma API Rest em Java.
 A estrutura está definida da seguinte maneira:
@@ -46,7 +46,7 @@ A estrutura está definida da seguinte maneira:
 
 * **sample-component-entity**: projeto responsável em criar tabelas no banco de dados, dedicadas apenas a esse app
 
-    A partir da release do fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas customizadas do app no banco de dados do fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo. 
+    A partir da release do Fluig 1.6.5-190514 ou superior, está disponível a criação de tabelas customizadas do app no banco de dados do fluig. Com isso, será possível ter uma estrutura própria, com serviços dedicados e exclusivos para seu app. Isso facilita o armazenamento de alguns dados, sem a necessidade de utilizar formulários ou até mesmo um serviço externo. 
 	
 	Para utilizar essa funcionalidade, algumas diretrizes são obrigatórias:
 	
@@ -64,7 +64,7 @@ A estrutura está definida da seguinte maneira:
         - Criar um VO específico para retorno invés de retornar a própria entidade
         - Utilize padrões de projetos em seu desenvolvimento: DAO, Factory, Builder, Chain of Responsibility...
         
-    Esse projeto é um modelo que você pode seguir para criar suas tabelas no fluig. Fique atento ao arquivo persistence.xml, onde é informado o data source que obrigatoriamente deve ser utilizado para os parceiros criarem suas tabelas: AppDS.
+    Esse projeto é um modelo que você pode seguir para criar suas tabelas no Fluig. Fique atento ao arquivo persistence.xml, onde é informado o data source que obrigatoriamente deve ser utilizado para os parceiros criarem suas tabelas: AppDS.
     
     Também é possível encontrar as classes definidas como entidades, que serão suas tabelas no banco de dados, bem como a criação das consultas, constraints e índices.    
 --- 
