@@ -124,7 +124,7 @@
 					<generateModuleId>false</generateModuleId>
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
 					<initializeInOrder>true</initializeInOrder>
-					<fileNameMapping>full</fileNameMapping>
+					<fileNameMapping>no-version</fileNameMapping>
 					<security>
 						<security-role>
 							<role-name>sysadmin</role-name>

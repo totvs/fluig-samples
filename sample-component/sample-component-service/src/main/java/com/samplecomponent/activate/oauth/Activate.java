@@ -30,7 +30,7 @@ public class Activate implements ActivationListener {
 
     @Override
     public String getArtifactFileName() throws Exception {
-        return "sample-component-api.jar";
+        return "sample-component-service.jar";
     }
 
     @Override
