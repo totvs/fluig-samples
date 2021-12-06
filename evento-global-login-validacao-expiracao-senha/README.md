@@ -16,7 +16,7 @@ Neste exemplo, porque questões de segurança, as senhas históricas não são a
 ## Componentes utilizados
 - afterUpdateUser
 - beforeLogin
-- Dataset (connector, fluig_create_card e fluig_update_card)
+- Datasets (fluig_create_card e fluig_update_card)
 - Serviço SOAP Fluig - ECMCardService (createCard e updateCardData)
 - Formulário (politica_senha e controle_senha)
 
@@ -24,9 +24,10 @@ Neste exemplo, porque questões de segurança, as senhas históricas não são a
 - Publique o formulário "politica_senha" com o datasetname: fluig_politica_senha
 - Publique o formulário "controle_senha" com o datasetname: fluig_controle_senha. Dica: Use como campo descritor o campo login, assim ficará mais organizado e fácil de encontrar pela navegação de documentos
 - Crie uma ficha no formulário "politica_senha", informe a quantidade de dias e o número de documento do formulário "controle_senha"
-- Altere o dataset "connector" na linha 14 informando os valores adequados para cada parâmetro
+- Altere no dataset "fluig_create_card" nas linhas 70 à 72 informando os valores adequados para cada parâmetro
+- Altere no dataset "fluig_update_card" nas linhas 66 e 67 informando os valores adequados para cada parâmetro
 - No painel de controle, cadastre um novo serviço SOAP com o nome ECMCardService usando o serviço do fluig <url fluig>/webdesk/ECMCardService?wsdl
-- Publique os datasets (connector, fluig_create_card e fluig_update_card).
+- Publique os datasets (fluig_create_card e fluig_update_card).
 - Você pode alterar quais usuários que deseja controlar o login atráves do método "usuarioComControleSenha" na linha 45 do evento beforeLogin.
 
 ## Como testar
