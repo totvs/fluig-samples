@@ -34,11 +34,10 @@ Neste exemplo, porque questões de segurança, as senhas históricas não são a
 -Altere algum usuário que se encaixe na regra definida na função "usuarioComControleSenha" do evento "beforeLogin", isso fará com que uma ficha seja criada para o usuário em questão no formulário "controle_senha".
 -No formulário "controle_senha", no registro recém-criado, altere a validade da senha e salve a ficha.
 -Tente efetuar login com o usuário definido.
--Caso a data tenha expirado, na tela de login será exibido: "Sua senha expirou! Utilize a função 'Esqueci minha senha' para redefíni-la".
+-Caso a data tenha expirado, na tela de login será exibido: "Sua senha expirou! Utilize a função 'Esqueci minha senha' para redefini-la".
 -Quando o usuário redefinir a senha, o evento "afterUpdateUser" é disparado e atualizada a data de validade da senha.
 
 ## Em caso de problema/Troubleshooting e observações
-- ATENÇÃO: Caso você libere um código quebrado no evento "beforeLogin" não será possível autenticar no TOVS FLuig Plataforma.
-- Caso não seja possível autenticar na plataforma devido a código quebrado, acesse a base de dados, tabela "event_geral" e apague o registro referente ao evento "beforeLogin".
+- ATENÇÃO: Caso você libere um código quebrado no evento "beforeLogin" não será possível autenticar no TOTVS Fluig Plataforma, revise bem o seu código e trabalhe de forma adequeada a captura de erros.
 - Esse exemplo não funciona em conjunto com TOTVS Identity
 - Esse exemplo é limitado aos usuários que são editados após a criação do evento afterUpdateUser e não funcionará automaticamente para todos os usuários. No arquivo beforeLogin você pode habilitar para todos os usuários (mas ainda validará o que foi definido no método "usuarioComControleSenha" - e poderá impedir temporariamente futuros logins mesmo para exportar os eventos, já que vai bloquear o login do administrador também)
