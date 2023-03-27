@@ -5,8 +5,9 @@ application.code=samplelayout
 application.icon=icon.png
 application.renderer=freemarker
 application.type=layout
-application.resource.css.1=/resources/css/samplelayout.css
-application.resource.js.2=/resources/js/samplelayout.js
+application.resource.css.1=/portal/resources/css/wcm_responsive_layout.css
+application.resource.css.2=/resources/css/samplelayout.css
+application.resource.js.3=/resources/js/samplelayout.js
 application.uilayout=false
 
 simple.deploy=true
@@ -24,3 +25,6 @@ slot.SlotUsePolicy=usepolicy
 developer.code=TOTVS_WCM_DEV
 developer.name=TOTVS S.A.
 developer.url=http\://www.totvs.com
+
+application.responsiveLayout=true
+application.newBuilder=true

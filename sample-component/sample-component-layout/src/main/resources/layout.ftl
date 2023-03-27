@@ -1,32 +1,42 @@
 <#import "/wcm.ftl" as wcm/>
-<@wcm.header />
+
+<#-- Variaveis globais para os layouts -->
+<#import "/layout-globals.ftl" as globals />
+
+<#if pageRender.isPreviewMode() = true>
+	<@wcm.previewPageAlert />
+	<@wcm.deviceTogglePreview />
+</#if>
 
 <!-- WCM Wrapper content -->
-<div class="wcm-wrapper-content">
+<div class="wcm-wrapper-content ${wcmLayoutEditClass!""} ${pageAuthTypeClass!""}">
 
-<@wcm.menu />
+    <#if pageRender.isEditMode() != true>
+        <@wcm.header />
+        <@wcm.menu />
+    </#if>
 
     <!-- Wrapper -->
     <div class="wcm-all-content">
+
         <div id="wcm-content" class="clearfix wcm-background">
 
-            <!-- Onde deverá estar a barra de formatação -->
-        <#if pageRender.isEditMode()=true>
-            <div name="formatBar" id="formatBar"></div>
-            <!-- Div geral -->
-            <!-- Há CSS distinto para Edição/Visualização -->
-        <div id="edicaoPagina" class="clearfix">
-        <#else>
-        <div id="visualizacaoPagina" class="clearfix">
-        </#if>
+            <#if pageRender.isEditMode() = true>
+                <@wcm.editHeader />
+                <@wcm.widgetsList />
+            </#if>
 
-            <!-- Slot 1 -->
-            <div class="editable-slot slotfull layout-1-1" id="slotFull2">
-            <@wcm.renderSlot id="SlotA" editableSlot="true"/>
+            <div id="${divMasterId!""}" class="clearfix">
 
+                <!-- Slot 1 -->
+                <div class="editable-slot slotfull layout-1-1" id="slotFull2">
+                    <@wcm.renderSlot id="SlotA" editableSlot="true" isResponsiveSlot="true" />
+                </div>
+            
+                <#if fluigThemeCode != "responsive_theme">
+                    <@wcm.footer layoutuserlabel="wcm.layoutsimples.user" />
+                </#if>
             </div>
-        <@wcm.footer layoutuserlabel="wcm.layoutsimples.user" />
-
         </div>
 	</div>
 </div>
