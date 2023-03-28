@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fluig</groupId>
 	<artifactId>sample-component</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<packaging>pom</packaging>
 
 	<name>Sample Component</name>
@@ -23,7 +23,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- INSIRA AQUI A RELEASE DO FLUIG QUE O SEU APP É COMPATÍVEL -->
-		<fluig.version>1.7.1</fluig.version>
+		<fluig.version>1.8.1</fluig.version>
 	</properties>
 
 	<modules>
