@@ -1,23 +1,50 @@
-.wcm-header{
+/* TODO: colocar para os outros headers */
+.wcm-header {
 	background-color: #596069
 }
 
-.side-nav {
-	position: fixed;
-    top: 60px;    
-    height: 93%;
-    width: 15%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background-color: rgba(49,58,70,1);
+.wcm-wrapper-content .container-columns {
+    display: flex;
 }
 
-.main-nav {	
-    position: absolute;
-    top: 60px;
-    left: 16%;    
-    height: 93%;
-    width: 84%;
-    overflow-x: auto;
-    overflow-y: auto;    
+.wcm-wrapper-content .side-nav,
+.wcm-wrapper-content .main-nav {
+    padding: 10px;
+}
+
+.wcm-wrapper-content #oem-side-nav.side-nav .layout-1-1,
+.wcm-wrapper-content #oem-main-nav.main-nav .layout-1-1 {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.wcm-wrapper-content .side-nav {
+    background-color: var(--themeResponsiveBrandColor);
+    width: 30%;
+    margin-right: 20px;
+}
+
+.wcm-wrapper-content .main-nav {
+    background-color: var(--n-background);
+    width: 70%;
+}
+
+.wcm-wrapper-content .wcm-all-content {
+    padding-left: 20px;
+}
+
+/* Formatações responsáveis pela responsividade das colunas */
+@media (max-width: 991px) {
+    #visualizacaoPagina .side-nav,
+    #visualizacaoPagina .main-nav,
+    #edicaoPagina .side-nav,
+    #edicaoPagina .main-nav {
+        width: 100% !important;
+    }
+    .wcm-all-content > #wcm-content {
+        padding-right: 0 !important;
+    }
+    .wcm-wrapper-content .container-columns {
+        flex-direction: column;
+    }
 }

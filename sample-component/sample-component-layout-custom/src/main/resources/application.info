@@ -6,8 +6,9 @@ application.icon=icon.png
 application.renderer=freemarker
 application.type=layout
 application.resource.js.1=/resources/js/samplecustomlayout.js
-application.resource.css.2=/resources/css/samplecustomlayout.css
-application.uilayout=false
+application.resource.css.2=/portal/resources/css/wcm_responsive_layout.css
+application.resource.css.3=/resources/css/samplecustomlayout.css
+application.uilayout=true
 
 simple.deploy=true
 
@@ -17,3 +18,6 @@ layout.file=layout.ftl
 developer.code=TOTVS_WCM_DEV
 developer.name=TOTVS S.A.
 developer.url=http://www.totvs.com
+
+application.responsiveLayout=true
+application.newBuilder=true
