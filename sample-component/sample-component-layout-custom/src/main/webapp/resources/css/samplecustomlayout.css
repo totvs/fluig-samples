@@ -1,6 +1,5 @@
-/* TODO: colocar para os outros headers */
 .wcm-header {
-	background-color: #596069
+	background-color: var(--n-dark);
 }
 
 .wcm-wrapper-content .container-columns {
