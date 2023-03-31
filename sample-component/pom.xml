@@ -23,7 +23,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- INSIRA AQUI A RELEASE DO FLUIG QUE O SEU APP É COMPATÍVEL -->
-		<fluig.version>1.7.1</fluig.version>
+		<fluig.version>1.8.1</fluig.version>
 	</properties>
 
 	<modules>
@@ -95,6 +95,9 @@
 					</execution>
 				</executions>
 				<configuration>
+					<excludes>
+						<exclude>**/*.js</exclude>
+					</excludes>
 					<nosuffix>true</nosuffix>
 					<force>true</force>
 					<linebreakpos>-1</linebreakpos>
@@ -103,6 +106,45 @@
 					<jswarn>false</jswarn>
 					<nomunge>true</nomunge>
 					<preserveAllSemiColons>false</preserveAllSemiColons>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.blutorange</groupId>
+				<artifactId>closure-compiler-maven-plugin</artifactId>
+				<version>2.21.0</version>
+				<executions>
+					<execution>
+						<id>default-minify</id>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>true</skip>
+					<baseSourceDir>${project.basedir}/src</baseSourceDir>
+					<encoding>UTF-8</encoding>
+					<sourceDir>main/webapp/resources</sourceDir>
+					<targetDir>resources</targetDir>
+					<includes>**/*.js</includes>
+					<outputFilename>#{path}/#{basename}.#{extension}</outputFilename>
+					<excludes>**/${project.basedir}</excludes>
+					<excludes>**/*.min.js</excludes>
+					<excludes>**/*-min.js</excludes>
+					<closureCompilationLevel>SIMPLE_OPTIMIZATIONS</closureCompilationLevel>
+					<closureWarningLevels>
+						<undefinedVars>OFF</undefinedVars>
+						<duplicate>OFF</duplicate>
+						<duplicateMessage>OFF</duplicateMessage>
+						<es5Strict>OFF</es5Strict>
+						<checkVars>OFF</checkVars>
+					</closureWarningLevels>
+					<closureEmitUseStrict>false</closureEmitUseStrict>
+					<closureRewritePolyfills>false</closureRewritePolyfills>
+					<closureLanguageOut>NO_TRANSPILE</closureLanguageOut>
+					<skipMinify>false</skipMinify>
+					<skipMerge>true</skipMerge>
 				</configuration>
 			</plugin>
 			<plugin>

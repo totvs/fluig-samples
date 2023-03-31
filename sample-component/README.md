@@ -112,11 +112,15 @@ A estrutura está definida da seguinte maneira:
 * **sample-component-layout**: projeto de um layout simples. Aqui encontramos os arquivos de configuração, properties, imagens, css e o código-fonte do layout.
 
 	No arquivo application.info o código precisa ser único: **application.code=samplelayout**.
+	
+	**Atenção, esse layout é compatível somente com o fluig 1.8.1 ou superior. Para versões anteriores, acesse a tag [1.8.0_OU_Inferior](https://git.fluig.com/projects/SAMPLES/repos/projetos/browse/sample-component?at=refs%2Ftags%2F1.8.0_OU_Inferior).**
 ---	
 
 * **sample-component-layout-custom**: projeto de um layout customizado, sem o menu lateral esquerdo.
 	
 	No arquivo application.info o código precisa ser único: **application.code=samplecustomlayout**.
+
+	**Atenção, esse layout é compatível somente com o fluig 1.8.1 ou superior. Para versões anteriores, acesse a tag [1.8.0_OU_Inferior](https://git.fluig.com/projects/SAMPLES/repos/projetos/browse/sample-component?at=refs%2Ftags%2F1.8.0_OU_Inferior).**
 ---	
 
 Para empacotar o projeto e gerar o arquivo **EAR**, será necessário utilizar o Maven. Entre com o seguinte comando na raiz do projeto:
