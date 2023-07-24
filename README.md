@@ -16,3 +16,4 @@
 13. **form-smart-zoom**: Exemplo de como preencher campos de *zoom* automaticamente.
 14. **interacting-with-copy-controlled-properties**: Interagindo com Propriedades de Cópia Controlada.
 15. **component**: Modelo de componente para a fluig Store.
+16. **onNotify**: Exemplos de implementação do Evento Global onNotify.
