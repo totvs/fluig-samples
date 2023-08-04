@@ -10,8 +10,6 @@ application.resource.css.2=/resources/css/samplelayout.css
 application.resource.js.3=/resources/js/samplelayout.js
 application.uilayout=false
 
-simple.deploy=true
-
 layout.defaultSlot=SlotA
 layout.file=layout.ftl
 
