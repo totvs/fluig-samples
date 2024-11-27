@@ -1,0 +1,17 @@
+application.title=Runner Widget
+application.description=This is a sample widget
+application.category=Cloud
+application.code=runnerwidget
+application.icon=icon.png
+application.renderer=freemarker
+application.type=widget
+application.resource.css.1=/resources/css/runnerwidget.css
+application.resource.js.2=/resources/js/runnerwidget.js
+application.uiwidget=false
+
+edit.file=edit.ftl
+view.file=view.ftl
+
+developer.code=TOTVS
+developer.name=TOTVS S.A.
+developer.url=http://www.totvs.com
