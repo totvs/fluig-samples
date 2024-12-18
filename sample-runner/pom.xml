@@ -23,7 +23,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- INSIRA AQUI A RELEASE DO FLUIG QUE O SEU APP É COMPATÍVEL -->
-		<fluig.version>1.8.3-SNAPSHOT</fluig.version>		
+		<fluig.version>2.0.0-SNAPSHOT</fluig.version>
 	</properties>
 
 	<modules>
@@ -38,12 +38,6 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>javax</groupId>
-				<artifactId>javaee-api</artifactId>
-				<version>8.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
 				<groupId>com.fluig</groupId>
 				<artifactId>fluig-api-tools</artifactId>
 				<version>1.1.0</version>
@@ -53,6 +47,41 @@
 				<groupId>oauth.signpost</groupId>
 				<artifactId>signpost-core</artifactId>
 				<version>2.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>foundation-cache-module</artifactId>
+				<version>${fluig.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>fluig-sdk-api</artifactId>
+				<version>${fluig.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>fluig-sdk-common</artifactId>
+				<version>${fluig.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>fluig-sdk-keyring</artifactId>
+				<version>${fluig.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fluig</groupId>
+				<artifactId>foundation-common</artifactId>
+				<version>${fluig.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>20240303</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

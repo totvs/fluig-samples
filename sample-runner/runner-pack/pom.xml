@@ -21,13 +21,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.fluig</groupId>
-			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>foundation-cache-module</artifactId>
-			<version>${fluig.version}</version>
+			<artifactId>fluig-sdk-api</artifactId>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -56,14 +51,6 @@
 			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>
-		</dependency>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>fluig-api-tools</artifactId>
 		</dependency>
 	</dependencies>
 

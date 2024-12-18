@@ -28,12 +28,12 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
-			<version>${fluig.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
-			<version>${fluig.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -43,7 +43,6 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
-			<version>${fluig.version}</version>
 		</dependency>
 		<!-- /fluig dependecies -->
 

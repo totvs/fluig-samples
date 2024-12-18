@@ -149,7 +149,7 @@ public class GroupServiceImpl implements GroupService {
         }
     }
 
-    private OAuthConsumer getOAuthConsumer(KeyVO key, String login) throws SDKException {
+    private OAuthConsumer getOAuthConsumer(KeyVO key, String login) throws Exception {
         OAuthSdkVO oAuthSdkVO = oAuthUserService.generateUserOAuthKeys(key.getConsumerKey(), login);
         OAuthConsumer consumer = new DefaultOAuthConsumer(key.getConsumerKey(), key.getConsumerSecret());
         consumer.setTokenWithSecret(oAuthSdkVO.getTokenAccess(), oAuthSdkVO.getTokenSecret());
