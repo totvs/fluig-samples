@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pages>
+	<page>
+		<code>talent-ai-page</code>
+		<enabledChildren>false</enabledChildren>
+		<enabledPathParam>false</enabledPathParam>
+		<hidden>false</hidden>
+		<title>Talent AI - Vagas</title>
+		<description>Cadastro de vagas</description>
+		<theme>responsive</theme>
+		<layout>layoutsimple</layout>
+		<editable>false</editable>
+		<auth>1</auth>
+		<icon>flaticon-briefcase</icon>
+		<menuGroup>true</menuGroup>
+		<slots>
+			<slot>
+				<name>SlotA</name>
+				<widget>talent-widget-view</widget>
+				<showWidgetTitle>false</showWidgetTitle>
+				<enabledMobileApp>false</enabledMobileApp>				
+			</slot>
+		</slots>
+		<permissions>
+			<permission>
+				<code>pageView</code>
+				<description>permission.page.view</description>
+				<role>user</role>				
+			</permission>
+			<permission>
+				<code>pageUpdate</code>
+				<description>permission.page.update</description>
+				<role>admin</role>
+			</permission>
+			<permission>
+				<code>pageRemove</code>
+				<description>permission.page.remove</description>
+				<role>admin</role>
+			</permission>
+		</permissions>		
+	</page>
+</pages>

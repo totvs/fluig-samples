@@ -1,0 +1,17 @@
+application.title=Talent Widget View
+application.description=Talent Widget View
+application.category=Sample
+application.code=talentview
+application.icon=icon.png
+application.renderer=freemarker
+application.type=widget
+application.resource.css.1=/resources/css/talentview.css
+application.resource.js.2=/resources/js/talentview.js
+application.uiwidget=false
+
+edit.file=edit.ftl
+view.file=view.ftl
+
+developer.code=TOTVS
+developer.name=TOTVS S.A.
+developer.url=http://www.totvs.com

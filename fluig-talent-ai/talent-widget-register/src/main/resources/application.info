@@ -1,0 +1,17 @@
+application.title=Talent Register
+application.description=Talent Register
+application.category=Sample
+application.code=talentregister
+application.icon=icon.png
+application.renderer=freemarker
+application.type=widget
+application.resource.css.1=/resources/css/talentregister.css
+application.resource.js.2=/resources/js/talentregister.js
+application.uiwidget=false
+
+edit.file=edit.ftl
+view.file=view.ftl
+
+developer.code=TOTVS
+developer.name=TOTVS S.A.
+developer.url=http://www.totvs.com
