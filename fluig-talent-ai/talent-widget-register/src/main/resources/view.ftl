@@ -1,77 +1,119 @@
-<div id="sampleWidget_${instanceId}" class="fluig-style-guide wcm-widget-class super-widget" data-params="SampleWidget.instance()">
-    <div class="container" data-content-area>
-    </div>
+<div
+    id="talentRegisterWidget_${instanceId}"
+    class="wcm-widget-class super-widget fluig-style-guide"
+    data-params="TalentRegisterWidget.instance()"
+>
+    <h1 class="fs-mt-0">Talent AI | Cadastro de vagas</h1>
+    <p>Cadastre abaixo as vagas disponíveis em sua empresa.</p>
+    <div id="table-jobs-list"></div>
 
-    <script type="text/template" class="template-users-content">
-    	<div class="row" id="mainDiv">
-            <div class="jumbotron">
-                <h1>Sample component!</h1>
-            </div>
-        </div>
-        <h2>${i18n.getTranslation('label.widget.hello')}</h2>
-        <p>
-            <a class="btn btn-primary btn-lg" href="#" data-do-something role="button">${i18n.getTranslation('label.button.click')}</a>
-            <a class="btn btn-primary btn-lg" href="#" data-load-table role="button">${i18n.getTranslation('label.button.sample.rest.external')}</a>
-            <a class="btn btn-primary btn-lg" href="#" data-load-create-category role="button">${i18n.getTranslation('label.button.sample.create.category')}</a>
-            <a class="btn btn-primary btn-lg" href="#" data-list-categories role="button">${i18n.getTranslation('label.button.sample.list.categories')}</a>            
-            <a class="btn btn-primary btn-lg" href="/samplewidget/resources/download/app.zip" role="button">Download</a>
-        </p>
-        
-        <br>
-        
-        <div class="row">
-            <div class="col-md-12">
-                <div data-sample-table></div>
-            </div>
-        </div>
-        
-    </script>
-    
-    <script type="text/template" class="template-list-users">
+    <script type="text/template" class="template_datatable">
         <tr>
-            <td title="{{name}}">{{name}}</td>
-            <td title="{{username}}">{{username}}</td>
-            <td title="{{address.street}}">{{address.street}}</td>
-            <td title="{{email}}">{{email}}</td>
-            <td title="{{phone}}">{{phone}}</td>
+            <td>{{name}}</td>
+            <td>{{description}}</td>
+            <td>{{state}}</td>
             <td>
-                <p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button class="btn btn-danger btn-xs" data-title="Delete" data-remove-user data-user-id="{{id}}" data-toggle="modal" data-target="#delete">
-                        <span class="fluigicon fluigicon-trash"></span>
+                {{ #isAnalysed }}
+                    <button class="btn btn-default btn-sm" data-show-result>Ver resultado</button>
+                {{ /isAnalysed }}
+                {{ ^isAnalysed }}
+                    <button class="btn btn-primary btn-sm" data-analyze>Analisar candidato</button>
+                {{ /isAnalysed }}
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Ações <span class="caret"></span>
                     </button>
-                </p>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">Editar vaga</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">Remover vaga</a>
+                        </li>
+                    </ul>
+                </div>
             </td>
         </tr>
     </script>
-    
-    <script type="text/template" class="template-item-category">
-    	<tr>
-            <td title="{{id}}">{{id}}</td>
-            <td title="{{name}}">{{name}}</td>
-            <td><i class="fluigicon fluigicon-fileedit icon-sm" data-edit-category data-category-id="{{id}}" ></i></td>
-            <td><i class="fluigicon fluigicon-remove-circle icon-sm" data-remove-category data-category-id="{{id}}" ></i></td>
-    	</tr>
+
+    <script type="text/template" class="template_datatable_actions">
+        <button class="btn btn-primary" data-register-job>Cadastrar vaga</button>
     </script>
+
+    <script type="text/template" class="template_modal_content">
+        <div class="container-fluid">
+            <form>
+                <div class="form-group">
+                    <label for="titulo">Título da vaga:</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Ex: Desenvolvedor Java" required>
+                </div>
     
-    <script type="text/template" class="template-create-category">
-		<div class="row">
-		    <div class="col-lg-6">
-		        <div class="input-group">
-		            <input type="text" class="form-control" data-input-category placeholder="${i18n.getTranslation('ph.category.name')}" maxlength="50">
-		            <span class="input-group-btn">
-		            <button class="btn btn-default" data-create-category type="button">${i18n.getTranslation('btn-category.create')}</button>
-		            </span>
-		        </div>
-		    </div>
-		</div>		    	
+                <div class="form-group">
+                    <label for="nivel">Nível de carreira:</label>
+                    <select class="form-control" id="nivel" required>
+                        <option value="">Selecione</option>
+                        <option>Júnior</option>
+                        <option>Pleno</option>
+                        <option>Sênior</option>
+                        <option>Especialista</option>
+                        <option>Coordenador</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="competencias">Competências:</label>
+                    <input type="text" class="form-control" id="competencias" placeholder="Ex: Java, Spring Boot, SQL" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="modelo">Modelo de contratação:</label>
+                    <select class="form-control" id="modelo" required>
+                        <option value="">Selecione</option>
+                        <option>Home Office</option>
+                        <option>Híbrido</option>
+                        <option>Presencial</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="responsabilidades">Responsabilidades e atribuições:</label>
+                    <textarea class="form-control" id="responsabilidades" rows="3" placeholder="Descreva as responsabilidades" required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="requisitos">Requisitos e qualificações:</label>
+                    <textarea class="form-control" id="requisitos" rows="3" placeholder="Ex: Formação em Ciência da Computação" required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="desejaveis">Requisitos desejáveis:</label>
+                    <textarea class="form-control" id="desejaveis" rows="3" placeholder="Ex: Certificação AWS"></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="idForm">Selecionar formulário:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="idForm">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <span class="animaliaicon animaliaicon-magnifying-glass-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
     </script>
-    
-    <script type="text/template" class="template-license-ok">    	
-    	<div class="alert alert-success" role="alert">${i18n.getTranslation('label.license.ok')}</div>    	
+
+    <script type="text/template" class="template_modal_result_content">
+        <h3 class="fs-mt-0">Resultado da análise</h3>
+        {{ #individualAnalyses }}
+            <p>{{ candidateIndex }}: {{ analysis }}</p>
+        {{ /individualAnalyses }}
+        <h3>Resultado final</h3>
+        <p class="fs-mb-0">{{{ finalRanking }}}</p>
     </script>
-    
-    <script type="text/template" class="template-license-non-ok">
-    	<div class="alert alert-warning" role="alert">${i18n.getTranslation('label.license.non.ok')}</div>
-    </script>
-    
 </div>
+

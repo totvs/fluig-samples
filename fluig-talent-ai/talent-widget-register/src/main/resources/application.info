@@ -1,17 +1,18 @@
-application.title=Talent Register
-application.description=Talent Register
-application.category=Sample
-application.code=talentregister
-application.icon=icon.png
-application.renderer=freemarker
 application.type=widget
-application.resource.css.1=/resources/css/talentregister.css
-application.resource.js.2=/resources/js/talentregister.js
-application.uiwidget=false
-
-edit.file=edit.ftl
-view.file=view.ftl
-
+application.code=talentwidgetregister
+application.title=Talent Widget Register
+application.description=Talent Widget Register
+application.category=SYSTEM
+application.renderer=freemarker
+application.icon=icon.png
 developer.code=TOTVS
 developer.name=TOTVS S.A.
-developer.url=http://www.totvs.com
+developer.url=http\://www.totvs.com
+locale.file.base.name=talentwidgetregister
+simple.deploy=true
+view.file=view.ftl
+edit.file=edit.ftl
+application.mobileapp=false
+application.uiwidget=true
+application.resource.css.1=/resources/css/talentwidgetregister.css
+application.resource.js.2=/resources/js/talentwidgetregister.js
