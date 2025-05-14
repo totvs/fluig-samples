@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 @Stateless(mappedName = TalentAiService.JNDI_NAME, name = TalentAiService.JNDI_NAME)
 public class TalentAiServiceImpl implements TalentAiService {
 
-	public static final String API_KEY = "sk-Ou9EHVxoOe3Y_ekxASxmFQ";
+	public static final String API_KEY = "";
 	public static final String BASE_URL = "https://proxy.dta.totvs.ai";
 	public static final String MODEL_NAME = "gpt-4o-mini";
 	public static final double TEMPERATURE = 0.5;
