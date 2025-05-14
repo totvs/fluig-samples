@@ -23,7 +23,6 @@
         <web-resource-collection>
             <web-resource-name>DTA API v1</web-resource-name>
             <description>DTA API v1</description>
-            <url-pattern>/api/v1/dta/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>API v1</description>

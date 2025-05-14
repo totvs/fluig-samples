@@ -128,7 +128,7 @@
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>talent-rest</artifactId>
-							<contextRoot>/talent</contextRoot>
+							<contextRoot>/talentrest</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>com.fluig</groupId>

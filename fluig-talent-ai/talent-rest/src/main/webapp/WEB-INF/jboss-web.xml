@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
-    <context-root>/talent</context-root>
+    <context-root>/talentrest</context-root>
     <disable-cross-context>false</disable-cross-context>
     <security-domain>TOTVSTech</security-domain>
     <security-role>
