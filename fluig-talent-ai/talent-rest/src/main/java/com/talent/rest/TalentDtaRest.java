@@ -1,29 +1,24 @@
 package com.talent.rest;
 
-import javax.ejb.EJB;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import com.talent.rest.dto.AnalyzeRequestDTO;
-import com.talent.rest.dto.ResultResponseDTO;
-import com.talent.rest.dto.ResumeDTO;
-import com.talent.service.impl.vo.ChatCompletionsCreateVO;
-import com.talent.service.impl.vo.ResultResponseVO;
-import com.talent.service.impl.vo.ResumeVO;
+import com.talent.exceptions.ConversionException;
+import com.talent.exceptions.CustomAnalysisException;
+import com.talent.rest.dto.ai.AnalyzeRequestDTO;
+import com.talent.rest.dto.ai.ResultResponseDTO;
+import com.talent.rest.dto.ai.ResumeDTO;
+import com.talent.service.TalentAiService;
+import com.talent.service.impl.vo.ai.ChatCompletionsCreateVO;
+import com.talent.service.impl.vo.ai.ResultResponseVO;
+import com.talent.service.impl.vo.ai.ResumeVO;
 import com.talent.util.SimpleMapper;
+import com.totvs.technology.foundation.common.EncodedMediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fluig.sdk.api.FluigAPI;
-import com.fluig.sdk.api.common.SDKException;
-import com.fluig.sdk.service.UserService;
-import com.talent.service.TalentAiService;
-import com.totvs.technology.foundation.common.EncodedMediaType;
-
+import javax.ejb.EJB;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
@@ -87,8 +82,9 @@ public class TalentDtaRest {
 	private List<ResultResponseDTO> analyzeSingleResume(String criteria,
 			AnalyzeRequestDTO request, ResumeDTO resume) throws IOException {
 
-		ResumeVO resumeVO = convertToVO(resume, ResumeVO.class);
-		ChatCompletionsCreateVO completionsVO = convertToVO(request.getCompletionsCreateDTO(), ChatCompletionsCreateVO.class);
+		ResumeVO resumeVO = SimpleMapper.convertToVO(resume, ResumeVO.class);
+		ChatCompletionsCreateVO completionsVO = SimpleMapper.convertToVO(request.getCompletionsCreateDTO(), ChatCompletionsCreateVO.class);
+
 		Future<List<ResultResponseVO>> listFuture = talentAiService.resumeAnalyze(criteria, resumeVO, completionsVO);
 
 		try {
@@ -107,32 +103,6 @@ public class TalentDtaRest {
 		} catch (InterruptedException | ExecutionException e) {
 			throw new RuntimeException("Erro ao processar análise de currículo", e);
 		}
-	}
-
-	private <T> T convertToVO(Object source, Class<T> targetClass) {
-		try {
-			return SimpleMapper.convert(source, targetClass);
-		} catch (Exception e) {
-			throw new ConversionException(
-                    "Falha ao converter objeto para " + targetClass.getSimpleName(), e
-            );
-		}
-	}
-
-	static class CustomAnalysisException extends RuntimeException {
-		public CustomAnalysisException(String message, Throwable cause) {
-			super(message, cause);
-		}
-	}
-
-	static class ConversionException extends RuntimeException {
-		public ConversionException(String message, Throwable cause) {
-			super(message, cause);
-		}
-	}
-
-	private UserService getUserServiceSDK() throws SDKException {
-		return new FluigAPI().getUserService();
 	}
 
 }

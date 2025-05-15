@@ -1,4 +1,4 @@
-package com.talent.rest.dto;
+package com.talent.rest.dto.ai;
 
 import java.util.Map;
 

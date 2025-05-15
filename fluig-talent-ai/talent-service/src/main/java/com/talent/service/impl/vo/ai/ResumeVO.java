@@ -1,6 +1,10 @@
-package com.talent.rest.dto;
+package com.talent.service.impl.vo.ai;
 
-public class ResumeDTO {
+import java.io.Serializable;
+
+public class ResumeVO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String resume;
 
@@ -11,5 +15,4 @@ public class ResumeDTO {
     public void setResume(String resume) {
         this.resume = resume;
     }
-
 }

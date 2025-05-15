@@ -1,5 +1,7 @@
 package com.talent.util;
 
+import com.talent.exceptions.ConversionException;
+
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
@@ -89,5 +91,15 @@ public class SimpleMapper {
         if (clazz == short.class) return Short.class;
 
         return clazz;
+    }
+
+    public static <T> T convertToVO(Object source, Class<T> targetClass) {
+        try {
+            return SimpleMapper.convert(source, targetClass);
+        } catch (Exception e) {
+            throw new ConversionException(
+                    "Falha ao converter objeto para " + targetClass.getSimpleName(), e
+            );
+        }
     }
 }

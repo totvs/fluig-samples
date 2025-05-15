@@ -1,13 +1,11 @@
-package com.talent.rest.dto;
+package com.talent.rest.dto.ai;
 
 import java.util.List;
 
 public class AnalyzeRequestDTO {
 
-    //todos os curriculos
     private List<ResumeDTO> resumes;
 
-    //criterios da vaga definido na widget
     private String criteria;
 
     //retorno definido pelo desenvolvedor

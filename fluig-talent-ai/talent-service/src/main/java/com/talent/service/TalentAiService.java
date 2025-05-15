@@ -1,8 +1,8 @@
 package com.talent.service;
 
-import com.talent.service.impl.vo.ChatCompletionsCreateVO;
-import com.talent.service.impl.vo.ResultResponseVO;
-import com.talent.service.impl.vo.ResumeVO;
+import com.talent.service.impl.vo.ai.ChatCompletionsCreateVO;
+import com.talent.service.impl.vo.ai.ResultResponseVO;
+import com.talent.service.impl.vo.ai.ResumeVO;
 
 import javax.ejb.Remote;
 import java.io.IOException;

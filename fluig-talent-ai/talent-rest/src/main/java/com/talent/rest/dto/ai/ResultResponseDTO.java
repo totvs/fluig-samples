@@ -1,4 +1,4 @@
-package com.talent.rest.dto;
+package com.talent.rest.dto.ai;
 
 public class ResultResponseDTO {
 

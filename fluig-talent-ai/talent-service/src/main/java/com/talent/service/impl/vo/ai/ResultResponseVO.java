@@ -1,4 +1,4 @@
-package com.talent.service.impl.vo;
+package com.talent.service.impl.vo.ai;
 
 import java.io.Serializable;
 
