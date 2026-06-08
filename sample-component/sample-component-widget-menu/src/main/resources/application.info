@@ -1,17 +1,37 @@
+# =========================================================================================
+# As propriedades deste arquivo seguem a documentacao oficial e boas praticas do TOTVS Fluig.
+# Para entender o significado de cada propriedade, acesse o link oficial (TDN):
+# https://tdn.totvs.com/display/public/fluig/Arquivo+application.info
+# =========================================================================================
+
+# --- Propriedades Principais ---
+application.type=widget
+application.code=samplewidgetmenu
 application.title=Widget Menu
 application.description=Widget Menu
 application.category=Sample
-application.code=samplewidgetmenu
 application.icon=icon.png
 application.renderer=freemarker
-application.type=widget
-application.resource.css.1=/resources/css/samplewidgetmenu.css
-application.resource.js.2=/resources/js/samplewidgetmenu.js
 application.uiwidget=false
+application.mobileapp=false
 
-edit.file=edit.ftl
-view.file=view.ftl
+# --- Internacionalizacao ---
+locale.file.base.name=samplewidgetmenu
 
+# --- Informacoes do Desenvolvedor ---
 developer.code=TOTVS
 developer.name=TOTVS S.A.
-developer.url=http://www.totvs.com
+developer.url=https://www.totvs.com
+
+# --- Propriedades de Widget e Deploy ---
+edit.file=edit.ftl
+view.file=view.ftl
+simple.deploy=true
+
+# --- Extensibilidade de componente (Opcional) ---
+# application.extensible=false
+# application.origincode=componente
+
+# --- Arquivos carregados durante a renderizacao ---
+application.resource.css.1=/resources/css/samplewidgetmenu.css
+application.resource.js.2=/resources/js/samplewidgetmenu.js

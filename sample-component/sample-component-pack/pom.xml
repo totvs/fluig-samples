@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4</version>
 	</parent>
 	<artifactId>sample-component-pack</artifactId>
 	<packaging>ear</packaging>
@@ -24,11 +24,13 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-cache-module</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -89,10 +91,12 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-api-tools</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

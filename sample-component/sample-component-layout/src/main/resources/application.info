@@ -1,18 +1,35 @@
+# =========================================================================================
+# As propriedades deste arquivo seguem a documentacao oficial e boas praticas do TOTVS Fluig.
+# Para entender o significado de cada propriedade, acesse os links oficiais (TDN):
+# - Geral: https://tdn.totvs.com/display/public/fluig/Arquivo+application.info
+# - Layouts: https://tdn.totvs.com/display/public/fluig/Layouts
+# =========================================================================================
+
+# --- Propriedades Principais ---
+application.type=layout
+application.code=samplelayout
 application.title=Sample Layout
 application.description=Sample Layout
 application.category=Sample
-application.code=samplelayout
 application.icon=icon.png
 application.renderer=freemarker
-application.type=layout
-application.resource.css.1=/portal/resources/css/wcm_responsive_layout.css
-application.resource.css.2=/resources/css/samplelayout.css
-application.resource.js.3=/resources/js/samplelayout.js
-application.uilayout=false
 
+# --- Internacionalizacao ---
+locale.file.base.name=samplelayout
+
+# --- Informacoes do Desenvolvedor ---
+developer.code=TOTVS_WCM_DEV
+developer.name=TOTVS S.A.
+developer.url=https://www.totvs.com
+
+# --- Propriedades de Layout e Novo Construtor ---
+application.uilayout=false
 layout.defaultSlot=SlotA
 layout.file=layout.ftl
+application.responsiveLayout=true
+application.newBuilder=true
 
+# --- Mapeamento de Slots Nao Editaveis ---
 slot.SlotAdvancedSearch=widget_search
 slot.SlotGlobalAlert=alertpopover
 slot.SlotInstantSearch=suggestsearch
@@ -20,9 +37,11 @@ slot.SlotLogin=sociallogin
 slot.SlotMenu=menu
 slot.SlotUsePolicy=usepolicy
 
-developer.code=TOTVS_WCM_DEV
-developer.name=TOTVS S.A.
-developer.url=http\://www.totvs.com
+# --- Extensibilidade (Opcional) ---
+# application.extensible=false
+# application.origincode=
 
-application.responsiveLayout=true
-application.newBuilder=true
+# --- Arquivos carregados durante a renderizacao ---
+application.resource.css.1=/portal/resources/css/wcm_responsive_layout.css
+application.resource.css.2=/resources/css/samplelayout.css
+application.resource.js.3=/resources/js/samplelayout.js

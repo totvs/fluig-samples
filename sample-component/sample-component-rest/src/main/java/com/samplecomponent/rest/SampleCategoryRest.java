@@ -22,11 +22,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está no fluig 
- * GET:    /samplecomponent/v1/category/{id} | Solicita uma informação(item único) que está no fluig
- * POST:   /samplecomponent/v1/category      | Persiste uma informação no fluig
- * PUT:    /samplecomponent/v1/category      | Atualiza uma informação no fluig
- * DELETE: /samplecomponent/v1/category      | Remove uma informação no fluig
+ * GET:    /samplecomponent/v1/category      | Solicita uma informação(lista) que está na plataforma
+ * GET:    /samplecomponent/v1/category/{id} | Solicita uma informação(item único) que está na plataforma
+ * POST:   /samplecomponent/v1/category      | Persiste uma informação na plataforma
+ * PUT:    /samplecomponent/v1/category      | Atualiza uma informação na plataforma
+ * DELETE: /samplecomponent/v1/category      | Remove uma informação na plataforma
  *
  *  onde:
  *  /samplecomponent é o contexto que foi registrado através do arquivo jboss-web.xml no projeto sample-component-config

@@ -21,11 +21,11 @@
 		<hidden>false</hidden>
 		<title>Sample Component</title>
 		<description>Sample Component</description>
-		<theme>themedefault</theme>
+		<theme>responsive_theme</theme>
 		<layout>layoutsimple</layout>
 		<editable>false</editable>
 		<auth>1</auth>
-		<icon>sample-component.png</icon>
+		<iconFont>flaticon flaticon-widgets icon-xl</iconFont>
 		<menuGroup>true</menuGroup>
 		<slots>
 			<slot>
@@ -73,7 +73,7 @@
 				<auth>1</auth>
 				<parentCode>sample-component-page</parentCode>
 				<menuGroup>true</menuGroup>
-				<icon>sample.png</icon>
+				<iconFont>flaticon flaticon-books icon-xl</iconFont>
 				<slots>
 					<slot>
 						<name>SlotA</name>
@@ -109,12 +109,12 @@
 				<layout>samplecustomlayout</layout>
 				<editable>false</editable>
 				<auth>1</auth>
-				<icon>custom.png</icon>
+				<iconFont>flaticon flaticon-form-list icon-xl</iconFont>
 				<slots>
 					<slot>
 						<name>SlotA</name>
 						<widget>samplewidgetmenu</widget>
-					</slot>					
+					</slot>
 				</slots>
 				<parentCode>sample-component-page</parentCode>
 				<permissions>
@@ -137,5 +137,4 @@
 			</page>
 		</pages>
 	</page>
-
 </pages>

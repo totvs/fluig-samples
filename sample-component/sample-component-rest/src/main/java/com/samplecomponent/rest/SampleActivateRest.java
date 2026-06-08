@@ -32,7 +32,7 @@ public class SampleActivateRest {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getSearch(@PathParam("tenantId") Long tenantId) throws Exception {
 
-    	// Service para recuperar o objeto KeyVO. Esse objeto conta com os dados pra criar uma requisição OAuth pro fluig:
+    	// Service para recuperar o objeto KeyVO. Esse objeto conta com os dados pra criar uma requisição OAuth para a plataforma:
     	// consumerKey
     	// consumerSecret
     	// tokenAccess
@@ -41,7 +41,7 @@ public class SampleActivateRest {
         
         try {
             OAuthConsumer config = config(key);
-            // Exemplo de requisição POST realizando uma consulta no fluig
+            // Exemplo de requisição POST realizando uma consulta na plataforma
             URL url = new URL(key.getDomainUrl() + "/api/public/search/advanced");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod(RestConstant.REQUEST_METHOD_POST);
