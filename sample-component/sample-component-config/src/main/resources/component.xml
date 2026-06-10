@@ -19,12 +19,12 @@
 
 <component code="sample_component_app">
 	<title>Sample Component</title>
-	<description>Sample Component</description>
-	<version>1.0.4</version>
+	<description>App de exemplo para desenvolvimento no TOTVS Fluig.</description>
+	<version>1.1.0</version>
 	<category>Store</category>
 	<icon>icon.png</icon>
 	<developerCode>TOTVS</developerCode>
 	<developerName>TOTVS S.A.</developerName>
-	<developerURL>http://www.totvs.com</developerURL>
+	<developerURL>https://www.totvs.com</developerURL>
 	<activationClass>activator/samplecomponent</activationClass>
 </component>

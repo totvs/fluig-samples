@@ -14,7 +14,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fluig</groupId>
 	<artifactId>sample-component</artifactId>
-	<version>1.0.4</version>
+	<version>1.1.0</version>
 	<packaging>pom</packaging>
 
 	<name>Sample Component</name>
@@ -31,7 +31,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- INSIRA AQUI A ATUALIZAÇÃO DO TOTVS FLUIG PLATAFORMA QUE O SEU APP É COMPATÍVEL -->
+		<!-- INSIRA AQUI A ATUALIZAÇÃO DO TOTVS FLUIG QUE O SEU APP É COMPATÍVEL -->
 		<fluig.version>2.0.0</fluig.version>
 	</properties>
 

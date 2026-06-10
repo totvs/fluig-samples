@@ -1,7 +1,7 @@
 # Projeto de exemplo para desenvolvimento de apps compatíveis com a Store do TOTVS Fluig
 ---
 
-A partir da atualização 1.6.2 do TOTVS Fluig Plataforma, é possível instalar componentes diretamente na Store, através da página "[Itens da Store](https://tdn.totvs.com/display/public/fluig/Plataforma+%7C+Store)" dentro da plataforma.
+A partir da atualização 1.6.2 do TOTVS Fluig, é possível instalar componentes diretamente na Store, através da página "[Itens da Store](https://tdn.totvs.com/display/public/fluig/Plataforma+%7C+Store)" dentro da plataforma.
 
 Esse projeto é um exemplo de componente, já na estrutura correta, que deve ser seguido caso o desenvolvedor deseje criar um componente e disponibilizá-lo como aplicativo para venda na Store do TOTVS Fluig.
 O projeto está construído utilizando o gerenciador de projeto/dependências [Apache Maven](https://maven.apache.org/). O frontend utiliza HTML, JavaScript e Mustache (template engine para as widgets). Está incluído também a instrução para a criação de uma nova página, com um novo layout e já com essa nova widget adicionada.
@@ -10,7 +10,7 @@ O layout personalizado é uma maneira de criar uma página sem o menu tradiciona
 
 O projeto ainda conta com uma implementação de uma API Rest em Java.
 
-**Atualização mínima da plataforma**: Este projeto é compatível com TOTVS Fluig Plataforma 2.0.0 ou superior (definido em `<fluig.version>` no pom pai).
+**Atualização mínima da plataforma**: Este projeto é compatível com TOTVS Fluig 2.0.0 ou superior (definido em `<fluig.version>` no pom pai).
 A estrutura está definida da seguinte maneira:
 
 ###sample-component
