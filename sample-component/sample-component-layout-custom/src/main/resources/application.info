@@ -1,21 +1,43 @@
+# =========================================================================================
+# As propriedades deste arquivo seguem a documentacao oficial e boas praticas do TOTVS Fluig.
+# Para entender o significado de cada propriedade, acesse os links oficiais (TDN):
+# - Geral: https://tdn.totvs.com/display/public/fluig/Arquivo+application.info
+# - Layouts: https://tdn.totvs.com/display/public/fluig/Layouts
+# =========================================================================================
+
+# --- Propriedades Principais ---
+application.type=layout
+application.code=samplecustomlayout
 application.title=Custom Layout
 application.description=Custom Layout
 application.category=Sample
-application.code=samplecustomlayout
 application.icon=icon.png
 application.renderer=freemarker
-application.type=layout
+
+# --- Internacionalizacao ---
+locale.file.base.name=samplecustomlayout
+
+# --- Informacoes do Desenvolvedor ---
+developer.code=TOTVS_WCM_DEV
+developer.name=TOTVS S.A.
+developer.url=https://www.totvs.com
+
+# --- Propriedades de Layout e Novo Construtor ---
+application.uilayout=true
+layout.defaultSlot=SlotA
+layout.file=layout.ftl
+application.responsiveLayout=true
+application.newBuilder=true
+
+# --- Slots Nao Editaveis (Opcionais para Custom Layout) ---
+# slot.SlotMenu=menu
+# slot.SlotLogin=sociallogin
+
+# --- Extensibilidade (Opcional) ---
+# application.extensible=false
+# application.origincode=
+
+# --- Arquivos carregados durante a renderizacao ---
 application.resource.js.1=/resources/js/samplecustomlayout.js
 application.resource.css.2=/portal/resources/css/wcm_responsive_layout.css
 application.resource.css.3=/resources/css/samplecustomlayout.css
-application.uilayout=true
-
-layout.defaultSlot=SlotA
-layout.file=layout.ftl
-
-developer.code=TOTVS_WCM_DEV
-developer.name=TOTVS S.A.
-developer.url=http://www.totvs.com
-
-application.responsiveLayout=true
-application.newBuilder=true

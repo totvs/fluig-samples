@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.0.3</version>
+		<version>1.1.0</version>
 	</parent>
 	<artifactId>sample-component-rest</artifactId>
 	<packaging>war</packaging>
@@ -25,7 +25,7 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- fluig dependecies -->
+		<!-- platform dependencies -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
@@ -36,11 +36,13 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
@@ -51,8 +53,9 @@
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
 			<version>${fluig.version}</version>
+			<scope>provided</scope>
 		</dependency>
-		<!-- /fluig dependecies -->
+		<!-- /platform dependencies -->
 
 		<!-- others -->
 		<dependency>

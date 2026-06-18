@@ -13,7 +13,7 @@ import com.fluig.sdk.api.component.activation.ActivationListener;
  * 
  * Classe de ativação para provisionar a criação de um OAuth Provider e um OAuth App
  *  
- * Essa funcionalidade está disponível apenas a partir da release 1.6.5 do fluig
+ * Essa funcionalidade está disponível apenas a partir da atualização 1.6.5 da plataforma
  * 
  */
 @Remote
