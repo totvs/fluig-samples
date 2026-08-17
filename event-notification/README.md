@@ -1,8 +1,0 @@
-Projeto de Samples para customização dos eventos beforeSendNotification e afterSendNotification.
-A documentação completa dos eventos pode ser encontrada [aqui](http://tdn.totvs.com/display/fluig/Desenvolvimento+de+Eventos)
-
-| Projeto | Descrição |
-|-|-|
-| change-priority-by-metadata | Contém um projeto onde  a prioridade da notificação é  alterada com base em um valor  presente no metadata |
-| not-send-denounce-notification | Contém um projeto onde a notificação não vai ser enviada com base no eventType |
-| poster-custom-priority | Projeto completo contendo a widget de publicação customizada e o evento para alterar a prioridade |
