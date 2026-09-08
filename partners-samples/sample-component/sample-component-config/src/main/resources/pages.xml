@@ -3,12 +3,12 @@
 <!--	
 	A estrutura de páginas desse exemplo está definida da seguinte maneira:
 	- Na raíz, existe apenas uma página referente ao app.
-		- Existem duas outras páginas que são filha dessa página na raíz.	
+		- Existem páginas filhas dessa página na raíz.	
 	
 	Exemplo utilizado aqui nesse app:
 	- sample-component-page (pai)
-		- sample_page1 (filha 1 e default)
-		- sample_page2 (filha 2)
+		- sample_page1 (filha — sample layout)
+		- sample_page_html_editor (filha — exemplo html_editor)
 		
      * O seu app pode ter apenas uma página na raíz. As demais, devem ser filhas.		
  -->
@@ -27,26 +27,11 @@
 		<auth>1</auth>
 		<iconFont>flaticon flaticon-widgets icon-xl</iconFont>
 		<menuGroup>true</menuGroup>
-		<slots>
-			<slot>
-				<name>SlotA</name>
-				<widget>html_editor</widget>
-				<showWidgetTitle>false</showWidgetTitle>
-				<enabledMobileApp>false</enabledMobileApp>
-				<preference>
-					<key>htmlContent</key>
-					<value>
-						<h1>Sample Component</h1>
-					</value>
-				</preference>
-			</slot>
-		</slots>
 		<permissions>
 			<permission>
 				<code>pageView</code>
 				<description>permission.page.view</description>
 				<role>user</role>
-				<!-- Caso queira colocar um grupo, é só trocar de role para group: <group>grupo-rh</gorup> -->
 			</permission>
 			<permission>
 				<code>pageUpdate</code>
@@ -60,6 +45,7 @@
 			</permission>
 		</permissions>
 		<pages>
+
 			<page>
 				<code>sample_page1</code>
 				<enabledChildren>false</enabledChildren>
@@ -67,7 +53,7 @@
 				<hidden>false</hidden>
 				<title>Sample Layout</title>
 				<description>Sample Layout</description>
-				<theme>themedefault</theme>
+				<theme>responsive_theme</theme>
 				<layout>samplelayout</layout>
 				<editable>false</editable>
 				<auth>1</auth>
@@ -98,25 +84,40 @@
 					</permission>
 				</permissions>
 			</page>
+			<!-- Página exemplo com html_editor (edição habilitada) -->
 			<page>
-				<code>sample_page2</code>
-				<enabledChildren>true</enabledChildren>
+				<code>sample_page_html_editor</code>
+				<enabledChildren>false</enabledChildren>
 				<enabledPathParam>false</enabledPathParam>
 				<hidden>false</hidden>
-				<title>Custom Layout</title>
-				<description>Custom Layout</description>
-				<theme>themedefault</theme>
-				<layout>samplecustomlayout</layout>
-				<editable>false</editable>
+				<title>HTML Editor</title>
+				<description>Exemplo de página com widget html_editor</description>
+				<theme>responsive_theme</theme>
+				<layout>layoutsimple</layout>
+				<editable>true</editable>
 				<auth>1</auth>
-				<iconFont>flaticon flaticon-form-list icon-xl</iconFont>
+				<parentCode>sample-component-page</parentCode>
+				<menuGroup>true</menuGroup>
+				<iconFont>flaticon flaticon-code icon-xl</iconFont>
 				<slots>
 					<slot>
 						<name>SlotA</name>
-						<widget>samplewidgetmenu</widget>
+						<widget>html_editor</widget>
+						<showWidgetTitle>false</showWidgetTitle>
+						<enabledMobileApp>false</enabledMobileApp>
+						<preference>
+							<key>htmlContent</key>
+							<value><![CDATA[<h1>Prefer&#234;ncias de Widget via pages.xml</h1><p>Este &#233; um exemplo de como enviar <strong>par&#226;metros para uma widget</strong> utilizando a tag <code>preference</code> dentro do <code>pages.xml</code> do componente.</p><h2>Como funciona</h2><p>No arquivo <code>pages.xml</code>, cada widget declarada em um <code>slot</code> pode receber prefer&#234;ncias (key-value) que s&#227;o passadas automaticamente pelo Fluig na renderiza&#231;&#227;o da p&#225;gina:</p><pre><code>&#60;slot&#62;
+  &#60;name&#62;SlotA&#60;/name&#62;
+  &#60;widget&#62;html_editor&#60;/widget&#62;
+  &#60;preference&#62;
+    &#60;key&#62;htmlContent&#60;/key&#62;
+    &#60;value&#62;Conte&#250;do HTML aqui&#60;/value&#62;
+  &#60;/preference&#62;
+&#60;/slot&#62;</code></pre><h2>Pontos importantes</h2><ul><li>A <code>key</code> deve corresponder ao nome do campo das prefer&#234;ncias da widget</li><li>O <code>value</code> define o valor inicial da prefer&#234;ncia no deploy</li><li>Para conte&#250;do HTML no value, envolva com <code>CDATA</code> para evitar problemas de parsing XML</li></ul><h2>Exemplo pr&#225;tico</h2><p>Esta p&#225;gina utiliza a widget <strong>html_editor</strong> com a prefer&#234;ncia <code>htmlContent</code> preenchida via <code>pages.xml</code>. Todo o texto que voc&#234; est&#225; lendo foi injetado como par&#226;metro no deploy do componente.</p><blockquote><p>Dica: com <code>editable=true</code> na p&#225;gina, o administrador pode editar o conte&#250;do diretamente pela interface sem novo deploy.</p></blockquote><hr><p><em>Conte&#250;do de exemplo — edite esta p&#225;gina para personalizar.</em></p>]]></value>
+						</preference>
 					</slot>
 				</slots>
-				<parentCode>sample-component-page</parentCode>
 				<permissions>
 					<permission>
 						<code>pageView</code>

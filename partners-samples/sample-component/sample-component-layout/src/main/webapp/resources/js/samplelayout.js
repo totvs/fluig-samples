@@ -1,2 +1,1 @@
-// Insira aqui seu codigo JavaScript 
-	            
+/* samplelayout - JavaScript do layout (sem logica necessaria atualmente). */

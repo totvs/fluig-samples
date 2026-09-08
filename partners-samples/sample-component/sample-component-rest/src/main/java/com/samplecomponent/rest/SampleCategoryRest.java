@@ -1,10 +1,8 @@
 package com.samplecomponent.rest;
 
-import com.fluig.sdk.api.FluigAPI;
-import com.fluig.sdk.api.common.SDKException;
-import com.fluig.sdk.service.UserService;
 import com.samplecomponent.entity.SampleCategory;
 import com.samplecomponent.service.SampleCategoryService;
+import com.samplecomponent.util.RestHelper;
 import com.totvs.technology.foundation.common.EncodedMediaType;
 import com.totvs.technology.foundation.common.ServiceLocator;
 import com.totvs.technology.foundation.common.exception.FDNCreateException;
@@ -44,20 +42,20 @@ public class SampleCategoryRest {
 			@DefaultValue("") @QueryParam("text") String text,
 			@DefaultValue("10") @QueryParam("limit") int limit,
 			@DefaultValue("0") @QueryParam("offset") int offset) throws Exception {
-		log.info("---- Category Request | GET find ");
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
-		return Response.ok(categoryService().find(text, limit>50?50:limit, offset)).build();
+		log.info("@<SampleComponent_TOTVS> Category Request | GET find ");
+		log.info("@<SampleComponent_TOTVS> Logged User: " + RestHelper.getUserService().getCurrent().getLogin());
+		return Response.ok(categoryService().find(text, RestHelper.clampLimit(limit, 50), offset)).build();
 	}
 
 	@GET
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response get(@PathParam("id") Long id) throws Exception {
-		log.info("---- Category Request | GET getById");
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
+		log.info("@<SampleComponent_TOTVS> Category Request | GET getById");
+		log.info("@<SampleComponent_TOTVS> Logged User: " + RestHelper.getUserService().getCurrent().getLogin());		
 		SampleCategory category = categoryService().get(id);
 		if(category == null)
-			return Response.status(Status.NOT_FOUND).entity("No Category found for ID: " + id).build();
+			return Response.status(Status.NOT_FOUND).entity("Nenhuma categoria encontrada para o ID: " + id).build();
 		return Response.ok(category).build();
 	}
 
@@ -65,13 +63,17 @@ public class SampleCategoryRest {
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response create(SampleCategory vo) throws Exception {
-		log.info("---- Category Request | POST");
-		log.info("---- Object to create: " + vo.toString());
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());
+		log.info("@<SampleComponent_TOTVS> Category Request | POST");
+		log.info("@<SampleComponent_TOTVS> Object to create: " + String.valueOf(vo));
+		log.info("@<SampleComponent_TOTVS> Logged User: " + RestHelper.getUserService().getCurrent().getLogin());
 		try {
 			return Response.status(Response.Status.CREATED).entity(categoryService().create(vo)).build();
+		} catch (IllegalArgumentException e) {
+			return buildFriendlyErrorResponse(e, e.getMessage(), Status.BAD_REQUEST);
 		} catch (FDNCreateException e) {
 		    return Response.status(e.getStatus()).entity(e.getMessage()).build();
+		} catch (Exception e) {
+			return buildFriendlyErrorResponse(e, "Já existe uma categoria com esse nome.", Status.CONFLICT);
 		}
 	}
 
@@ -79,16 +81,20 @@ public class SampleCategoryRest {
 	@Consumes(EncodedMediaType.APPLICATION_JSON_UTF8)
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response update(SampleCategory vo) throws Exception {
-		log.info("---- Category Request | PUT");
-		log.info("---- Object to update: " + vo.toString());
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
+		log.info("@<SampleComponent_TOTVS> Category Request | PUT");
+		log.info("@<SampleComponent_TOTVS> Object to update: " + String.valueOf(vo));
+		log.info("@<SampleComponent_TOTVS> Logged User: " + RestHelper.getUserService().getCurrent().getLogin());		
 		try {
 			categoryService().update(vo);
 			return Response.noContent().build();
+		} catch (IllegalArgumentException e) {
+			return buildFriendlyErrorResponse(e, e.getMessage(), Status.BAD_REQUEST);
 		} catch (FDNUpdateException e) {
 			Map<String, String> errors = new HashMap<String, String>();
 			errors.put("error", e.getMessage());
 			return Response.status(e.getStatus()).entity(errors).type(EncodedMediaType.APPLICATION_JSON_UTF8).build();
+		} catch (Exception e) {
+			return buildFriendlyErrorResponse(e, "Já existe uma categoria com esse nome.", Status.CONFLICT);
 		}		
 	}
 
@@ -96,9 +102,9 @@ public class SampleCategoryRest {
 	@Path("/{id}")
 	@Produces(EncodedMediaType.APPLICATION_JSON_UTF8)
 	public Response delete(@PathParam("id") Long id) throws Exception {
-		log.info("---- Category Request | DELETE");
-		log.info("---- Object to delete: " + id);
-		log.info("---- Logged User: " + getUserServiceSDK().getCurrent().getLogin());		
+		log.info("@<SampleComponent_TOTVS> Category Request | DELETE");
+		log.info("@<SampleComponent_TOTVS> Object to delete: " + id);
+		log.info("@<SampleComponent_TOTVS> Logged User: " + RestHelper.getUserService().getCurrent().getLogin());		
 		try {
 			categoryService().delete(id);
 			return Response.noContent().build();
@@ -109,11 +115,23 @@ public class SampleCategoryRest {
 		}
 	}
 
-	private UserService getUserServiceSDK() throws SDKException {
-		return new FluigAPI().getUserService();
-	}
-
 	private SampleCategoryService categoryService() throws NamingException {
 		return (SampleCategoryService) ServiceLocator.getInstance().getService(SampleCategoryService.JNDI_NAME);
+	}
+
+	private Response buildFriendlyErrorResponse(Exception e, String fallbackMessage, Status fallbackStatus) {
+		String message = e.getMessage() == null ? "" : e.getMessage();
+		if (isDuplicateCategoryError(message)) {
+			message = "Já existe uma categoria com esse nome.";
+			fallbackStatus = Status.CONFLICT;
+		}
+
+		Map<String, String> errors = new HashMap<String, String>();
+		errors.put("error", message.isEmpty() ? fallbackMessage : message);
+		return Response.status(fallbackStatus).entity(errors).type(EncodedMediaType.APPLICATION_JSON_UTF8).build();
+	}
+
+	private boolean isDuplicateCategoryError(String message) {
+		return message != null && (message.contains("Duplicate entry") || message.contains("duplicate key") || message.contains("sc_category.scp_category_pk"));
 	}
 }

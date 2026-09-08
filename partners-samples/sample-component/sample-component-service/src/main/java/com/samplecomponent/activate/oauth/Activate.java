@@ -10,23 +10,21 @@ import com.fluig.sdk.api.component.activation.ActivationEvent;
 import com.fluig.sdk.api.component.activation.ActivationListener;
 
 /**
- * 
- * Classe de ativação para provisionar a criação de um OAuth Provider e um OAuth App
- *  
- * Essa funcionalidade está disponível apenas a partir da atualização 1.6.5 da plataforma
- * 
+ * Classe de ativacao para provisionar OAuth do componente.
+ *
+ * Funcionalidades:
+ * - Provisiona OAuth Provider/App via Keyring no momento da ativacao
+ *
  */
 @Remote
 @Stateless(mappedName = "activator/samplecomponent", name = "activator/samplecomponent")
 public class Activate implements ActivationListener {
-	
+
     /**
-     * ATENÇÃO: Essa é a chave para sua aplicação recuperar os tokens para as requisições
-     * 
-     * Troque esta chave, atenção ao formato aaaa-bbbb-cccc-dddd.
+     * Chave do app para recuperar tokens OAuth.
+     * Formato: aaaa-bbbb-cccc-dddd
      */
     private static final String APP_KEY = "1234-5678-9876-5432";
-    
 
     @Override
     public String getArtifactFileName() throws Exception {
@@ -46,5 +44,4 @@ public class Activate implements ActivationListener {
     public void enable(ActivationEvent evt) throws Exception {
         Keyring.provision(APP_KEY);
     }
-
 }

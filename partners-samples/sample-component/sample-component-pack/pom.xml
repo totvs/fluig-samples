@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.1.0</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>sample-component-pack</artifactId>
 	<packaging>ear</packaging>
@@ -23,71 +23,51 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-cache-module</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-widget</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-layout</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>
 		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-layout-custom</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
-			<type>war</type>
-		</dependency>
-		<dependency>
-			<groupId>com.fluig</groupId>
-			<artifactId>sample-component-widget-menu</artifactId>
-			<version>${project.version}</version>
-			<scope>compile</scope>
-			<type>war</type>
-		</dependency>
+
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-config</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-entity</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-service</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>ejb</type>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-rest</artifactId>
-			<version>${project.version}</version>
 			<scope>compile</scope>
 			<type>war</type>
 		</dependency>
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -112,16 +92,14 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-ear-plugin</artifactId>
-				<version>2.10</version>
 				<configuration>
 					<version>6</version>
 					<applicationName>Sample_Component</applicationName>
@@ -146,16 +124,7 @@
 							<artifactId>sample-component-layout</artifactId>
 							<contextRoot>/samplelayout</contextRoot>
 						</webModule>
-						<webModule>
-							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-layout-custom</artifactId>
-							<contextRoot>/samplecustomlayout</contextRoot>
-						</webModule>
-						<webModule>
-							<groupId>com.fluig</groupId>
-							<artifactId>sample-component-widget-menu</artifactId>
-							<contextRoot>/samplewidgetmenu</contextRoot>
-						</webModule>
+
 						<webModule>
 							<groupId>com.fluig</groupId>
 							<artifactId>sample-component-widget</artifactId>
@@ -171,6 +140,7 @@
 							<artifactId>sample-component-config</artifactId>
 							<contextRoot>/samplecomponentconfig</contextRoot>
 						</webModule>
+
 					</modules>
 					<archive>
 						<addMavenDescriptor>false</addMavenDescriptor>

@@ -2,33 +2,27 @@ package com.samplecomponent.util;
 
 import java.io.Serializable;
 
+/**
+ * Standard error response for REST endpoints.
+ * Only exposes a safe message to the client — never internal exception details.
+ */
 public class ErrorStatus implements Serializable {
 
     private static final Long serialVersionUID = 1L;
 
     private String message;
 
-    private String exception;
-
-    private String cause;
-
-    public ErrorStatus(String message, String exception, String cause) {
+    public ErrorStatus(String message) {
         this.message = message;
-        this.exception = exception;
-        this.cause = cause;
     }
 
     public ErrorStatus(Throwable exception) {
-        this.message = exception.getMessage();
-        this.exception = String.valueOf(exception);
-        this.cause = String.valueOf(exception.getCause());
+        this.message = exception.getMessage() != null
+                ? exception.getMessage()
+                : "An unexpected error occurred.";
     }
 
     public String getMessage() {
         return message;
-    }
-
-    public String getException() {
-        return exception;
     }
 }

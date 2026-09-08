@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Esse arquivo é o identificador do app, dentro da plataforma e na Store do TOTVS Fluig
+	Esse arquivo é o identificador da solução, dentro da plataforma e na Store do TOTVS Fluig
 	
 	Detalhando:
 	
-	- code:          É a chave única do seu app, tanto na plataforma onde vai ser instalado quanto no repositório da Store. Precisa ser único.
-	- title:         Nome do app que será exibido nos Itens da Store.
-	- description:   Descrição do app que será exibido nos Itens da Store e também na Central de Componentes, dentro da plataforma.
-	- version:       Versão do app. Será utilizado para verificar se existe uma atualização do app disponível.
-	- category:      Categoria do app que será exibido nos Itens da Store. Tente utilizar o mesmo valor que foi inserido no application.info das widgets.
+	- code:          É a chave única da sua solução, tanto na plataforma onde vai ser instalada quanto no repositório da Store. Precisa ser única.
+	- title:         Nome da solução que será exibido nos Itens da Store.
+	- description:   Descrição da solução que será exibida nos Itens da Store e também na Central de Componentes, dentro da plataforma.
+	- version:       Versão da solução. Será utilizada para verificar se existe uma atualização da solução disponível.
+	- category:      Categoria da solução que será exibida nos Itens da Store. Tente utilizar o mesmo valor que foi inserido no application.info das widgets.
 	- icon:          Não é utilizado. Pode deixar da maneira que está.
 	- developerCode: Código do parceiro registrado no Portal da Store. Caso não saiba, entrar em contato com a equipe do TOTVS Fluig.
 	- developerName: Nome da empresa/parceiro.
 	- developerURL:  Site da empresa/parceiro.
 	
-	- activationClass: Caso você precise provisionar a criação um OAuth Provider/App no momento da instalação do seu app.  
+	- activationClass: Caso você precise provisionar a criação de um OAuth Provider no momento da instalação da sua solução.  
  -->
 
 <component code="sample_component_app">
 	<title>Sample Component</title>
-	<description>App de exemplo para desenvolvimento no TOTVS Fluig.</description>
-	<version>1.1.0</version>
+	<description>Solução de exemplo para desenvolvimento no TOTVS Fluig</description>
+	<version>1.2.0</version>
 	<category>Store</category>
 	<icon>icon.png</icon>
 	<developerCode>TOTVS</developerCode>
 	<developerName>TOTVS S.A.</developerName>
 	<developerURL>https://www.totvs.com</developerURL>
 	<activationClass>activator/samplecomponent</activationClass>
+
+	<!-- Datasets vinculados ao componente (deploy automatico na ativacao) -->
+	<dependencies>
+		<dependency>
+			<code>sco_ds_fornecedores</code>
+			<file>dependencyFiles/datasets/sco_ds_fornecedores.js</file>
+			<resourceType>dataset</resourceType>
+		</dependency>
+	</dependencies>
 </component>

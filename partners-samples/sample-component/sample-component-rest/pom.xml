@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.1.0</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>sample-component-rest</artifactId>
 	<packaging>war</packaging>
@@ -21,27 +21,24 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-service</artifactId>
-			<version>${project.version}</version>
+			<type>ejb</type>
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- platform dependencies -->
+		<!-- platform dependencies — versions managed in parent pom.xml -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -52,7 +49,6 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- /platform dependencies -->

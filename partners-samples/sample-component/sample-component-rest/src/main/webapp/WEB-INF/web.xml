@@ -15,7 +15,6 @@
 
     <filter-mapping>
         <filter-name>FluigLoggingFilter</filter-name>
-        <url-pattern>/api/v1/app/*</url-pattern>
         <url-pattern>/api/v1/category/*</url-pattern>
     </filter-mapping>
 
@@ -24,7 +23,6 @@
         <web-resource-collection>
             <web-resource-name>SampleRest API v1</web-resource-name>
             <description>SampleRest API v1</description>
-            <url-pattern>/api/v1/app/*</url-pattern>
             <url-pattern>/api/v1/category/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
