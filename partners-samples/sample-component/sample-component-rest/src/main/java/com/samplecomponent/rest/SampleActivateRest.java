@@ -12,6 +12,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -20,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fluig.customappkey.Keyring;
 import com.fluig.sdk.api.customappkey.KeyVO;
+import com.samplecomponent.i18n.MessageUtils;
 import com.samplecomponent.util.ErrorStatus;
 import com.samplecomponent.util.RestConstant;
 
@@ -30,6 +33,9 @@ import oauth.signpost.basic.DefaultOAuthConsumer;
 public class SampleActivateRest {
 
     private static final Logger log = LoggerFactory.getLogger(SampleActivateRest.class);
+
+    @Context
+    private HttpHeaders headers;
 
     @GET
     @Path("/search/{tenantId}")
@@ -44,9 +50,9 @@ public class SampleActivateRest {
             String url = key.getDomainUrl() + "/api/public/search/advanced";
             String result = executePostRequest(url, payload, consumer);
             return Response.ok(result).build();
-        } catch (Exception e) {
-            log.error("@<SampleComponent_TOTVS> Failed to execute search", e);
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new ErrorStatus(e)).build();
+        } catch (Exception exception) {
+            log.error("@<SampleComponent_TOTVS> Failed to execute search", exception);
+            return internalServerError();
         }
     }
 
@@ -61,10 +67,18 @@ public class SampleActivateRest {
             String url = key.getDomainUrl() + "/api/public/2.0/users/getCurrent";
             String result = executeGetRequest(url, consumer);
             return Response.ok(result).build();
-        } catch (Exception e) {
-            log.error("@<SampleComponent_TOTVS> Failed to get user info", e);
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new ErrorStatus(e)).build();
+        } catch (Exception exception) {
+            log.error("@<SampleComponent_TOTVS> Failed to get user info", exception);
+            return internalServerError();
         }
+    }
+
+    private Response internalServerError() {
+        String localizedMessage = MessageUtils.getMessage(
+                MessageUtils.resolveLocale(headers), "error.unexpected");
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                .entity(new ErrorStatus(localizedMessage))
+                .build();
     }
 
     private OAuthConsumer getOAuthConsumer(KeyVO key) {
