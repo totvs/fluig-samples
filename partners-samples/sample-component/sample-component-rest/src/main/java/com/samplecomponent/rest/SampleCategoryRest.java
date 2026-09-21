@@ -140,17 +140,8 @@ public class SampleCategoryRest {
         if (isDuplicateCategoryError(exceptionMessage)) {
             return "error.category.duplicate";
         }
-        if ("Categoria não informada.".equals(exceptionMessage)) {
-            return "error.category.required";
-        }
-        if ("Nome da categoria é obrigatório.".equals(exceptionMessage)) {
-            return "error.category.name.required";
-        }
-        if ("Nome da categoria deve ter no máximo 50 caracteres.".equals(exceptionMessage)) {
-            return "error.category.name.maxlength";
-        }
-        if ("Nome da categoria contém caracteres inválidos.".equals(exceptionMessage)) {
-            return "error.category.name.invalid";
+        if (exceptionMessage.startsWith("error.category.")) {
+            return exceptionMessage;
         }
         return fallbackKey;
     }

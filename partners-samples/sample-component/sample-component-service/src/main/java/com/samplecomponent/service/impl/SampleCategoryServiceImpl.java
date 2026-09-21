@@ -98,10 +98,10 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 			throw new IllegalArgumentException("error.category.name.required");
 		}
 		if (normalizedName.length() > 50) {
-			throw new IllegalArgumentException("error.category.name.max_length");
+			throw new IllegalArgumentException("error.category.name.maxlength");
 		}
 		if (containsControlCharacters(normalizedName)) {
-			throw new IllegalArgumentException("error.category.name.invalid_chars");
+			throw new IllegalArgumentException("error.category.name.invalid");
 		}
 	}
 
