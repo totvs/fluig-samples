@@ -88,19 +88,20 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 
 	private void normalizeAndValidateCategory(SampleCategory category) {
 		if (category == null) {
-			throw new IllegalArgumentException("Categoria não informada.");
+			throw new IllegalArgumentException("error.category.required");
 		}
 
 		String normalizedName = normalizeName(category.getName());
 		category.setName(normalizedName);
+		
 		if (normalizedName.isEmpty()) {
-			throw new IllegalArgumentException("Nome da categoria é obrigatório.");
+			throw new IllegalArgumentException("error.category.name.required");
 		}
 		if (normalizedName.length() > 50) {
-			throw new IllegalArgumentException("Nome da categoria deve ter no máximo 50 caracteres.");
+			throw new IllegalArgumentException("error.category.name.max_length");
 		}
 		if (containsControlCharacters(normalizedName)) {
-			throw new IllegalArgumentException("Nome da categoria contém caracteres inválidos.");
+			throw new IllegalArgumentException("error.category.name.invalid_chars");
 		}
 	}
 
