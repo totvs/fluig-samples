@@ -8,6 +8,7 @@ import com.samplecomponent.entity.SampleCategory;
 import com.samplecomponent.service.SampleCategoryService;
 import com.totvs.technology.foundation.common.exception.FDNCreateException;
 import com.totvs.technology.foundation.common.exception.FDNRemoveException;
+import com.totvs.technology.foundation.common.exception.FDNRuntimeException;
 import com.totvs.technology.foundation.common.exception.FDNUpdateException;
 
 import javax.ejb.*;
@@ -34,9 +35,13 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 			/**
 			 * check permission if needed 
 			 */
+			normalizeAndValidateCategory(category);
 			category.setTenantId(securityService.getCurrentTenantId());
 			Optional<SampleCategory> categoryOptional = Optional.ofNullable(dao.create(category));
-			return (categoryOptional.isPresent() ? categoryOptional.get().getId() : null);
+			if (!categoryOptional.isPresent() || categoryOptional.get().getId() == null) {
+				throw new FDNCreateException("Failed to create category.");
+			}
+			return categoryOptional.get().getId();
 		} catch (FDNCreateException | SDKException e) {
             throw new FDNCreateException(e.getMessage(), e);
 		}
@@ -52,32 +57,68 @@ public class SampleCategoryServiceImpl implements SampleCategoryService {
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void update(SampleCategory sampleCategory) throws FDNUpdateException {
-		/**
-		 * check permission if needed
-		 */
-		Optional<SampleCategory> sampleCategory1 = Optional.ofNullable(dao.find(sampleCategory.getId()));
-		if (!sampleCategory1.isPresent())
-			throw new FDNUpdateException("No Category found for ID: " + sampleCategory.getId());
-		sampleCategory.setTenantId(sampleCategory1.get().getTenantId());
+		normalizeAndValidateCategory(sampleCategory);
+		SampleCategory existing = findCategoryOrThrow(sampleCategory.getId());
+		sampleCategory.setTenantId(existing.getTenantId());
 		dao.edit(sampleCategory);
 	}
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public void delete(long id) throws FDNRemoveException {
-		/**
-		 * check permission if needed
-		 */
-		Optional<SampleCategory> sampleCategory = Optional.ofNullable(dao.find(id));
-		if (!sampleCategory.isPresent())
-			throw new FDNRemoveException("No Category found for ID: " + id);
-		dao.remove(sampleCategory.get());
+		SampleCategory existing = findCategoryOrThrow(id);
+		dao.remove(existing);
 	}
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public List<SampleCategory> find(String text, int limit, int offset) throws SDKException {
 		return dao.findCategories(securityService.getCurrentTenantId(), text, limit, offset);
+	}
+
+	/**
+	 * Finds category by id or throws runtime exception if not found.
+	 */
+	private SampleCategory findCategoryOrThrow(long id) {
+		Optional<SampleCategory> category = Optional.ofNullable(dao.find(id));
+		if (!category.isPresent())
+			throw new FDNRuntimeException("No Category found for ID: " + id);
+		return category.get();
+	}
+
+	private void normalizeAndValidateCategory(SampleCategory category) {
+		if (category == null) {
+			throw new IllegalArgumentException("error.category.required");
+		}
+
+		String normalizedName = normalizeName(category.getName());
+		category.setName(normalizedName);
+		
+		if (normalizedName.isEmpty()) {
+			throw new IllegalArgumentException("error.category.name.required");
+		}
+		if (normalizedName.length() > 50) {
+			throw new IllegalArgumentException("error.category.name.maxlength");
+		}
+		if (containsControlCharacters(normalizedName)) {
+			throw new IllegalArgumentException("error.category.name.invalid");
+		}
+	}
+
+	private String normalizeName(String name) {
+		if (name == null) {
+			return "";
+		}
+		return name.trim().replaceAll("\\s+", " ");
+	}
+
+	private boolean containsControlCharacters(String value) {
+		for (int i = 0; i < value.length(); i++) {
+			if (Character.isISOControl(value.charAt(i))) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

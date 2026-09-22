@@ -8,16 +8,14 @@
 	<@wcm.deviceTogglePreview />
 </#if>
 
-<!-- WCM Wrapper content -->
 <div class="wcm-wrapper-content ${wcmLayoutEditClass!""} ${pageAuthTypeClass!""}">
 
-    <#if pageRender.isEditMode() != true>
+    <#if pageRender.isEditMode() = false>
         <@wcm.header />
         <@wcm.menu />
     </#if>
 
-    <!-- Wrapper -->
-    <div class="wcm-all-content">
+    <div class="wcm-all-content ${wcmResponsiveMenuOpenClass!""}">
 
         <div id="wcm-content" class="clearfix wcm-background">
 
@@ -26,15 +24,15 @@
                 <@wcm.widgetsList />
             </#if>
 
-            <div id="${divMasterId!""}" class="clearfix">
+            <div id="${divMasterId}">
 
                 <!-- Slot 1 -->
-                <div class="editable-slot slotfull layout-1-1" id="slotFull2">
+                <div class="editable-slot slotfull layout-1-1" id="slotFull1">
                     <@wcm.renderSlot id="SlotA" editableSlot="true" isResponsiveSlot="true" />
                 </div>
-            
+
                 <#if fluigThemeCode != "responsive_theme">
-                    <@wcm.footer layoutuserlabel="wcm.layoutsimples.user" />
+                    <@wcm.footer layoutuserlabel="samplelayout.footer.user"/>
                 </#if>
             </div>
         </div>

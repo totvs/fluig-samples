@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.1.0</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>sample-component-service</artifactId>
 	<packaging>ejb</packaging>
@@ -21,32 +21,27 @@
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>sample-component-entity</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		
-		<!-- platform dependencies -->
+		<!-- platform dependencies — versions managed in parent pom.xml -->
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>foundation-common</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-api</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-common</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fluig</groupId>
 			<artifactId>fluig-sdk-keyring</artifactId>
-			<version>${fluig.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -65,11 +60,6 @@
 		<dependency>
 			<groupId>oauth.signpost</groupId>
 			<artifactId>signpost-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<!-- /others -->
 

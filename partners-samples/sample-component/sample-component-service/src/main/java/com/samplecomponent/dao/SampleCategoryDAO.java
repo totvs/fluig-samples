@@ -51,7 +51,7 @@ public class SampleCategoryDAO extends AbstractDAO<SampleCategory> {
             
             return query.getResultList();
         } catch (FDNRuntimeException e) {
-            log.error(e.getMessage(), e);
+            log.error("@<SampleComponent_TOTVS> " + e.getMessage(), e);
             throw new FDNRuntimeException(e.getMessage(), e.getCause());
         }
     }

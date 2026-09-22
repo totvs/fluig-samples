@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.fluig</groupId>
 		<artifactId>sample-component</artifactId>
-		<version>1.1.0</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>sample-component-widget</artifactId>	
 	<packaging>war</packaging>
@@ -22,8 +22,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>

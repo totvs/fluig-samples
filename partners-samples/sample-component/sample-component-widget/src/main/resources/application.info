@@ -1,7 +1,8 @@
 # =========================================================================================
 # As propriedades deste arquivo seguem a documentacao oficial e boas praticas do TOTVS Fluig.
-# Para entender o significado de cada propriedade, acesse o link oficial (TDN):
-# https://tdn.totvs.com/display/public/fluig/Arquivo+application.info
+# Para entender o significado de cada propriedade, acesse os links oficiais (TDN):
+# - Geral: https://tdn.totvs.com/display/public/fluig/Arquivo+application.info
+# - Layouts: https://tdn.totvs.com/display/public/fluig/Layouts
 # =========================================================================================
 
 # --- Propriedades Principais ---
@@ -9,7 +10,7 @@ application.type=widget
 application.code=samplewidget
 application.title=Sample Widget
 application.description=This is a sample widget
-application.category=Sample
+application.category=Sample Component
 application.icon=icon.png
 application.renderer=freemarker
 application.uiwidget=false
@@ -21,17 +22,16 @@ locale.file.base.name=samplewidget
 # --- Informacoes do Desenvolvedor ---
 developer.code=TOTVS
 developer.name=TOTVS S.A.
-developer.url=https://www.totvs.com
+developer.url=https\://www.totvs.com
 
-# --- Propriedades de Widget e Deploy ---
+# --- Renderizacao ---
 edit.file=edit.ftl
 view.file=view.ftl
 simple.deploy=true
 
-# --- Extensibilidade (Opcional) ---
-# application.extensible=false
-# application.origincode=
-
 # --- Arquivos carregados durante a renderizacao ---
 application.resource.css.1=/resources/css/samplewidget.css
-application.resource.js.2=/resources/js/samplewidget.js
+application.resource.js.1=/resources/js/modules/SampleWidgetServices.js
+application.resource.js.2=/resources/js/modules/SampleWidgetCategories.js
+application.resource.js.3=/resources/js/modules/SampleWidgetUsers.js
+application.resource.js.4=/resources/js/samplewidget.js
